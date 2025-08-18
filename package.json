@@ -1,0 +1,10 @@
+{
+  "name": "codentrix-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "bash ./scripts/start-all.sh",
+    "stop": "bash ./scripts/stop-all.sh",
+    "install-all": "cd client && npm install && cd ../server && npm install"
+  }
+}
