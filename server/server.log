@@ -1,0 +1,3 @@
+nohup: ignoring input
+Codentrix server listening on 4000
+Contact form submission: { name: 'Test', email: 'test@example.com', message: 'Hello' }

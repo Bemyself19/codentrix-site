@@ -1,0 +1,109 @@
+:root{
+  /* Palette sampled/inspired from the provided logo */
+  --bg: #f7f9fb;          /* very light */
+  --text: #07243b;        /* deep navy/dark */
+  --primary: #0b3a66;     /* main brand navy */
+  --primary-2: #2b79bf;   /* medium blue */
+  --secondary: #49a7e0;   /* bright accent */
+  --warm: #f5a623;        /* small warm accent for highlights */
+  --muted: #5f6c78;
+  --card: #ffffff;
+}
+*{box-sizing:border-box}
+.body,body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);margin:0}
+.container{max-width:1100px;margin:0 auto;padding:2rem}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:start}
+.hero-visual{padding-top:8px}
+.sector-cards{display:grid;gap:1rem}
+.site-header{background:var(--card);border-bottom:1px solid rgba(11,34,64,0.06);color:var(--text);backdrop-filter: none}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem}
+.header-inner nav a{color:var(--primary);margin:0 0.75rem;text-decoration:none}
+.brand{display:flex;align-items:center;gap:0.5rem}
+.brand-logo{height:40px}
+.logo-badge{background:transparent;padding:0;border-radius:0;display:inline-flex;align-items:center;box-shadow:none}
+.lang-toggle{background:transparent;border-radius:4px;padding:0.35rem 0.5rem;border:1px solid rgba(11,34,64,0.06);color:var(--primary);cursor:pointer}
+.hero{padding:3rem 0}
+.hero .lead{color:var(--muted);max-width:820px}
+
+/* Proof strip under hero */
+.proof-strip{margin-top:1rem}
+.proof-strip ul{display:flex;gap:1.25rem;list-style:none;padding:0;margin:0;color:var(--muted);font-weight:600}
+.proof-strip li{background:transparent;padding:0.25rem 0.35rem;border-radius:6px}
+
+.hero-content h1{font-size:38px;margin:0 0 0.5rem;color:var(--text)}
+.hero-ctas{display:flex;gap:0.75rem;margin-top:1rem}
+.btn{display:inline-block;padding:0.65rem 1.1rem;border-radius:8px;text-decoration:none;font-weight:600}
+.btn.primary{background:var(--primary);color:#fff;box-shadow:0 6px 18px rgba(11,34,64,0.06)}
+.btn.outline{background:transparent;color:var(--primary);border:1px solid rgba(11,34,64,0.06)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+
+/* Feature grid on hero visual */
+.feature-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.feature-grid .service-card{min-width:260px}
+.card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 8px 22px rgba(11,34,64,0.06)}
+.service-card{margin:1rem 0;padding:1rem;background:var(--card);border-left:4px solid var(--primary-2)}
+.site-footer{padding:1.25rem 0;border-top:1px solid rgba(11,34,64,0.06);margin-top:2rem;background:transparent}
+.contact-form{display:flex;flex-direction:column;gap:0.6rem;max-width:520px}
+.contact-form input,.contact-form textarea{padding:0.6rem;border:1px solid #e1e6ee;border-radius:8px;width:100%}
+.contact-form textarea{min-height:160px;resize:vertical}
+button{background:var(--brand-2);color:#fff;padding:0.5rem 0.85rem;border-radius:8px;border:0;cursor:pointer}
+.contact-form .btn.primary{align-self:stretch}
+.btn.small{padding:0.4rem 0.7rem;font-size:0.95rem;border-radius:6px}
+
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:1.25rem;align-items:start}
+
+/* Case studies grid */
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1.25rem}
+.case-card{padding:1rem}
+
+.leadership-teaser{padding:1rem}
+.company-card{padding:1rem}
+.map-wrap{margin-top:0.6rem}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}.contact-form{max-width:100%}}
+button:disabled{opacity:0.6;cursor:not-allowed}
+.notice{color:green;margin-top:0.8rem}
+.error{color:#c53030;margin-top:0.8rem}
+@media(max-width:700px){.header-inner{flex-direction:column;gap:0.5rem}.header-inner nav{display:flex;flex-wrap:wrap;justify-content:center}}
+
+/* Responsive navigation */
+@media (max-width: 860px) {
+  .header-inner{align-items:center}
+  .header-inner nav{position:absolute;top:64px;left:0;right:0;background:var(--nav);flex-direction:column;display:none;padding:1rem}
+  .header-inner nav.open{display:flex}
+  .nav-toggle{display:block;background:transparent;border:0;color:#fff;cursor:pointer}
+  .nav-toggle .hamburger{width:24px;height:2px;background:#fff;display:block;position:relative}
+  .nav-toggle .hamburger:after,.nav-toggle .hamburger:before{content:'';position:absolute;left:0;right:0;height:2px;background:#fff}
+  .nav-toggle .hamburger:before{top:-7px}
+  .nav-toggle .hamburger:after{top:7px}
+  .header-inner nav a{padding:0.6rem 0;color:#fff}
+  .header-actions{display:flex;gap:0.5rem}
+}
+
+@media (max-width:700px){
+  .hero{padding:2rem 0}
+  .features{grid-template-columns:1fr;gap:0.75rem}
+  .contact-form{width:100%}
+}
+
+/* Leadership card styles */
+.leader-card{display:flex;gap:1rem;align-items:flex-start;background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 8px 22px rgba(11,34,64,0.06);min-height:150px}
+.leader-photo{width:140px;height:140px;object-fit:cover;border-radius:8px;border:2px solid rgba(11,34,64,0.04);flex:0 0 140px}
+.leader-info h4{margin:0 0 0.25rem;font-size:18px;color:var(--primary)}
+.leader-info .lead{margin:0 0 0.5rem;color:var(--muted);font-weight:600}
+.leader-info ul{margin:0;padding-left:1.1rem;color:var(--text)}
+@media (max-width:700px){.leader-card{flex-direction:column;align-items:center;text-align:center}.leader-info ul{padding-left:0}}
+
+/* Flip card styles */
+.team-grid{display:flex;gap:1rem;align-items:stretch;flex-wrap:wrap;justify-content:center}
+.flip-card{width:100%;max-width:520px;perspective:1000px;margin:0.75rem;flex:1}
+.flip-inner{position:relative;width:100%;transition:transform 0.7s;transform-style:preserve-3d}
+.flip-card:focus .flip-inner,.flip-card:active .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:relative;backface-visibility:hidden;border-radius:10px}
+.flip-front{display:flex;gap:1rem;align-items:center;padding:1rem;background:var(--card);height:100%}
+.flip-back{position:absolute;top:0;left:0;right:0;bottom:0;padding:1rem;background:var(--primary);color:#fff;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;border-radius:10px}
+@media (max-width:900px){.flip-front{flex-direction:column;text-align:center}.flip-card{max-width:100%}.leader-photo{width:120px;height:120px;flex:0 0 120px}}
+
+/* Centered single-row team card (CSO) below leadership */
+.team-center{display:flex;justify-content:center;margin-top:1rem}
+.team-center .flip-card{max-width:420px}
+@media (max-width:700px){.team-center{margin-top:0.8rem}.team-center .flip-card{max-width:100%}}
