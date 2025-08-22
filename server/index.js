@@ -28,12 +28,6 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
     }
-  ,
-  // NOTE: temporary testing bypass for TLS hostname/cert mismatches.
-  // Setting `rejectUnauthorized: false` disables server certificate
-  // validation and is insecure for production. Remove or set to true
-  // once the SMTP host and certificate are correctly configured.
-  tls: { rejectUnauthorized: false }
   })
 }
 
