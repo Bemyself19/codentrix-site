@@ -15,13 +15,13 @@ const resources = {
         teamLead: 'Seasoned leadership delivering large-scale modernization and strategic advisory for financial institutions.',
         metrics: {
           title: 'Proven Track Record',
-          projects: '50+',
+          projects: 'Projects',
           projectsSub: 'Successfully delivered',
-          years: '30+',
+          years: 'Years',
           yearsSub: 'Combined experience',
-          volume: '€500M+',
+          volume: 'Transaction Volume',
           volumeSub: 'Processed annually',
-          uptime: '99.9%',
+          uptime: 'System Reliability',
           uptimeSub: 'Mission-critical uptime'
         },
         strengths: {
@@ -50,7 +50,7 @@ const resources = {
 
       about: {
         title: 'About Codentrix',
-        description: 'Codentrix delivers specialized consulting, custom development, training and maintenance for critical mainframe applications and strategic advisory. Our mission is to help institutions in banking and finance modernize reliably while keeping business continuity and compliance front and center.',
+  description: 'Codentrix delivers specialized consulting, custom development, training and maintenance for critical mainframe applications and strategic advisory. Our mission is to help institutions in banking and finance modernize reliably while keeping business continuity and compliance front and center.',
         leadershipTitle: 'Leadership',
         leadershipLead: 'Our leadership team brings decades of hands-on experience in core banking modernization, payments, and regulated financial systems delivery.',
         leaders: {
@@ -121,6 +121,13 @@ const resources = {
           }
         }
       },
+        telecom: {
+          title: 'Telecom',
+          lead: 'OSS/BSS strategy and transformation, network modernization planning and migration roadmaps.',
+          points: ['OSS/BSS strategy and transformation','Network modernization planning','Vendor selection and migration roadmaps']
+        },
+        advisory: { title: 'Advisory & Delivery', lead: 'Program leadership, compliance and operational handover.' }
+      },
 
       cases: {
         0: { title: 'Core banking migration', summary: 'Large bank migrated core systems with zero-downtime cutover and improved throughput.' },
@@ -129,7 +136,7 @@ const resources = {
 
       careers: {
         title: 'Careers',
-        lead: 'Join Codentrix — we hire experienced engineers, architects and domain experts who want to work on high-impact modernization and advisory projects in banking and finance.',
+  lead: 'Join Codentrix — we hire experienced engineers, architects and domain experts who want to work on high-impact modernization and advisory projects in banking and finance.',
         whyTitle: 'Why work with us',
         why: ['Work on large-scale, mission-critical modernization projects.','Cross-functional teams combining business and technical expertise.','Flexible and hybrid working model; opportunities across MENA and EU.','Competitive compensation and continuous learning budget.'],
         ctaLead: 'Interested? Send your CV and a short note explaining the roles you are targeting.',
@@ -140,9 +147,9 @@ const resources = {
         title: 'Contact',
         company: 'Codentrix SARL',
         addressLabel: 'Address',
-        emailLabel: 'Email',
-        phoneLabel: 'Phone',
-        country: 'TUNISIA',
+  emailLabel: 'Email',
+  phoneLabel: 'Phone',
+  country: 'TUNISIA',
         form: { send: 'Send Message', name: 'Name', email: 'Email', message: 'Message' }
       },
 
@@ -163,13 +170,13 @@ const resources = {
         teamLead: 'Une équipe dirigeante expérimentée délivrant des programmes de modernisation et de conseil stratégique pour institutions financières.',
         metrics: {
           title: 'Références Éprouvées',
-          projects: '50+',
+          projects: 'Projets',
           projectsSub: 'Livrés avec succès',
-          years: '30+',
+          years: 'Années',
           yearsSub: 'Expérience combinée',
-          volume: '€500M+',
+          volume: 'Volume Transactionnel',
           volumeSub: 'Traité annuellement',
-          uptime: '99.9%',
+          uptime: 'Fiabilité Système',
           uptimeSub: 'Disponibilité critique'
         },
         strengths: {
@@ -198,7 +205,7 @@ const resources = {
 
       about: {
         title: 'À propos de Codentrix',
-        description: 'Codentrix propose du conseil spécialisé, du développement sur mesure, de la formation et la maintenance pour les applications mainframe critiques et le conseil stratégique. Notre mission est d\'aider les institutions dans la banque et la finance à se moderniser tout en préservant la continuité et la conformité.',
+        description: 'Codentrix propose du conseil spécialisé, du développement sur mesure, de la formation et la maintenance pour les applications mainframe critiques et les solutions télécom. Notre mission est d\'aider les institutions dans la banque, la finance et les télécoms à se moderniser tout en préservant la continuité et la conformité.',
         leadershipTitle: 'Direction',
         leadershipLead: 'Notre équipe dirigeante apporte des décennies d\'expérience pratique en modernisation des systèmes bancaires centraux, paiements et systèmes réglementés.',
         leaders: {
@@ -277,7 +284,7 @@ const resources = {
 
       careers: {
         title: 'Carrières',
-        lead: 'Rejoignez Codentrix — nous recrutons des ingénieurs, architectes et experts métiers pour des projets de modernisation et de conseil à fort impact dans la banque et la finance.',
+        lead: 'Rejoignez Codentrix — nous recrutons des ingénieurs, architectes et experts métiers pour des projets de modernisation à fort impact dans la banque et les télécoms.',
         whyTitle: 'Pourquoi travailler avec nous',
         why: ['Travailler sur des projets de modernisation critiques à grande échelle.','Équipes transverses combinant expertise métier et technique.','Modèle de travail flexible/hybride; opportunités en MENA et UE.','Rémunération compétitive et budget formation.'],
         ctaLead: 'Intéressé ? Envoyez votre CV et une brève note expliquant les postes visés.',

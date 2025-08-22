@@ -28,6 +28,12 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
     }
+  ,
+  // NOTE: temporary testing bypass for TLS hostname/cert mismatches.
+  // Setting `rejectUnauthorized: false` disables server certificate
+  // validation and is insecure for production. Remove or set to true
+  // once the SMTP host and certificate are correctly configured.
+  tls: { rejectUnauthorized: false }
   })
 }
 
@@ -41,7 +47,8 @@ app.post('/api/contact', async (req, res) => {
   // If transporter is configured, send email
   if (transporter) {
     const mailOptions = {
-      from: process.env.CONTACT_FROM || `"Codentrix Website" <${process.env.SMTP_USER || 'contact@codentrix.io'}>`,
+  from: process.env.CONTACT_FROM || `"Codentrix Website" <${process.env.SMTP_USER || 'contact@codentrix.io'}>`,
+  replyTo: email,
       to: process.env.CONTACT_TO || process.env.SMTP_USER || 'contact@codentrix.io',
       subject: `New contact from website: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
@@ -74,8 +81,9 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
 
     // Build email
     const mailOptions = {
-      from: process.env.CONTACT_FROM || `"Codentrix Careers" <${process.env.SMTP_USER || 'career@codentrix.io'}>`,
-      to: process.env.CAREERS_TO || 'career@codentrix.io',
+  from: process.env.CONTACT_FROM || `"Codentrix Careers" <${process.env.SMTP_USER || 'career@codentrix.io'}>`,
+  replyTo: email,
+  to: process.env.CAREERS_TO || 'career@codentrix.io',
       subject: `New career application: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || ''}\n\nEducation:\n${education || ''}\n\nExperience:\n${experience || ''}`,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone || ''}</p>

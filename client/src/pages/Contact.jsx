@@ -35,7 +35,7 @@ export default function Contact(){
 
         <aside className="company-card card">
           <h3>{t('contact.company')}</h3>
-          <p><strong>{t('contact.addressLabel')}</strong><br />14, RUE AVICENNE<br />2034 EZZAHRA<br /><strong>{t('contact.country')}</strong></p>
+          <p><strong>{t('contact.addressLabel')}</strong><br />57 AV 02 MARS 1934<br />2034 EZZAHRA<br /><strong>{t('contact.country')}</strong></p>
           <p><strong>{t('contact.emailLabel')}</strong><br /><a href="mailto:contact@codentrix.io">contact@codentrix.io</a></p>
           <p><strong>{t('contact.phoneLabel')}</strong><br />+216 98 340 092</p>
 
@@ -43,12 +43,12 @@ export default function Contact(){
             {/* Google Maps embed using the address query; hl=fr requests French UI where available */}
             <iframe
               title="Codentrix location"
-              src="https://www.google.com/maps?q=14+RUE+AVICENNE+2034+EZZAHRA&hl=fr&output=embed"
+              src="https://www.google.com/maps?q=57+AV+02+MARS+1934+2034+EZZAHRA&hl=fr&output=embed"
               style={{border:0,width:'100%',height:'220px'}}
               allowFullScreen={false}
               loading="lazy"
             />
-            <small><a href="https://www.google.com/maps/search/?api=1&query=14+RUE+AVICENNE+2034+EZZAHRA" target="_blank" rel="noreferrer">Voir la carte en grand</a></small>
+            <small><a href="https://www.google.com/maps/search/?api=1&query=57+AV+02+MARS+1934+2034+EZZAHRA" target="_blank" rel="noreferrer">Voir la carte en grand</a></small>
           </div>
         </aside>
       </div>

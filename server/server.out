@@ -2,25 +2,7 @@
 > codentrix-server@0.1.0 start
 > node index.js
 
-node:internal/modules/cjs/loader:1215
-  throw err;
-  ^
-
-Error: Cannot find module 'dotenv'
-Require stack:
-- /home/nader/Codentrix website/codentrix-site/server/index.js
-    at Module._resolveFilename (node:internal/modules/cjs/loader:1212:15)
-    at Module._load (node:internal/modules/cjs/loader:1043:27)
-    at Module.require (node:internal/modules/cjs/loader:1298:19)
-    at require (node:internal/modules/helpers:182:18)
-    at Object.<anonymous> (/home/nader/Codentrix website/codentrix-site/server/index.js:6:16)
-    at Module._compile (node:internal/modules/cjs/loader:1529:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
-    at Module.load (node:internal/modules/cjs/loader:1275:32)
-    at Module._load (node:internal/modules/cjs/loader:1096:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [ '/home/nader/Codentrix website/codentrix-site/server/index.js' ]
-}
-
-Node.js v20.19.4
+[dotenv@17.2.1] injecting env (8) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Codentrix server listening on 4000
+Contact email sent { name: 'Nader', email: 'nader.ben.ammar@gmail.com' }
+Career application email sent { name: 'Nader', email: 'nader.ben.ammar@gmail.com' }
