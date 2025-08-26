@@ -141,21 +141,7 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
   }
 })
 
-// Lightweight masked environment debug endpoint (safe to expose briefly)
-// Returns presence/masked values for SMTP-related env vars so we can confirm
-// Plesk is passing them to the Node process. Remove after debugging.
-app.get('/_debug_env', (req, res) => {
-  function mask(v){ if(!v) return null; return v.length>4 ? '*'.repeat(v.length-4)+v.slice(-4) : '****' }
-  const out = {
-    SMTP_HOST: !!process.env.SMTP_HOST,
-    SMTP_PORT: process.env.SMTP_PORT || null,
-    SMTP_USER: process.env.SMTP_USER ? mask(process.env.SMTP_USER) : null,
-    SMTP_PASS: process.env.SMTP_PASS ? '****' : null,
-    CONTACT_TO: process.env.CONTACT_TO || null
-  }
-  console.log('DEBUG_ENV:', out)
-  res.json(out)
-})
+// ... debug endpoint removed; no diagnostic routes remain in production
 
 // Serve React app for all non-API routes (this must be LAST)
 app.get('*', (req, res) => {
