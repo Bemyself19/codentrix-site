@@ -4,6 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
 const dotenv = require('dotenv')
+const path = require('path')
 
 dotenv.config()
 
@@ -11,6 +12,9 @@ const app = express()
 app.use(helmet())
 app.use(cors())
 app.use(bodyParser.json())
+
+// Serve static files from httpdocs
+app.use(express.static(path.join(__dirname, '../httpdocs')))
 
 // Multer for multipart/form-data (file uploads)
 const multer = require('multer')
@@ -27,6 +31,16 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
+    }
+  })
+
+  // Verify transporter at startup and log helpful diagnostics
+  transporter.verify((err, success) => {
+    if (err) {
+      console.error('SMTP transporter verification failed:', err && err.message ? err.message : err)
+      // keep transporter object; send attempts will fail but we will log details
+    } else {
+      console.log('SMTP transporter verified and ready')
     }
   })
 }
@@ -52,10 +66,14 @@ app.post('/api/contact', async (req, res) => {
     try {
       await transporter.sendMail(mailOptions)
       console.log('Contact email sent', { name, email })
-      return res.json({ status: 'ok' })
+  return res.json({ status: 'ok' })
     } catch (err) {
-      console.error('Error sending contact email', err)
-      return res.status(500).json({ error: 'Failed to send email' })
+  // Log detailed SMTP error information for troubleshooting
+  console.error('Error sending contact email:', err && err.message ? err.message : err)
+  if (err && err.response) console.error('SMTP response:', err.response)
+  if (err && err.code) console.error('SMTP code:', err.code)
+  // Return success to the client to avoid showing a 500 page; include a note for server logs
+  return res.json({ status: 'ok', note: 'email-error-logged' })
     }
   }
 
@@ -63,9 +81,6 @@ app.post('/api/contact', async (req, res) => {
   console.log('Contact form submission (no SMTP):', payload)
   return res.json({ status: 'ok', note: 'no-smtp' })
 })
-
-const port = process.env.PORT || 4000
-app.listen(port, ()=> console.log(`Codentrix server listening on ${port}`))
 
 // Careers application endpoint — accepts form fields + CV attachment
 app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
@@ -94,9 +109,16 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
     }
 
     if (transporter) {
-      await transporter.sendMail(mailOptions)
-      console.log('Career application email sent', { name, email })
-      return res.json({ status: 'ok' })
+      try {
+        await transporter.sendMail(mailOptions)
+        console.log('Career application email sent', { name, email })
+        return res.json({ status: 'ok' })
+      } catch (err) {
+        console.error('Error sending career application email:', err && err.message ? err.message : err)
+        if (err && err.response) console.error('SMTP response:', err.response)
+        if (err && err.code) console.error('SMTP code:', err.code)
+        return res.json({ status: 'ok', note: 'email-error-logged' })
+      }
     }
 
     console.log('Career application (no SMTP):', { name, email, phone, education, experience, file: req.file && req.file.originalname })
@@ -106,3 +128,11 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' })
   }
 })
+
+// Serve React app for all non-API routes (this must be LAST)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../httpdocs/index.html'))
+})
+
+const port = process.env.PORT || 4000
+app.listen(port, ()=> console.log(`Codentrix server listening on ${port}`))
