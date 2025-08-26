@@ -24,7 +24,8 @@ const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 
 // Required env vars (see .env.example): SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO
 let transporter = null
 if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-  transporter = nodemailer.createTransport({
+  // Build transport options and allow an optional TLS servername override
+  const transportOptions = {
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : 587,
     secure: process.env.SMTP_SECURE === 'true',
@@ -32,7 +33,18 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
     }
-  })
+  }
+
+  // If the SMTP server presents a certificate for a different hostname
+  // you can set SMTP_TLS_SERVERNAME to that hostname (e.g. "plesk1.tn.oxa.host")
+  // so Node uses it for TLS SNI and certificate validation. This avoids
+  // disabling verification (rejectUnauthorized=false) while working around
+  // mismatched SANs when the provider requires connecting to a public alias.
+  if (process.env.SMTP_TLS_SERVERNAME) {
+    transportOptions.tls = { servername: process.env.SMTP_TLS_SERVERNAME }
+  }
+
+  transporter = nodemailer.createTransport(transportOptions)
 
   // Verify transporter at startup and log helpful diagnostics
   transporter.verify((err, success) => {
@@ -127,6 +139,22 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
     console.error('Error processing career application', err)
     return res.status(500).json({ error: 'Internal server error' })
   }
+})
+
+// Lightweight masked environment debug endpoint (safe to expose briefly)
+// Returns presence/masked values for SMTP-related env vars so we can confirm
+// Plesk is passing them to the Node process. Remove after debugging.
+app.get('/_debug_env', (req, res) => {
+  function mask(v){ if(!v) return null; return v.length>4 ? '*'.repeat(v.length-4)+v.slice(-4) : '****' }
+  const out = {
+    SMTP_HOST: !!process.env.SMTP_HOST,
+    SMTP_PORT: process.env.SMTP_PORT || null,
+    SMTP_USER: process.env.SMTP_USER ? mask(process.env.SMTP_USER) : null,
+    SMTP_PASS: process.env.SMTP_PASS ? '****' : null,
+    CONTACT_TO: process.env.CONTACT_TO || null
+  }
+  console.log('DEBUG_ENV:', out)
+  res.json(out)
 })
 
 // Serve React app for all non-API routes (this must be LAST)
