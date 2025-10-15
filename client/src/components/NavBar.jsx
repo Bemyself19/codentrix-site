@@ -22,6 +22,7 @@ export default function NavBar(){
           <Link to="/">{t('nav.home')}</Link>
           <Link to="/about">{t('nav.about')}</Link>
           <Link to="/services">{t('nav.services')}</Link>
+          <Link to="/products">{t('nav.products')}</Link>
           <Link to="/careers">{t('nav.careers')}</Link>
           <Link to="/contact">{t('nav.contact')}</Link>
         </nav>

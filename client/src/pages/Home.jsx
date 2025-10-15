@@ -43,8 +43,30 @@ function MetricCard({number, label, sublabel}){
 
 export default function Home(){
   const { t } = useTranslation()
+  const [bannerDismissed, setBannerDismissed] = React.useState(false)
+  
   return (
     <>
+    {/* Announcement Banner */}
+    {!bannerDismissed && (
+      <div className="announcement-banner">
+        <div className="container announcement-content">
+          <span className="announcement-icon">🎉</span>
+          <span className="announcement-text">
+            <strong>{t('home.announcement.title')}</strong> {t('home.announcement.text')}
+          </span>
+          <a href="/products" className="announcement-link">{t('home.announcement.link')}</a>
+          <button 
+            className="announcement-close" 
+            onClick={() => setBannerDismissed(true)}
+            aria-label="Dismiss announcement"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    )}
+    
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-content">
@@ -70,9 +92,11 @@ export default function Home(){
             <ServiceCard title={t('services.bank.title')}>
               <p>{t('services.bank.lead')}</p>
             </ServiceCard>
-            {/* removed telecom service card - focusing on Banking & Strategic Advisory */}
             <ServiceCard title={t('services.advisory.title')}>
               <p>{t('services.advisory.lead')}</p>
+            </ServiceCard>
+            <ServiceCard title={t('home.telehealth.title')}>
+              <p>{t('home.telehealth.lead')}</p>
             </ServiceCard>
           </div>
         </div>

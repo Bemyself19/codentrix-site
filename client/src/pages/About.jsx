@@ -9,6 +9,11 @@ export default function About(){
       <h2>{t('about.title')}</h2>
       <p>{t('about.description')}</p>
 
+      <div className="expansion-section card highlight" style={{marginTop: '2rem', marginBottom: '2rem'}}>
+        <h3>{t('about.expansion.title')}</h3>
+        <p>{t('about.expansion.description')}</p>
+      </div>
+
       <h3>{t('about.leadershipTitle')}</h3>
       <p>{t('about.leadershipLead')}</p>
 
