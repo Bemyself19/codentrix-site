@@ -254,7 +254,38 @@ const resources = {
         emailLabel: 'Email',
         phoneLabel: 'Phone',
         country: 'TUNISIA',
+        mapTitle: 'Codentrix location',
+        viewLargerMap: 'Open in Google Maps',
         form: { send: 'Send Message', name: 'Name', email: 'Email', message: 'Message' }
+      },
+
+      forms: {
+        required: 'This field is required.',
+        invalidEmail: 'Enter a valid email address.',
+        sending: 'Sending…',
+        contactSent: 'Thanks — your message is on its way. We usually reply within one working day.',
+        contactError: 'We could not send your message. Please try again, or email contact@codentrix.io directly.'
+      },
+
+      apply: {
+        title: 'Send your CV',
+        lead: 'Fill in the form and attach your CV. We review every application and get back to you about next steps.',
+        submit: 'Submit application',
+        sent: 'Application received — thank you. We will be in touch.',
+        error: 'We could not send your application. Please try again, or email career@codentrix.io directly.',
+        fields: {
+          phone: 'Phone',
+          education: 'Education',
+          experience: 'Experience summary'
+        },
+        file: {
+          label: 'Attach your CV',
+          prompt: 'Drop your CV here, or click to browse',
+          hint: 'PDF or Word, up to 10 MB',
+          remove: 'Remove file',
+          missing: 'Please attach your CV.',
+          tooLarge: 'That file is larger than 10 MB. Please attach a smaller one.'
+        }
       },
 
       footer: {
@@ -518,7 +549,38 @@ const resources = {
         emailLabel: 'Email',
         phoneLabel: 'Téléphone',
         country: 'TUNISIE',
+        mapTitle: 'Localisation de Codentrix',
+        viewLargerMap: 'Ouvrir dans Google Maps',
         form: { send: 'Envoyer', name: 'Nom', email: 'Email', message: 'Message' }
+      },
+
+      forms: {
+        required: 'Ce champ est obligatoire.',
+        invalidEmail: 'Saisissez une adresse email valide.',
+        sending: 'Envoi…',
+        contactSent: 'Merci — votre message est parti. Nous répondons généralement sous un jour ouvré.',
+        contactError: 'Nous n\'avons pas pu envoyer votre message. Réessayez, ou écrivez directement à contact@codentrix.io.'
+      },
+
+      apply: {
+        title: 'Envoyer votre CV',
+        lead: 'Remplissez le formulaire et joignez votre CV. Nous examinons chaque candidature et revenons vers vous pour la suite.',
+        submit: 'Envoyer la candidature',
+        sent: 'Candidature reçue — merci. Nous vous recontacterons.',
+        error: 'Nous n\'avons pas pu envoyer votre candidature. Réessayez, ou écrivez directement à career@codentrix.io.',
+        fields: {
+          phone: 'Téléphone',
+          education: 'Formation',
+          experience: 'Résumé de l\'expérience'
+        },
+        file: {
+          label: 'Joindre votre CV',
+          prompt: 'Déposez votre CV ici, ou cliquez pour parcourir',
+          hint: 'PDF ou Word, jusqu\'à 10 Mo',
+          remove: 'Retirer le fichier',
+          missing: 'Veuillez joindre votre CV.',
+          tooLarge: 'Ce fichier dépasse 10 Mo. Merci d\'en joindre un plus léger.'
+        }
       },
 
       footer: {

@@ -1,0 +1,117 @@
+- generic [ref=f18e3]:
+  - link "Skip to content" [ref=f18e4] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f18e5]:
+    - generic [ref=f18e6]:
+      - link "Codentrix — home" [ref=f18e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f18e9]: Codentrix
+      - navigation "Main" [ref=f18e10]:
+        - list [ref=f18e11]:
+          - listitem [ref=f18e12]:
+            - link "Home" [ref=f18e13] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f18e14]:
+            - link "About" [ref=f18e15] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f18e16]:
+            - link "Services" [ref=f18e17] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=f18e18]:
+            - link "Products" [ref=f18e19] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=f18e20]:
+            - link "Careers" [ref=f18e21] [cursor=pointer]:
+              - /url: /careers
+      - generic [ref=f18e22]:
+        - button "Passer en français" [ref=f18e23] [cursor=pointer]:
+          - generic [ref=f18e27]:
+            - generic [ref=f18e28]: EN
+            - generic [ref=f18e29]: /FR
+        - link "Contact" [ref=f18e30] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f18e32]:
+    - generic [ref=f18e35]:
+      - generic [ref=f18e36]:
+        - generic [ref=f18e37]: Contact
+        - heading "Contact" [level=1] [ref=f18e39]
+      - generic [ref=f18e40]:
+        - generic [ref=f18e42]:
+          - generic [ref=f18e43]:
+            - generic [ref=f18e44]: Name*
+            - textbox "Name" [ref=f18e45]
+          - generic [ref=f18e46]:
+            - generic [ref=f18e47]: Email*
+            - textbox "Email" [ref=f18e48]
+          - generic [ref=f18e49]:
+            - generic [ref=f18e50]: Message*
+            - textbox "Message" [ref=f18e51]
+          - button "Send Message" [ref=f18e53] [cursor=pointer]
+        - complementary [ref=f18e57]:
+          - heading "Codentrix SARL" [level=2] [ref=f18e58]
+          - generic [ref=f18e59]:
+            - generic [ref=f18e60]:
+              - term [ref=f18e61]: Address
+              - definition [ref=f18e62]:
+                - generic [ref=f18e63]: 57 AV 02 MARS 19342034 EZZAHRATUNISIA
+            - generic [ref=f18e64]:
+              - term [ref=f18e65]: Email
+              - definition [ref=f18e66]:
+                - link "contact@codentrix.io" [ref=f18e67] [cursor=pointer]:
+                  - /url: mailto:contact@codentrix.io
+            - generic [ref=f18e68]:
+              - term [ref=f18e69]: Phone
+              - definition [ref=f18e70]:
+                - link "+216 98 340 092" [ref=f18e71] [cursor=pointer]:
+                  - /url: tel:+21698340092
+          - iframe [ref=f18e73]:
+            - link "Open in Maps (opens in new tab)" [ref=f19e4] [cursor=pointer]:
+              - /url: about:invalid#zClosurez
+              - text: Open in Maps
+          - link "Open in Google Maps" [ref=f18e74] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=57+AV+02+MARS+1934+2034+EZZAHRA
+  - contentinfo [ref=f18e77]:
+    - generic [ref=f18e78]:
+      - generic [ref=f18e79]:
+        - paragraph [ref=f18e80]: Get in touch
+        - paragraph [ref=f18e81]: Tell us what you want to automate. We will tell you what it takes.
+        - link "Speak with an expert" [ref=f18e82] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f18e85]:
+        - navigation "Site" [ref=f18e86]:
+          - heading "Site" [level=2] [ref=f18e87]
+          - list [ref=f18e88]:
+            - listitem [ref=f18e89]:
+              - link "Services" [ref=f18e90] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f18e91]:
+              - link "Products" [ref=f18e92] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f18e93]:
+              - link "About" [ref=f18e94] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f18e95]:
+              - link "Careers" [ref=f18e96] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=f18e97]:
+              - link "Contact" [ref=f18e98] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f18e99]:
+          - heading "Codentrix SARL" [level=2] [ref=f18e100]
+          - generic [ref=f18e101]: 57 AV 02 MARS 19342034 EZZAHRATUNISIA
+        - generic [ref=f18e102]:
+          - heading "Email" [level=2] [ref=f18e103]
+          - list [ref=f18e104]:
+            - listitem [ref=f18e105]:
+              - link "contact@codentrix.io" [ref=f18e106] [cursor=pointer]:
+                - /url: mailto:contact@codentrix.io
+            - listitem [ref=f18e107]:
+              - link "+216 98 340 092" [ref=f18e108] [cursor=pointer]:
+                - /url: tel:+21698340092
+    - generic [ref=f18e109]: Codentrix
+    - generic [ref=f18e110]:
+      - generic [ref=f18e111]: © 2026 Codentrix. All rights reserved.
+      - button "Passer en français" [ref=f18e112] [cursor=pointer]:
+        - generic [ref=f18e116]:
+          - generic [ref=f18e117]: EN
+          - generic [ref=f18e118]: /FR

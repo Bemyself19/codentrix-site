@@ -1,0 +1,208 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* ── fields ────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.field-required {
+  margin-inline-start: 0.25rem;
+  color: var(--accent);
+}
+
+.field-control {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: oklch(100% 0 0 / 0.025);
+  color: var(--text);
+  font-size: var(--text-small);
+  line-height: 1.55;
+  transition:
+    border-color var(--dur-base) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+
+textarea.field-control {
+  resize: vertical;
+  min-height: 6.5rem;
+}
+
+.field-control::placeholder {
+  color: var(--faint);
+}
+
+.field-control:hover {
+  border-color: var(--hairline-strong);
+}
+
+.field-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: oklch(100% 0 0 / 0.05);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.field.has-error .field-control {
+  border-color: var(--danger);
+}
+
+.field.has-error .field-control:focus {
+  box-shadow: 0 0 0 3px oklch(68% 0.19 22 / 0.18);
+}
+
+.field-error {
+  font-size: var(--text-micro);
+  color: var(--danger);
+}
+
+/* ── file drop ─────────────────────────────────────────────── */
+.file-drop-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.file-drop {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem;
+  border: 1px dashed var(--hairline-strong);
+  border-radius: var(--radius);
+  background: oklch(100% 0 0 / 0.02);
+  cursor: pointer;
+  transition:
+    border-color var(--dur-base) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-expo);
+}
+
+.file-drop:hover,
+.file-drop.is-dragging {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.file-drop.has-file {
+  border-style: solid;
+  border-color: var(--hairline-strong);
+}
+
+/* The input is visually hidden but still focusable — style the zone from it. */
+.file-input:focus-visible + .file-empty,
+.file-input:focus-visible + .file-chosen {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: var(--radius-sm);
+}
+
+.file-empty,
+.file-chosen {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--muted);
+}
+
+.file-chosen {
+  color: var(--text);
+}
+
+.file-empty svg,
+.file-chosen svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.file-meta,
+.file-empty > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-small);
+}
+
+.file-prompt {
+  font-size: var(--text-small);
+}
+
+.file-hint {
+  display: block;
+}
+
+.file-clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--text-micro);
+  color: var(--faint);
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.file-clear:hover {
+  color: var(--danger);
+}
+
+/* ── status ────────────────────────────────────────────────── */
+.form-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid;
+  font-size: var(--text-small);
+}
+
+.form-status svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.form-status.is-success {
+  color: var(--ok);
+  border-color: oklch(76% 0.16 155 / 0.35);
+  background: oklch(76% 0.16 155 / 0.1);
+}
+
+.form-status.is-error {
+  color: var(--danger);
+  border-color: oklch(68% 0.19 22 / 0.35);
+  background: oklch(68% 0.19 22 / 0.1);
+}
+
+@media (max-width: 620px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
