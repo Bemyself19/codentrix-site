@@ -4,7 +4,10 @@ import { initReactI18next } from 'react-i18next'
 const resources = {
   en: {
     translation: {
-      nav: { home: 'Home', about: 'About', services: 'Services', products: 'Products', careers: 'Careers', contact: 'Contact' },
+      nav: {
+        home: 'Home', about: 'About', services: 'Services', products: 'Products', careers: 'Careers', contact: 'Contact',
+        primary: 'Main', skipToContent: 'Skip to content', toggleMenu: 'Menu', switchLanguage: 'Passer en français'
+      },
       home: {
         title: 'Codentrix — Intelligent AI Automation for Healthcare & Beyond',
         subtitle: 'AI-driven automation, strategic advisory, and digital health solutions for modern enterprises.',
@@ -53,7 +56,9 @@ const resources = {
           }
         },
         cases: {
-          title: 'Recent Success Stories'
+          eyebrow: 'Case studies',
+          title: 'Recent Success Stories',
+          more: 'Learn more'
         }
       },
 
@@ -250,13 +255,21 @@ const resources = {
         form: { send: 'Send Message', name: 'Name', email: 'Email', message: 'Message' }
       },
 
-      footer: { copy: '© {{year}} Codentrix. All rights reserved.' }
+      footer: {
+        copy: '© {{year}} Codentrix. All rights reserved.',
+        eyebrow: 'Get in touch',
+        pitch: 'Tell us what you want to automate. We will tell you what it takes.',
+        siteNav: 'Site'
+      }
     }
   },
 
   fr: {
     translation: {
-      nav: { home: 'Accueil', about: 'À propos', services: 'Services', products: 'Produits', careers: 'Carrières', contact: 'Contact' },
+      nav: {
+        home: 'Accueil', about: 'À propos', services: 'Services', products: 'Produits', careers: 'Carrières', contact: 'Contact',
+        primary: 'Principal', skipToContent: 'Aller au contenu', toggleMenu: 'Menu', switchLanguage: 'Switch to English'
+      },
       home: {
         title: 'Codentrix — Automatisation IA Intelligente pour la Santé et au-delà',
         subtitle: 'Automatisation pilotée par l\'IA, conseil stratégique et solutions de santé numérique pour les entreprises modernes',
@@ -305,7 +318,9 @@ const resources = {
           }
         },
         cases: {
-          title: 'Réussites Récentes'
+          eyebrow: 'Études de cas',
+          title: 'Réussites Récentes',
+          more: 'En savoir plus'
         }
       },
 
@@ -502,7 +517,12 @@ const resources = {
         form: { send: 'Envoyer', name: 'Nom', email: 'Email', message: 'Message' }
       },
 
-      footer: { copy: '© {{year}} Codentrix. Tous droits réservés.' }
+      footer: {
+        copy: '© {{year}} Codentrix. Tous droits réservés.',
+        eyebrow: 'Nous contacter',
+        pitch: 'Dites-nous ce que vous voulez automatiser. Nous vous dirons ce que cela demande.',
+        siteNav: 'Site'
+      }
     }
   }
 }

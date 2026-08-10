@@ -11,8 +11,16 @@ import { stagger } from '../../lib/motion'
  * @param {string} props.title
  * @param {string} [props.lead]
  * @param {'h1'|'h2'|'h3'} [props.as] heading level — pick for document outline
+ * @param {string} [props.titleId] id for the heading, for aria-labelledby
  */
-export default function SectionHeader({ eyebrow, title, lead, as = 'h2', className = '' }) {
+export default function SectionHeader({
+  eyebrow,
+  title,
+  lead,
+  as = 'h2',
+  titleId,
+  className = ''
+}) {
   const Heading = as
 
   return (
@@ -23,7 +31,9 @@ export default function SectionHeader({ eyebrow, title, lead, as = 'h2', classNa
         </RevealItem>
       )}
       <RevealItem>
-        <Heading className={as === 'h1' ? 'display' : 'heading-2'}>{title}</Heading>
+        <Heading id={titleId} className={as === 'h1' ? 'display' : 'heading-2'}>
+          {title}
+        </Heading>
       </RevealItem>
       {lead && (
         <RevealItem as="p" className="lead">

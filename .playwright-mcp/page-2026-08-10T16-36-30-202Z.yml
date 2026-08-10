@@ -1,0 +1,205 @@
+- generic [ref=f3e3]:
+  - link "Skip to content" [ref=f3e4] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f3e5]:
+    - generic [ref=f3e6]:
+      - link "Codentrix — home" [ref=f3e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e8]: Codentrix
+      - navigation "Main" [ref=f3e9]:
+        - list [ref=f3e10]:
+          - listitem [ref=f3e11]:
+            - link "Home" [ref=f3e12] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f3e13]:
+            - link "About" [ref=f3e14] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=f3e15]:
+            - link "Services" [ref=f3e16] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=f3e17]:
+            - link "Products" [ref=f3e18] [cursor=pointer]:
+              - /url: /products
+          - listitem [ref=f3e19]:
+            - link "Careers" [ref=f3e20] [cursor=pointer]:
+              - /url: /careers
+      - generic [ref=f3e21]:
+        - button "Passer en français" [ref=f3e22] [cursor=pointer]:
+          - generic [ref=f3e26]:
+            - generic [ref=f3e27]: EN
+            - generic [ref=f3e28]: /FR
+        - link "Contact" [ref=f3e29] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=f3e31]:
+    - generic [ref=f3e32]:
+      - region [ref=f3e33]:
+        - generic [ref=f3e34]:
+          - generic [ref=f3e35]:
+            - generic [ref=f3e37]:
+              - 'link "NEW: Introducing our AI-Enhanced Telehealth Platform — smart, secure, and compliant healthcare solutions." [ref=f3e38] [cursor=pointer]':
+                - /url: /products
+                - generic [ref=f3e39]: "NEW:"
+                - generic [ref=f3e40]: Introducing our AI-Enhanced Telehealth Platform — smart, secure, and compliant healthcare solutions.
+              - button "Dismiss announcement" [ref=f3e43] [cursor=pointer]
+            - paragraph [ref=f3e46]: Codentrix SARL — MENA & EU
+            - heading "Codentrix — Intelligent AI Automation for Healthcare & Beyond" [level=1] [ref=f3e47]:
+              - generic [ref=f3e48]:
+                - generic [ref=f3e49]: Codentrix — Intelligent AI Automation for Healthcare & Beyond
+                - generic [ref=f3e50]:
+                  - generic [ref=f3e51]: Codentrix
+                  - generic [ref=f3e53]: —
+                  - generic [ref=f3e55]: Intelligent
+                  - generic [ref=f3e57]: AI
+                  - generic [ref=f3e59]: Automation
+                  - generic [ref=f3e61]: for
+                  - generic [ref=f3e63]: Healthcare
+                  - generic [ref=f3e65]: "&"
+                  - generic [ref=f3e67]: Beyond
+            - paragraph [ref=f3e69]: AI-driven automation, strategic advisory, and digital health solutions for modern enterprises.
+            - generic [ref=f3e70]:
+              - link "Speak with an expert" [ref=f3e71] [cursor=pointer]:
+                - /url: /contact
+              - link "Explore services" [ref=f3e75] [cursor=pointer]:
+                - /url: /services
+          - list [ref=f3e77]:
+            - listitem [ref=f3e78]:
+              - generic [ref=f3e83]:
+                - heading "AI & Automation" [level=2] [ref=f3e84]
+                - paragraph [ref=f3e85]: Leveraging Artificial Intelligence to automate complex processes, reduce error rates, and unlock actionable insights.
+            - listitem [ref=f3e86]:
+              - generic [ref=f3e92]:
+                - heading "Telehealth Platform" [level=2] [ref=f3e93]
+                - paragraph [ref=f3e94]: Next-gen telehealth with AI diagnostic support and smart triage.
+            - listitem [ref=f3e95]:
+              - generic [ref=f3e101]:
+                - heading "Strategic Advisory" [level=2] [ref=f3e102]
+                - paragraph [ref=f3e103]: Executive-level consulting for digital transformation, technology roadmaps, and organizational change management.
+        - generic [ref=f3e106]:
+          - list [ref=f3e107]:
+            - listitem [ref=f3e108]: AI-Driven Efficiency
+            - listitem [ref=f3e111]
+            - listitem [ref=f3e113]: HIPAA & GDPR Compliant
+            - listitem [ref=f3e116]
+            - listitem [ref=f3e118]: Regional Leaders — MENA & EU
+            - listitem [ref=f3e121]
+          - list [ref=f3e123]:
+            - listitem [ref=f3e124]: AI-Driven Efficiency
+            - listitem [ref=f3e127]
+            - listitem [ref=f3e129]: HIPAA & GDPR Compliant
+            - listitem [ref=f3e132]
+            - listitem [ref=f3e134]: Regional Leaders — MENA & EU
+            - listitem [ref=f3e137]
+      - region [ref=f3e139]:
+        - generic [ref=f3e141]:
+          - heading "Impact by the Numbers" [level=2] [ref=f3e142]
+          - generic [ref=f3e143]:
+            - generic [ref=f3e144]:
+              - term [ref=f3e145]:
+                - generic [ref=f3e146]: 0+
+              - definition [ref=f3e147]: Enterprise Deployments
+            - generic [ref=f3e148]:
+              - term [ref=f3e149]:
+                - generic [ref=f3e150]: 0+
+              - definition [ref=f3e151]: Years of Innovation
+            - generic [ref=f3e152]:
+              - term [ref=f3e153]:
+                - generic [ref=f3e154]: 0M+
+              - definition [ref=f3e155]: Patient Records Secured
+            - generic [ref=f3e156]:
+              - term [ref=f3e157]:
+                - generic [ref=f3e158]: 0.00%
+              - definition [ref=f3e159]: System Reliability
+      - region [ref=f3e160]:
+        - generic [ref=f3e161]:
+          - generic [ref=f3e162]: Services
+          - heading "Core Capabilities" [level=2] [ref=f3e164]
+        - generic [ref=f3e165]:
+          - article [ref=f3e167]:
+            - generic [ref=f3e168]:
+              - heading "AI Process Automation" [level=3] [ref=f3e173]
+              - paragraph [ref=f3e174]: Intelligent workflows and RPA solutions to streamline operations, reduce manual effort, and optimize resource allocation.
+          - article [ref=f3e176]:
+            - generic [ref=f3e177]:
+              - heading "Digital Transformation" [level=3] [ref=f3e181]
+              - paragraph [ref=f3e182]: End-to-end digital modernization powered by cloud-native architectures and seamless AI integration.
+          - article [ref=f3e184]:
+            - generic [ref=f3e185]:
+              - heading "AI Governance" [level=3] [ref=f3e190]
+              - paragraph [ref=f3e191]: Specialized frameworks for ethical AI, HIPAA/GDPR compliance, and secure data handling in regulated sectors.
+          - article [ref=f3e193]:
+            - generic [ref=f3e194]:
+              - heading "AI Advisory" [level=3] [ref=f3e200]
+              - paragraph [ref=f3e201]: Strategic consulting for AI adoption, technology roadmaps, and organizational readiness for the age of automation.
+        - link "Explore services" [ref=f3e203] [cursor=pointer]:
+          - /url: /services
+      - region [ref=f3e207]:
+        - generic [ref=f3e208]:
+          - generic [ref=f3e209]: Case studies
+          - heading "Recent Success Stories" [level=2] [ref=f3e211]
+        - generic [ref=f3e212]:
+          - article [ref=f3e214]:
+            - generic [ref=f3e218]:
+              - heading "AI Automation for Healthcare" [level=3] [ref=f3e219]
+              - paragraph [ref=f3e220]: Implemented RPA bots to handle patient scheduling, reducing admin time by 40%.
+              - link "Learn more" [ref=f3e221] [cursor=pointer]:
+                - /url: /services
+          - article [ref=f3e225]:
+            - generic [ref=f3e231]:
+              - heading "Predictive Inventory Management" [level=3] [ref=f3e232]
+              - paragraph [ref=f3e233]: Deployed ML models to optimize pharmacy stock levels, cutting waste by 25%.
+              - link "Learn more" [ref=f3e234] [cursor=pointer]:
+                - /url: /services
+      - region [ref=f3e237]:
+        - generic [ref=f3e239]:
+          - heading "Leadership & Strategy" [level=2] [ref=f3e241]
+          - paragraph [ref=f3e242]: Expert leadership delivering cutting-edge AI automation and strategic transformation.
+          - generic [ref=f3e243]:
+            - link "About" [ref=f3e244] [cursor=pointer]:
+              - /url: /about
+            - link "Careers" [ref=f3e246] [cursor=pointer]:
+              - /url: /careers
+  - contentinfo [ref=f3e250]:
+    - generic [ref=f3e251]:
+      - generic [ref=f3e252]:
+        - paragraph [ref=f3e253]: Get in touch
+        - paragraph [ref=f3e254]: Tell us what you want to automate. We will tell you what it takes.
+        - link "Speak with an expert" [ref=f3e255] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=f3e258]:
+        - navigation "Site" [ref=f3e259]:
+          - heading "Site" [level=2] [ref=f3e260]
+          - list [ref=f3e261]:
+            - listitem [ref=f3e262]:
+              - link "Services" [ref=f3e263] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=f3e264]:
+              - link "Products" [ref=f3e265] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f3e266]:
+              - link "About" [ref=f3e267] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f3e268]:
+              - link "Careers" [ref=f3e269] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=f3e270]:
+              - link "Contact" [ref=f3e271] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f3e272]:
+          - heading "Codentrix SARL" [level=2] [ref=f3e273]
+          - generic [ref=f3e274]: 57 AV 02 MARS 19342034 EZZAHRATUNISIA
+        - generic [ref=f3e275]:
+          - heading "Email" [level=2] [ref=f3e276]
+          - list [ref=f3e277]:
+            - listitem [ref=f3e278]:
+              - link "contact@codentrix.io" [ref=f3e279] [cursor=pointer]:
+                - /url: mailto:contact@codentrix.io
+            - listitem [ref=f3e280]:
+              - link "+216 98 340 092" [ref=f3e281] [cursor=pointer]:
+                - /url: tel:+21698340092
+    - generic [ref=f3e282]: Codentrix
+    - generic [ref=f3e283]:
+      - generic [ref=f3e284]: © 2026 Codentrix. All rights reserved.
+      - button "Passer en français" [ref=f3e285] [cursor=pointer]:
+        - generic [ref=f3e289]:
+          - generic [ref=f3e290]: EN
+          - generic [ref=f3e291]: /FR

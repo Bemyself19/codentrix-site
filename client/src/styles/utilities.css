@@ -20,8 +20,10 @@
 
 /* Vertical rhythm. `.section` is the default; `.section-tight` breaks it
    deliberately where two blocks should read as one unit. */
+/* Half on each side, so the gap *between* two adjacent sections comes out at
+   one full --space-section rather than two stacked ones. */
 .section {
-  padding-block: var(--space-section);
+  padding-block: calc(var(--space-section) / 2);
 }
 
 .section-tight {

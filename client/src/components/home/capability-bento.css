@@ -1,0 +1,72 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bento-cell {
+  display: flex;
+}
+
+.bento-cell.is-lg {
+  grid-column: span 4;
+}
+
+.bento-cell.is-sm {
+  grid-column: span 2;
+}
+
+.bento-card {
+  width: 100%;
+}
+
+.bento-card .surface-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 15rem;
+}
+
+.bento-title {
+  margin-top: auto;
+}
+
+.bento-copy {
+  font-size: var(--text-small);
+  max-width: 46ch;
+}
+
+/* The large cells get room to breathe; the small ones stay compact. */
+.bento-cell.is-lg .bento-card .surface-card-body {
+  min-height: 17rem;
+}
+
+.bento-cell.is-lg .bento-title {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+}
+
+.bento-foot {
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bento-cell.is-lg,
+  .bento-cell.is-sm {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 620px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-card .surface-card-body,
+  .bento-cell.is-lg .bento-card .surface-card-body {
+    min-height: 0;
+  }
+}

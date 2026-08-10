@@ -1,7 +1,6 @@
 .site-footer {
   position: relative;
   overflow: hidden;
-  margin-top: var(--space-section);
   padding-top: clamp(3.5rem, 2.5rem + 4vw, 7rem);
   background: var(--bg-deep);
   border-top: 1px solid var(--hairline);

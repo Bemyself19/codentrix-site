@@ -93,14 +93,19 @@ export default function NavBar() {
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
         <div className="container header-inner">
           <NavLink to="/" className="brand" aria-label="Codentrix — home">
-            <img
-              src="/logo.png"
-              alt=""
-              className="brand-logo"
-              width="132"
-              height="32"
-              fetchpriority="high"
-            />
+            {/* The original logo is navy-on-transparent and disappears against
+                the dark canvas; logo-dark.* is the light-ink lockup. */}
+            <picture>
+              <source srcSet="/logo-dark.webp" type="image/webp" />
+              <img
+                src="/logo-dark.png"
+                alt=""
+                className="brand-logo"
+                width="140"
+                height="32"
+                fetchpriority="high"
+              />
+            </picture>
             <span className="visually-hidden">Codentrix</span>
           </NavLink>
 
