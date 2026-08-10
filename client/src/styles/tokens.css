@@ -21,7 +21,10 @@
   /* ── ink ───────────────────────────────────────────────────── */
   --text: oklch(97% 0.003 264);
   --muted: oklch(73% 0.012 264);
-  --faint: oklch(56% 0.012 264);
+  /* 56% measured 3.8–4.5:1 against --bg / --bg-deep, below the 4.5 AA floor
+     for the 12px labels that use it. 66% clears it with margin and still
+     reads a full step quieter than --muted. */
+  --faint: oklch(66% 0.012 264);
 
   /* ── accents ───────────────────────────────────────────────── */
   --accent: oklch(74% 0.16 205);

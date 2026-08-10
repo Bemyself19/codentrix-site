@@ -1,7 +1,8 @@
 .announce {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.25rem;
+  width: fit-content;
   max-width: 100%;
   padding: 0.3rem 0.4rem 0.3rem 0.35rem;
   margin-bottom: 1.75rem;
@@ -18,9 +19,11 @@
 }
 
 .announce-body {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.6rem;
+  /* Without this the nowrap text below refuses to shrink and the pill pushes
+     past the hero column at intermediate widths. */
   min-width: 0;
   padding-inline-end: 0.35rem;
   font-size: var(--text-small);
@@ -40,6 +43,7 @@
 }
 
 .announce-text {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

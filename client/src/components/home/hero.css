@@ -53,6 +53,13 @@
  * the full --text-display used for short page titles. At the display size it
  * wrapped to six lines and pushed the fold off screen.
  */
+/* Grid items default to min-width:auto, which lets wide children push the
+   column past its track. */
+.hero-content,
+.hero-pillars {
+  min-width: 0;
+}
+
 .hero-title {
   margin-block: 1.5rem 0;
   font-size: clamp(2.25rem, 1.1rem + 3.1vw, 3.9rem);
