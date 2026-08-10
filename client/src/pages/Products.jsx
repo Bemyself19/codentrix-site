@@ -1,169 +1,228 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import Button from '../components/ui/Button'
+import Icon from '../components/ui/Icon'
+import SectionHeader from '../components/ui/SectionHeader'
+import SurfaceCard from '../components/ui/SurfaceCard'
+import Reveal from '../components/motion/Reveal'
+import RevealItem from '../components/motion/RevealItem'
+import SplitText from '../components/motion/SplitText'
+import ScrollyFeatures from '../components/products/ScrollyFeatures'
+import { stagger } from '../lib/motion'
+import '../components/products/products.css'
 
-function FeatureCard({ icon, title, description }) {
-  return (
-    <div className="feature-card card">
-      <div className="feature-icon">{icon}</div>
-      <h4>{title}</h4>
-      <p className="muted">{description}</p>
-    </div>
-  )
+/* Icons live in code, not in the translation files — the emoji that used to be
+   stored alongside the copy are now this parallel list. */
+const FEATURE_ICONS = ['brain', 'chat', 'pulse', 'file', 'spark', 'layers']
+
+const CONNECTION_POINTS = [
+  { icon: 'shield', key: 'point1' },
+  { icon: 'automation', key: 'point2' },
+  { icon: 'cloud', key: 'point3' }
+]
+
+const TECH = {
+  modern: ['React', 'Node.js', 'WebRTC', 'Cloud-native'],
+  secure: ['End-to-end encryption', 'GDPR compliant', 'HIPAA-ready', 'Secure data storage']
 }
 
-function BenefitCard({ icon, title, points }) {
+function BenefitColumn({ icon, title, points }) {
   return (
-    <div className="benefit-card">
-      <div className="benefit-icon">{icon}</div>
-      <h4>{title}</h4>
+    <SurfaceCard as="article" className="benefit-card">
+      <span className="card-icon">
+        <Icon name={icon} size={22} />
+      </span>
+      <h3 className="heading-3 benefit-title">{title}</h3>
       <ul className="benefit-list">
-        {points.map((point, i) => (
-          <li key={i}>{point}</li>
+        {points.map((point) => (
+          <li key={point}>
+            <Icon name="check" size={16} className="benefit-check" />
+            <span>{point}</span>
+          </li>
         ))}
       </ul>
-    </div>
+    </SurfaceCard>
   )
 }
 
 export default function Products() {
   const { t } = useTranslation()
-  const features = t('products.telehealth.features', { returnObjects: true, defaultValue: [] })
-  const providerBenefits = t('products.telehealth.benefits.providers', { returnObjects: true, defaultValue: [] })
-  const patientBenefits = t('products.telehealth.benefits.patients', { returnObjects: true, defaultValue: [] })
+
+  const asArray = (key) => {
+    const value = t(key, { returnObjects: true, defaultValue: [] })
+    return Array.isArray(value) ? value : []
+  }
+
+  const features = asArray('products.telehealth.features')
+  const providerBenefits = asArray('products.telehealth.benefits.providers')
+  const patientBenefits = asArray('products.telehealth.benefits.patients')
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="product-hero">
-        <div className="container">
-          <div className="product-hero-content">
-            <div className="product-badge">{t('products.badge')}</div>
-            <h1>{t('products.telehealth.title')}</h1>
-            <p className="lead">{t('products.telehealth.subtitle')}</p>
-            <div className="product-hero-ctas">
-              <a href="/contact" className="btn primary">
+      {/* ── hero ─────────────────────────────────────────────── */}
+      <section className="product-hero" aria-labelledby="product-heading">
+        <div className="product-hero-atmosphere" aria-hidden="true">
+          <span className="glow glow-cyan product-glow-1" />
+          <span className="glow glow-violet product-glow-2" />
+        </div>
+
+        <div className="container relative">
+          <Reveal className="product-hero-content" variants={stagger(0.1)}>
+            <RevealItem as="span" className="product-badge">
+              {t('products.badge')}
+            </RevealItem>
+
+            <h1 id="product-heading" className="display product-title">
+              <SplitText text={t('products.telehealth.title')} as="span" />
+            </h1>
+
+            <RevealItem as="p" className="lead">
+              {t('products.telehealth.subtitle')}
+            </RevealItem>
+
+            <RevealItem className="cluster product-hero-ctas">
+              <Button to="/contact" arrow>
                 {t('products.telehealth.cta.primary')}
-              </a>
-              <a href="#features" className="btn outline">
+              </Button>
+              <Button href="#features" variant="ghost">
                 {t('products.telehealth.cta.secondary')}
-              </a>
-            </div>
-            <p className="product-tagline muted">{t('products.telehealth.tagline')}</p>
-          </div>
+              </Button>
+            </RevealItem>
+
+            <RevealItem as="p" className="small faint product-tagline">
+              {t('products.telehealth.tagline')}
+            </RevealItem>
+          </Reveal>
         </div>
       </section>
 
-      {/* Problem/Solution Section */}
-      <section className="container product-section">
-        <div className="problem-solution-grid">
-          <div className="problem-box card">
-            <h3>{t('products.telehealth.problem.title')}</h3>
+      {/* ── problem / solution ───────────────────────────────── */}
+      <section className="section container">
+        <Reveal className="problem-solution" variants={stagger(0.12)}>
+          <RevealItem as="article" className="ps-card is-problem">
+            <span className="eyebrow is-warning">
+              <Icon name="alert" size={15} />
+              {t('products.telehealth.problem.title')}
+            </span>
             <p>{t('products.telehealth.problem.description')}</p>
-          </div>
-          <div className="solution-box card highlight">
-            <h3>{t('products.telehealth.solution.title')}</h3>
+          </RevealItem>
+
+          <RevealItem as="article" className="ps-card is-solution">
+            <span className="eyebrow">{t('products.telehealth.solution.title')}</span>
             <p>{t('products.telehealth.solution.description')}</p>
-          </div>
-        </div>
+          </RevealItem>
+        </Reveal>
       </section>
 
-      {/* Features Section */}
-      <section className="container product-section" id="features">
-        <h2 className="section-title">{t('products.telehealth.featuresTitle')}</h2>
-        <div className="features-grid">
-          {features.map((feature, i) => (
-            <FeatureCard
-              key={i}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="benefits-section">
+      {/* ── features (scrollytelling) ────────────────────────── */}
+      <section className="section-tight" aria-labelledby="features-heading">
         <div className="container">
-          <h2 className="section-title">{t('products.telehealth.benefitsTitle')}</h2>
-          <div className="benefits-grid">
-            <BenefitCard
-              icon="🏥"
-              title={t('products.telehealth.benefits.providersTitle')}
-              points={providerBenefits}
-            />
-            <BenefitCard
-              icon="👤"
-              title={t('products.telehealth.benefits.patientsTitle')}
-              points={patientBenefits}
-            />
-          </div>
+          <SectionHeader
+            eyebrow={t('products.telehealth.cta.secondary')}
+            title={t('products.telehealth.featuresTitle')}
+            titleId="features-heading"
+          />
+        </div>
+        <ScrollyFeatures id="features" features={features} icons={FEATURE_ICONS} />
+      </section>
+
+      {/* ── benefits ─────────────────────────────────────────── */}
+      <section className="band section" aria-labelledby="benefits-heading">
+        <div className="container">
+          <SectionHeader
+            title={t('products.telehealth.benefitsTitle')}
+            titleId="benefits-heading"
+          />
+
+          <Reveal className="benefits-grid" variants={stagger(0.12)}>
+            <RevealItem>
+              <BenefitColumn
+                icon="stethoscope"
+                title={t('products.telehealth.benefits.providersTitle')}
+                points={providerBenefits}
+              />
+            </RevealItem>
+            <RevealItem>
+              <BenefitColumn
+                icon="users"
+                title={t('products.telehealth.benefits.patientsTitle')}
+                points={patientBenefits}
+              />
+            </RevealItem>
+          </Reveal>
         </div>
       </section>
 
-      {/* Technology Section */}
-      <section className="container product-section">
-        <div className="tech-showcase card">
-          <h3>{t('products.telehealth.tech.title')}</h3>
-          <p className="lead">{t('products.telehealth.tech.description')}</p>
-          <div className="tech-stack">
+      {/* ── technology ───────────────────────────────────────── */}
+      <section className="section container">
+        <Reveal className="tech-showcase" variants={stagger(0.1)}>
+          <RevealItem className="tech-intro">
+            <h2 className="heading-2">{t('products.telehealth.tech.title')}</h2>
+            <p className="lead">{t('products.telehealth.tech.description')}</p>
+          </RevealItem>
+
+          <RevealItem className="tech-columns">
             <div className="tech-category">
-              <h4>{t('products.telehealth.tech.modern')}</h4>
-              <div className="tech-tags">
-                <span className="tech-tag">React</span>
-                <span className="tech-tag">Node.js</span>
-                <span className="tech-tag">WebRTC</span>
-                <span className="tech-tag">Cloud-native</span>
-              </div>
+              <h3 className="tech-category-title">{t('products.telehealth.tech.modern')}</h3>
+              <ul className="cluster tech-tags">
+                {TECH.modern.map((tag) => (
+                  <li key={tag} className="tech-tag">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="tech-category">
-              <h4>{t('products.telehealth.tech.secure')}</h4>
-              <div className="tech-tags">
-                <span className="tech-tag">End-to-end encryption</span>
-                <span className="tech-tag">GDPR compliant</span>
-                <span className="tech-tag">HIPAA-ready</span>
-                <span className="tech-tag">Secure data storage</span>
-              </div>
+              <h3 className="tech-category-title">{t('products.telehealth.tech.secure')}</h3>
+              <ul className="cluster tech-tags">
+                {TECH.secure.map((tag) => (
+                  <li key={tag} className="tech-tag is-secure">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          </RevealItem>
+        </Reveal>
+      </section>
+
+      {/* ── the difference ───────────────────────────────────── */}
+      <section className="band section" aria-labelledby="difference-heading">
+        <div className="container">
+          <SectionHeader
+            title={t('products.telehealth.connection.title')}
+            lead={t('products.telehealth.connection.description')}
+            titleId="difference-heading"
+          />
+
+          <Reveal className="connection-points" variants={stagger(0.1)}>
+            {CONNECTION_POINTS.map((point) => (
+              <RevealItem key={point.key} className="connection-point">
+                <span className="card-icon">
+                  <Icon name={point.icon} size={20} />
+                </span>
+                <p>{t(`products.telehealth.connection.${point.key}`)}</p>
+              </RevealItem>
+            ))}
+          </Reveal>
         </div>
       </section>
 
-      {/* Codentrix Connection */}
-      <section className="codentrix-connection">
-        <div className="container">
-          <div className="connection-card card">
-            <h3>{t('products.telehealth.connection.title')}</h3>
-            <p className="lead">{t('products.telehealth.connection.description')}</p>
-            <div className="connection-points">
-              <div className="connection-point">
-                <span className="connection-icon">🔒</span>
-                <span>{t('products.telehealth.connection.point1')}</span>
-              </div>
-              <div className="connection-point">
-                <span className="connection-icon">⚖️</span>
-                <span>{t('products.telehealth.connection.point2')}</span>
-              </div>
-              <div className="connection-point">
-                <span className="connection-icon">🎯</span>
-                <span>{t('products.telehealth.connection.point3')}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="product-cta-section">
-        <div className="container">
-          <div className="product-cta-box">
-            <h2>{t('products.telehealth.finalCta.title')}</h2>
-            <p className="lead">{t('products.telehealth.finalCta.description')}</p>
-            <a href="/contact" className="btn primary large">
+      {/* ── final CTA ────────────────────────────────────────── */}
+      <section className="section container">
+        <Reveal className="product-cta" variants={stagger(0.1)}>
+          <RevealItem>
+            <h2 className="heading-2">{t('products.telehealth.finalCta.title')}</h2>
+          </RevealItem>
+          <RevealItem as="p" className="lead">
+            {t('products.telehealth.finalCta.description')}
+          </RevealItem>
+          <RevealItem>
+            <Button to="/contact" arrow>
               {t('products.telehealth.finalCta.button')}
-            </a>
-          </div>
-        </div>
+            </Button>
+          </RevealItem>
+        </Reveal>
       </section>
     </>
   )

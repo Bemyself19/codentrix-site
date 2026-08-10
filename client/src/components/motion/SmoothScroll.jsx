@@ -22,6 +22,9 @@ export default function SmoothScroll({ children }) {
         duration: 1.05,
         lerp: 0.1,
         smoothWheel: true,
+        // Same-page anchors need to go through Lenis, otherwise the native jump
+        // and Lenis's own position disagree and the page snaps back.
+        anchors: { offset: -80 },
         // Touch devices already have native momentum; overriding it feels wrong.
         syncTouch: false
       }}

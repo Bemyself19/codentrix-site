@@ -1,0 +1,203 @@
+.scrolly {
+  position: relative;
+}
+
+.scrolly-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+/* ── pinned column ───────────────────────────────────────────── */
+.scrolly-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.scrolly-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 62svh;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(155deg, oklch(100% 0 0 / 0.05), transparent 45%),
+    var(--surface);
+  overflow: hidden;
+}
+
+.scrolly-glow {
+  width: 70%;
+  height: 70%;
+  top: 12%;
+  left: 15%;
+  opacity: 0.4;
+}
+
+/* Technical grid inside the stage. */
+.scrolly-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, oklch(100% 0 0 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(100% 0 0 / 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent);
+}
+
+.scrolly-stage-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.scrolly-icon {
+  display: grid;
+  place-items: center;
+  width: 8.5rem;
+  height: 8.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--hairline-strong);
+  background: oklch(100% 0 0 / 0.04);
+  color: var(--accent);
+  backdrop-filter: blur(4px);
+}
+
+.scrolly-index {
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-wide);
+  color: var(--faint);
+}
+
+.scrolly-rail {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+}
+
+.scrolly-tick {
+  width: 1.6rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--hairline-strong);
+  transition: background-color var(--dur-base) var(--ease-out-expo);
+}
+
+.scrolly-tick.is-active {
+  background: var(--accent);
+}
+
+/* ── scrolling panels ────────────────────────────────────────── */
+.scrolly-panels {
+  display: flex;
+  flex-direction: column;
+}
+
+.scrolly-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.85rem;
+  min-height: 100svh;
+  padding-block: 2rem;
+  opacity: 0.35;
+  transition: opacity var(--dur-slow) var(--ease-out-expo);
+}
+
+.scrolly-panel.is-active {
+  opacity: 1;
+}
+
+.scrolly-panel-index {
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-wide);
+  color: var(--accent);
+}
+
+.scrolly-panel p {
+  max-width: 46ch;
+}
+
+/*
+ * Under 900px the pinned layout has nowhere to pin to, and the same is true
+ * for reduced-motion users: fall back to a plain stacked list with normal
+ * spacing so nobody has to scroll a full viewport per feature.
+ */
+@media (max-width: 900px) {
+  .scrolly-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .scrolly-sticky {
+    position: static;
+    height: auto;
+    margin-bottom: 2.5rem;
+  }
+
+  .scrolly-stage {
+    max-height: 22rem;
+    aspect-ratio: 16 / 10;
+  }
+
+  .scrolly-panel {
+    min-height: 0;
+    padding-block: 1.75rem;
+    border-top: 1px solid var(--hairline);
+    opacity: 1;
+  }
+}
+
+.no-motion .scrolly-sticky {
+  position: static;
+  height: auto;
+  margin-bottom: 2.5rem;
+}
+
+.no-motion .scrolly-stage {
+  max-height: 22rem;
+  aspect-ratio: 16 / 10;
+}
+
+.no-motion .scrolly-panel {
+  min-height: 0;
+  padding-block: 1.75rem;
+  border-top: 1px solid var(--hairline);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrolly-sticky {
+    position: static;
+    height: auto;
+    margin-bottom: 2.5rem;
+  }
+
+  .scrolly-stage {
+    max-height: 22rem;
+    aspect-ratio: 16 / 10;
+  }
+
+  .scrolly-panel {
+    min-height: 0;
+    padding-block: 1.75rem;
+    border-top: 1px solid var(--hairline);
+    opacity: 1;
+  }
+}

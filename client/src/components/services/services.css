@@ -1,0 +1,161 @@
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.accordion.is-open {
+  border-color: var(--hairline-strong);
+  background: linear-gradient(170deg, oklch(100% 0 0 / 0.04), transparent 30%), var(--surface);
+}
+
+.accordion-heading {
+  margin: 0;
+  font: inherit;
+  letter-spacing: normal;
+}
+
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  text-align: start;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+}
+
+.accordion-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.accordion-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1rem + 0.8vw, 1.75rem);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.15;
+}
+
+.accordion-lead {
+  max-width: 60ch;
+}
+
+.accordion-marker {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--muted);
+  transition:
+    color var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo),
+    transform var(--dur-base) var(--ease-out-expo);
+}
+
+.accordion-trigger:hover .accordion-marker {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.accordion.is-open .accordion-marker {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Framer animates this container's height; `overflow: hidden` is what keeps
+   the contents from spilling while it does. */
+.accordion-panel {
+  overflow: hidden;
+}
+
+.accordion-panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 clamp(1.25rem, 1rem + 1vw, 2rem) clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.capability-card .surface-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  height: 100%;
+  padding: 1.35rem;
+}
+
+.capability-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.capability-card .tech-tags {
+  --cluster-gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+/* ── detailed points ───────────────────────────────────────── */
+.service-detail {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.detail-title {
+  margin-bottom: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.detail-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: 0.7rem 2rem;
+}
+
+.detail-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+
+.detail-list svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--accent);
+}
+
+.tech-profile {
+  margin-top: 1.25rem;
+  max-width: 80ch;
+}
