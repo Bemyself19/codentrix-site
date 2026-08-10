@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-function Service({title, children}){
+function Service({ title, children }) {
   return (
     <article className="service-card">
       <h3>{title}</h3>
@@ -13,7 +13,7 @@ function Service({title, children}){
 function AccordionService({ title, lead, children, isOpen, onToggle }) {
   return (
     <article className="accordion-service">
-      <button 
+      <button
         className={`accordion-header ${isOpen ? 'open' : ''}`}
         onClick={onToggle}
         aria-expanded={isOpen}
@@ -52,10 +52,10 @@ function CapabilityCard({ icon, title, description, technologies }) {
   )
 }
 
-export default function Services(){
+export default function Services() {
   const { t } = useTranslation()
   const [openService, setOpenService] = useState('banking') // Default to banking open
-  
+
   const bankPoints = t('services.bank.points', { returnObjects: true })
   const bankCapabilities = t('services.bank.capabilities', { returnObjects: true, defaultValue: [] })
   const advisoryCapabilities = t('services.advisory.capabilities', { returnObjects: true, defaultValue: [] })
@@ -81,31 +81,31 @@ export default function Services(){
           <div className="service-details">
             <div className="capabilities-grid">
               <CapabilityCard
-                icon="🏦"
+                icon="🤖"
                 title={t('services.bank.capabilities.core.title')}
                 description={t('services.bank.capabilities.core.desc')}
-                technologies={['COBOL', 'Matrix', 'Seneca', 'IASIRA', 'NSP/TREND']}
+                technologies={['RPA', 'Python', 'UiPath', 'BluePrism', 'PowerAutomate']}
               />
               <CapabilityCard
-                icon="💳"
+                icon="🧠"
                 title={t('services.bank.capabilities.payments.title')}
                 description={t('services.bank.capabilities.payments.desc')}
-                technologies={['SEPA', 'SDD/SCT', 'SWIFT', 'Check-truncation']}
+                technologies={['TensorFlow', 'Scikit-learn', 'Predictive Models', 'Data Mining']}
               />
               <CapabilityCard
-                icon="📊"
+                icon="💬"
                 title={t('services.bank.capabilities.reporting.title')}
                 description={t('services.bank.capabilities.reporting.desc')}
-                technologies={['IAS/IFRS', 'IASIRA', 'Regulatory reporting']}
+                technologies={['Dialogflow', 'OpenAI API', 'BERT', 'NLP', 'Conversational AI']}
               />
               <CapabilityCard
-                icon="🔄"
+                icon="☁️"
                 title={t('services.bank.capabilities.migration.title')}
                 description={t('services.bank.capabilities.migration.desc')}
-                technologies={['DB2', 'VSAM', 'IMS', 'Modern stacks']}
+                technologies={['AWS SageMaker', 'Azure AI', 'Docker', 'Kubernetes', 'Cloud Native']}
               />
             </div>
-            
+
             <div className="detailed-points">
               <h4>{t('services.bank.detailedTitle')}</h4>
               <ul className="detailed-list">
@@ -114,7 +114,7 @@ export default function Services(){
                 ))}
               </ul>
             </div>
-            
+
             <div className="tech-profile">
               <h4>{t('services.bank.techTitle')}</h4>
               <p className="muted">{t('services.bank.techProfile')}</p>
@@ -146,7 +146,7 @@ export default function Services(){
                 icon="⚖️"
                 title={t('services.advisory.capabilities.compliance.title')}
                 description={t('services.advisory.capabilities.compliance.desc')}
-                technologies={['Risk management', 'Audit support', 'Regulatory alignment']}
+                technologies={['AI Governance', 'Ethics Boards', 'GDPR/HIPAA', 'Audit Trails']}
               />
               <CapabilityCard
                 icon="🚀"

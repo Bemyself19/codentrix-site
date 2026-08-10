@@ -1,0 +1,102 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  isolation: isolate;
+  transition:
+    transform var(--dur-fast) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo),
+    color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+
+.btn-md {
+  padding: 0.95rem 1.6rem;
+  font-size: 0.975rem;
+}
+
+.btn-sm {
+  padding: 0.6rem 1.1rem;
+  font-size: var(--text-small);
+}
+
+.btn-arrow {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.btn[disabled],
+.btn[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── primary ─────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 1px solid transparent;
+  box-shadow: 0 14px 34px -18px oklch(74% 0.16 205 / 0.85);
+}
+
+.btn-primary:hover {
+  background: oklch(80% 0.15 205);
+  box-shadow: 0 20px 46px -18px oklch(74% 0.16 205 / 0.95);
+}
+
+/* ── ghost ───────────────────────────────────────────────────── */
+.btn-ghost {
+  background: oklch(100% 0 0 / 0.03);
+  color: var(--text);
+  border: 1px solid var(--hairline-strong);
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: oklch(100% 0 0 / 0.07);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── quiet — text-level action ───────────────────────────────── */
+.btn-quiet {
+  padding-inline: 0;
+  background: none;
+  color: var(--accent);
+  border: 0;
+  border-radius: 0;
+}
+
+.btn-quiet .btn-label {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition: background-size var(--dur-base) var(--ease-out-expo);
+}
+
+.btn-quiet:hover .btn-label {
+  background-size: 100% 1px;
+}
+
+.btn-quiet:active {
+  transform: none;
+}

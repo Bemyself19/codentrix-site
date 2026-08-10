@@ -1,0 +1,134 @@
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--space-section);
+  padding-top: clamp(3.5rem, 2.5rem + 4vw, 7rem);
+  background: var(--bg-deep);
+  border-top: 1px solid var(--hairline);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: clamp(2.5rem, 1.5rem + 4vw, 6rem);
+  align-items: start;
+}
+
+.footer-pitch {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: var(--tracking-tight);
+  max-width: 20ch;
+}
+
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--hairline-strong);
+  font-size: var(--text-lead);
+  color: var(--accent);
+  transition: border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.footer-cta svg {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.footer-cta:hover {
+  border-color: var(--accent);
+}
+
+.footer-cta:hover svg {
+  transform: translate(4px, -4px);
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.footer-col-title {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-link {
+  font-size: var(--text-small);
+  color: var(--muted);
+  transition:
+    color var(--dur-base) var(--ease-out-expo),
+    padding-left var(--dur-base) var(--ease-out-expo);
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: var(--text-small);
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/*
+ * The wordmark deliberately bleeds past the baseline — the footer's overflow
+ * clips its lower third, which is what makes it read as a graphic mark rather
+ * than a stray heading.
+ */
+.footer-wordmark {
+  margin-top: clamp(2rem, 1rem + 4vw, 5rem);
+  margin-bottom: -0.22em;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 1rem + 17vw, 17rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  text-align: center;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(180deg, oklch(38% 0.02 264), oklch(18% 0.016 264) 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  user-select: none;
+}
+
+.footer-base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--hairline);
+}
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}

@@ -1,0 +1,24 @@
+.split-text {
+  display: block;
+}
+
+.split-text-words {
+  display: block;
+  perspective: 800px;
+}
+
+/* Each word gets its own overflow-clipped track so the inner span can rise
+   into view from below the baseline without bleeding into the line above. */
+.split-text-word {
+  display: inline-block;
+  overflow: hidden;
+  padding-block: 0.06em;
+  margin-inline-end: 0.26em;
+  vertical-align: bottom;
+}
+
+.split-text-inner {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+}

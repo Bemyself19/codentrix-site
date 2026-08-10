@@ -1,0 +1,90 @@
+/* Display — reserved for page and section openers. */
+.display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.heading-2 {
+  font-size: var(--text-h2);
+  line-height: 1.02;
+}
+
+.heading-3 {
+  font-size: var(--text-h3);
+  line-height: 1.15;
+}
+
+/* Small-caps section label. Always paired with a heading. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.faint {
+  color: var(--faint);
+}
+
+.small {
+  font-size: var(--text-small);
+}
+
+.micro {
+  font-size: var(--text-micro);
+  letter-spacing: 0.04em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Gradient headline treatment — ambient violet, never on interactive text. */
+.gradient-ink {
+  background: linear-gradient(112deg, var(--text) 18%, var(--accent) 58%, var(--accent-2) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Inline text link inside prose. */
+.text-link {
+  color: var(--accent);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur-base) var(--ease-out-expo);
+}
+
+.text-link:hover {
+  background-size: 100% 1px;
+}
