@@ -1,105 +1,77 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import SectionHeader from '../components/ui/SectionHeader'
+import Icon from '../components/ui/Icon'
+import Reveal from '../components/motion/Reveal'
+import RevealItem from '../components/motion/RevealItem'
+import LeaderCard from '../components/about/LeaderCard'
+import { stagger } from '../lib/motion'
+import '../components/about/about.css'
 
-export default function About(){
-  const { t, i18n } = useTranslation()
+const LEADERS = [
+  {
+    id: 'nader',
+    name: 'Nader Ben Ammar',
+    role: 'Chief Executive Officer',
+    image: '/ceo.jpg'
+  },
+  {
+    id: 'fethi',
+    name: 'Fethi Nouri',
+    role: 'Chief Technology Officer',
+    image: '/fethi.jpg'
+  },
+  {
+    id: 'ahmed',
+    name: 'Ahmed Dammak',
+    role: 'Chief Strategy Officer',
+    image: '/ahmed.jpg'
+  }
+]
+
+export default function About() {
+  const { t } = useTranslation()
 
   return (
-    <section className="container">
-      <h2>{t('about.title')}</h2>
-      <p>{t('about.description')}</p>
+    <div className="page">
+      <section className="section-tight container">
+        <SectionHeader
+          eyebrow={t('nav.about')}
+          title={t('about.title')}
+          as="h1"
+          className="about-head"
+        />
 
-      <div className="expansion-section card highlight" style={{marginTop: '2rem', marginBottom: '2rem'}}>
-        <h3>{t('about.expansion.title')}</h3>
-        <p>{t('about.expansion.description')}</p>
-      </div>
+        <Reveal className="about-intro" variants={stagger(0.1)}>
+          <RevealItem as="p" className="about-statement">
+            {t('about.description')}
+          </RevealItem>
 
-      <h3>{t('about.leadershipTitle')}</h3>
-      <p>{t('about.leadershipLead')}</p>
+          <RevealItem as="aside" className="about-expansion">
+            <span className="eyebrow">
+              <Icon name="spark" size={15} />
+              {t('about.expansion.title')}
+            </span>
+            <p className="muted">{t('about.expansion.description')}</p>
+          </RevealItem>
+        </Reveal>
+      </section>
 
-      <div className="team-grid">
-        {/* Small reusable flip card that toggles on click or Enter/Space */}
-        {(() => {
-          function FlipCard({image, name, title, lead, back}){
-            const [flipped, setFlipped] = React.useState(false)
-            const toggle = (e) => { e && e.preventDefault(); setFlipped(s => !s) }
-            return (
-              <div className={`flip-card ${flipped ? 'is-flipped' : ''}`} tabIndex={0} role="button" aria-pressed={flipped} onClick={toggle} onKeyDown={(e)=>{ if(e.key === 'Enter' || e.key === ' ') toggle(e)}}>
-                <div className={`flip-inner`}>
-                  <div className="flip-front leader-card">
-                    <img src={image} alt={name} className="leader-photo" />
-                    <div className="leader-info">
-                      <h4>{name} — {title}</h4>
-                      <p className="lead">{t(`about.leaders.${name.split(' ')[0].toLowerCase()}.lead`, { lng: i18n.language, defaultValue: lead })}</p>
-                    </div>
-                  </div>
-                  <div className="flip-back card">
-                    <h4>{name} — {title.split(',')[0]}</h4>
-                    <p>{t(`about.leaders.${name.split(' ')[0].toLowerCase()}.back`, { lng: i18n.language, defaultValue: back })}</p>
-                  </div>
-                </div>
-              </div>
-            )
-          }
+      <section className="section container" aria-labelledby="leadership-heading">
+        <SectionHeader
+          title={t('about.leadershipTitle')}
+          lead={t('about.leadershipLead')}
+          titleId="leadership-heading"
+        />
 
-          return (
-            <>
-              <FlipCard
-                image="/ceo.jpg"
-                name="Nader Ben Ammar"
-                title="Chief Executive Officer (CEO)"
-                lead="CEO with 20+ years leading telecom and technology operations across MENA."
-                back="Seasoned executive with a track record in regional leadership (Ericsson, Huawei, Siemens). Focused on strategy, P&L responsibility and high-performing teams."
-              />
-
-              <FlipCard
-                image="/fethi.jpg"
-                name="Fethi Nouri"
-                title="Chief Technology Officer (CTO)"
-                lead="CTO with 30+ years in core banking modernization, payments and compliance."
-                back="Experienced in large-scale core migrations, payment systems and IAS/IFRS reporting—trusted to deliver compliant, resilient transformations."
-              />
-            </>
-          )
-        })()}
-      </div>
-
-      {/* Centered CSO card below the main leadership pair */}
-      <div className="team-center">
-        {(() => {
-          function FlipCard({image, name, title, lead, back}){
-            const [flipped, setFlipped] = React.useState(false)
-            const toggle = (e) => { e && e.preventDefault(); setFlipped(s => !s) }
-            return (
-              <div className={`flip-card ${flipped ? 'is-flipped' : ''}`} tabIndex={0} role="button" aria-pressed={flipped} onClick={toggle} onKeyDown={(e)=>{ if(e.key === 'Enter' || e.key === ' ') toggle(e)}}>
-                <div className={`flip-inner`}>
-                  <div className="flip-front leader-card">
-                    <img src={image} alt={name} className="leader-photo" />
-                    <div className="leader-info">
-                      <h4>{name} — {title}</h4>
-                        <p className="lead">{t(`about.leaders.${name.split(' ')[0].toLowerCase()}.lead`, { lng: i18n.language, defaultValue: lead })}</p>
-                    </div>
-                  </div>
-                  <div className="flip-back card">
-                    <h4>{name} — {title.split(',')[0]}</h4>
-                      <p>{t(`about.leaders.${name.split(' ')[0].toLowerCase()}.back`, { lng: i18n.language, defaultValue: back })}</p>
-                  </div>
-                </div>
-              </div>
-            )
-          }
-
-          return (
-            <FlipCard
-              image="/ahmed.jpg"
-              name="Ahmed Dammak"
-              title="Chief Strategy Officer (CSO)"
-              lead="CSO driving growth strategy, partnerships and product-market fit."
-              back="Seasoned strategist with experience in business development, strategic partnerships and product strategy across telecom and banking sectors."
-            />
-          )
-        })()}
-      </div>
-    </section>
+        <Reveal className="leader-grid" variants={stagger(0.1)}>
+          {LEADERS.map((leader) => (
+            <RevealItem key={leader.id}>
+              <LeaderCard {...leader} />
+            </RevealItem>
+          ))}
+        </Reveal>
+      </section>
+    </div>
   )
 }

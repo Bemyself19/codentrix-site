@@ -74,7 +74,9 @@ const resources = {
         leaders: {
           nader: { lead: 'CEO & Tech Visionary - 20+ years driving technology innovation in MENA.', back: 'Expert in scaling tech operations and leading high-performance teams at global giants like Ericsson and Huawei.' },
           fethi: { lead: 'CTO - AI & Architecture Specialist with 30+ years experience.', back: 'Architect of resilient systems, now focused on implementing secure AI/ML pipelines and cloud infrastructure.' },
-          ahmed: { lead: 'CSO - Strategy & Growth. PhD in Strategic Management.', back: 'Driving partnerships and product-market fit for AI healthcare solutions across telecom and enterprise sectors.' }
+          ahmed: { lead: 'CSO - Strategy & Growth. PhD in Strategic Management.', back: 'Driving partnerships and product-market fit for AI healthcare solutions across telecom and enterprise sectors.' },
+          more: 'Full profile',
+          less: 'Less'
         }
       },
 
@@ -336,7 +338,9 @@ const resources = {
         leaders: {
           nader: { lead: 'PDG & Visionnaire Tech - 20+ ans menant l\'innovation technologique en MENA.', back: 'Expert en passage à l\'échelle des opérations tech et direction d\'équipes haute performance chez des géants mondiaux comme Ericsson et Huawei.' },
           fethi: { lead: 'CTO - Spécialiste IA & Architecture avec 30+ ans d\'expérience.', back: 'Architecte de systèmes résilients, désormais concentré sur l\'implémentation de pipelines IA/ML sécurisés et l\'infrastructure cloud.' },
-          ahmed: { lead: 'CSO - Stratégie & Croissance. Docteur en Management Stratégique.', back: 'Pilotage des partenariats et du product-market fit pour les solutions de santé IA dans les secteurs télécom et entreprise.' }
+          ahmed: { lead: 'CSO - Stratégie & Croissance. Docteur en Management Stratégique.', back: 'Pilotage des partenariats et du product-market fit pour les solutions de santé IA dans les secteurs télécom et entreprise.' },
+          more: 'Profil complet',
+          less: 'Réduire'
         }
       },
 
