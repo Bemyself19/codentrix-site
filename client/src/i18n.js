@@ -248,8 +248,6 @@ const resources = {
         emailLabel: 'Email',
         phoneLabel: 'Phone',
         country: 'TUNISIA',
-        mapTitle: 'Codentrix location',
-        viewLargerMap: 'Open in Google Maps',
         form: { send: 'Send Message', name: 'Name', email: 'Email', message: 'Message' }
       },
 
@@ -257,7 +255,7 @@ const resources = {
         required: 'This field is required.',
         invalidEmail: 'Enter a valid email address.',
         sending: 'Sending…',
-        contactSent: 'Thanks — your message is on its way. We usually reply within one working day.',
+        contactSent: 'Thanks — your message is on its way.',
         contactError: 'We could not send your message. Please try again, or email contact@codentrix.io directly.'
       },
 
@@ -537,8 +535,6 @@ const resources = {
         emailLabel: 'Email',
         phoneLabel: 'Téléphone',
         country: 'TUNISIE',
-        mapTitle: 'Localisation de Codentrix',
-        viewLargerMap: 'Ouvrir dans Google Maps',
         form: { send: 'Envoyer', name: 'Nom', email: 'Email', message: 'Message' }
       },
 
@@ -546,7 +542,7 @@ const resources = {
         required: 'Ce champ est obligatoire.',
         invalidEmail: 'Saisissez une adresse email valide.',
         sending: 'Envoi…',
-        contactSent: 'Merci — votre message est parti. Nous répondons généralement sous un jour ouvré.',
+        contactSent: 'Merci — votre message est parti.',
         contactError: 'Nous n\'avons pas pu envoyer votre message. Réessayez, ou écrivez directement à contact@codentrix.io.'
       },
 

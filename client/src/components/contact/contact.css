@@ -40,38 +40,6 @@
   line-height: 1.7;
 }
 
-.contact-map {
-  overflow: hidden;
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius);
-  line-height: 0;
-}
-
-.contact-map iframe {
-  width: 100%;
-  height: 260px;
-  border: 0;
-  /* Google's embed is a light-mode map; invert + hue-rotate lands it close to
-     the surrounding surface instead of punching a white hole in the page. */
-  filter: invert(0.92) hue-rotate(180deg) saturate(0.7) contrast(0.9);
-}
-
-.contact-map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: var(--text-micro);
-  color: var(--accent);
-}
-
-.contact-map-link svg {
-  transition: transform var(--dur-base) var(--ease-out-expo);
-}
-
-.contact-map-link:hover svg {
-  transform: translate(3px, -3px);
-}
-
 @media (max-width: 860px) {
   .contact-grid {
     grid-template-columns: 1fr;
