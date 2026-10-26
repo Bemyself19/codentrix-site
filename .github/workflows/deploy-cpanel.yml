@@ -34,7 +34,7 @@ jobs:
             git init -q -b deploy deploy-repo
             git -C deploy-repo remote add origin "$URL"
           fi
-          rsync -a --delete --exclude '/.git' out/ deploy-repo/
+          rsync -a --checksum --delete --exclude '/.git' out/ deploy-repo/
           cd deploy-repo
           git config user.name  "codentrix-ci"
           git config user.email "ci@codentrix.io"
