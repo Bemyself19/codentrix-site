@@ -12,8 +12,8 @@ const resources = {
         title: 'Codentrix — Intelligent AI Automation for Healthcare & Beyond',
         subtitle: 'AI-driven automation, strategic advisory, and digital health solutions for modern enterprises.',
         telehealth: {
-          title: 'Telehealth Platform',
-          lead: 'Next-gen telehealth with AI diagnostic support and smart triage.'
+          title: 'Healthcare Products',
+          lead: 'SehatyNet for telehealth, MedForm Pro for clinical studies and MedForm Marketing for post-market surveys.'
         },
         primary: 'Speak with an expert',
         secondary: 'Explore services',
@@ -49,8 +49,8 @@ const resources = {
         title: 'About Codentrix',
         description: 'Codentrix enables organizations to harness the power of Artificial Intelligence and Automation. We specialize in transforming healthcare and enterprise operations through intelligent systems, ensuring compliance, security, and scalability.',
         expansion: {
-          title: 'Portfolio Expansion',
-          description: 'Codentrix has evolved to lead the AI revolution in healthcare, launching a smart telehealth platform for the MENA region. We are committed to building intelligent solutions that solve real-world problems with precision and care.'
+          title: 'Our Products',
+          description: 'Codentrix builds software for regulated healthcare: SehatyNet for telehealth, MedForm Pro for clinical studies and MedForm Marketing for post-market surveys. We focus on solving real-world problems with precision and care.'
         },
         leadershipTitle: 'Leadership',
         leadershipLead: 'Our leadership team combines deep technical expertise in AI with strategic vision for healthcare transformation.',
@@ -332,8 +332,8 @@ const resources = {
         title: 'Codentrix — Automatisation IA Intelligente pour la Santé et au-delà',
         subtitle: 'Automatisation pilotée par l\'IA, conseil stratégique et solutions de santé numérique pour les entreprises modernes',
         telehealth: {
-          title: 'Plateforme de Télésanté',
-          lead: 'Télésanté de nouvelle génération avec support diagnostique IA et triage intelligent.'
+          title: 'Produits de santé',
+          lead: 'SehatyNet pour la télésanté, MedForm Pro pour les études cliniques et MedForm Marketing pour les enquêtes post-commercialisation.'
         },
         primary: 'Parler à un expert',
         secondary: 'Explorer les services',
@@ -369,8 +369,8 @@ const resources = {
         title: 'À propos de Codentrix',
         description: 'Codentrix permet aux organisations d\'exploiter la puissance de l\'Intelligence Artificielle et de l\'Automatisation. Nous nous spécialisons dans la transformation des opérations de santé et d\'entreprise grâce à des systèmes intelligents, garantissant conformité, sécurité et évolutivité.',
         expansion: {
-          title: 'Expansion du Portefeuille',
-          description: 'Codentrix a évolué pour mener la révolution de l\'IA dans la santé, lançant une plateforme de télésanté intelligente pour la région MENA. Nous nous engageons à construire des solutions intelligentes qui résolvent des problèmes concrets avec précision et soin.'
+          title: 'Nos produits',
+          description: 'Codentrix conçoit des logiciels pour la santé réglementée : SehatyNet pour la télésanté, MedForm Pro pour les études cliniques et MedForm Marketing pour les enquêtes post-commercialisation. Nous nous attachons à résoudre des problèmes concrets avec précision et rigueur.'
         },
         leadershipTitle: 'Direction',
         leadershipLead: 'Notre équipe dirigeante combine une expertise technique approfondie en IA avec une vision stratégique pour la transformation de la santé.',
