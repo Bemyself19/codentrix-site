@@ -9,8 +9,8 @@ const resources = {
         primary: 'Main', skipToContent: 'Skip to content', toggleMenu: 'Menu', switchLanguage: 'Passer en français'
       },
       home: {
-        title: 'Codentrix — Intelligent AI Automation for Healthcare & Beyond',
-        subtitle: 'AI-driven automation, strategic advisory, and digital health solutions for modern enterprises.',
+        title: 'Codentrix — Healthcare Expertise, Applied AI',
+        subtitle: 'Clinical and post-market studies, advisory and AI training for pharmaceutical companies and public-health institutions, and AI workflow automation for any organisation.',
         telehealth: {
           title: 'Healthcare Products',
           lead: 'SehatyNet for telehealth, MedForm Pro for clinical studies and MedForm Marketing for post-market surveys.'
@@ -31,7 +31,7 @@ const resources = {
 
       about: {
         title: 'About Codentrix',
-        description: 'Codentrix enables organizations to harness the power of Artificial Intelligence and Automation. We specialize in transforming healthcare and enterprise operations through intelligent systems, ensuring compliance, security, and scalability.',
+        description: 'Codentrix is a Tunisian company that helps pharmaceutical companies, public-health institutions and other organisations run studies, build capability and apply AI. We build our own software, SehatyNet, MedForm Pro and MedForm Marketing, and bring the same practice to client work.',
         expansion: {
           title: 'Our Products',
           description: 'Codentrix builds software for regulated healthcare: SehatyNet for telehealth, MedForm Pro for clinical studies and MedForm Marketing for post-market surveys. We focus on solving real-world problems with precision and care.'
@@ -298,8 +298,8 @@ const resources = {
         primary: 'Principal', skipToContent: 'Aller au contenu', toggleMenu: 'Menu', switchLanguage: 'Switch to English'
       },
       home: {
-        title: 'Codentrix — Automatisation IA Intelligente pour la Santé et au-delà',
-        subtitle: 'Automatisation pilotée par l\'IA, conseil stratégique et solutions de santé numérique pour les entreprises modernes',
+        title: 'Codentrix — Expertise santé, IA appliquée',
+        subtitle: 'Études cliniques et post-commercialisation, conseil et formation à l\'IA pour les entreprises pharmaceutiques et les institutions de santé publique, et automatisation des workflows par l\'IA pour toute organisation.',
         telehealth: {
           title: 'Produits de santé',
           lead: 'SehatyNet pour la télésanté, MedForm Pro pour les études cliniques et MedForm Marketing pour les enquêtes post-commercialisation.'
@@ -320,7 +320,7 @@ const resources = {
 
       about: {
         title: 'À propos de Codentrix',
-        description: 'Codentrix permet aux organisations d\'exploiter la puissance de l\'Intelligence Artificielle et de l\'Automatisation. Nous nous spécialisons dans la transformation des opérations de santé et d\'entreprise grâce à des systèmes intelligents, garantissant conformité, sécurité et évolutivité.',
+        description: 'Codentrix est une entreprise tunisienne qui aide les entreprises pharmaceutiques, les institutions de santé publique et d\'autres organisations à mener des études, développer leurs compétences et appliquer l\'IA. Nous développons nos propres logiciels, SehatyNet, MedForm Pro et MedForm Marketing, et appliquons la même pratique aux missions clients.',
         expansion: {
           title: 'Nos produits',
           description: 'Codentrix conçoit des logiciels pour la santé réglementée : SehatyNet pour la télésanté, MedForm Pro pour les études cliniques et MedForm Marketing pour les enquêtes post-commercialisation. Nous nous attachons à résoudre des problèmes concrets avec précision et rigueur.'
