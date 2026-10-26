@@ -14,10 +14,10 @@ import './capability-bento.css'
  * the grid states a priority instead of presenting four equivalent boxes.
  */
 const CAPABILITIES = [
-  { key: 'banking', icon: 'automation', size: 'lg' },
-  { key: 'modernization', icon: 'transform', size: 'sm' },
-  { key: 'compliance', icon: 'shield', size: 'sm' },
-  { key: 'strategy', icon: 'target', size: 'lg' }
+  { key: 'studies', icon: 'pulse', size: 'lg' },
+  { key: 'advisory', icon: 'scales', size: 'sm' },
+  { key: 'training', icon: 'users', size: 'sm' },
+  { key: 'automation', icon: 'automation', size: 'lg' }
 ]
 
 export default function CapabilityBento() {
@@ -40,9 +40,9 @@ export default function CapabilityBento() {
                 <Icon name={capability.icon} size={22} />
               </span>
               <h3 className="heading-3 bento-title">
-                {t(`home.strengths.${capability.key}.title`)}
+                {t(`services.${capability.key}.title`)}
               </h3>
-              <p className="muted bento-copy">{t(`home.strengths.${capability.key}.desc`)}</p>
+              <p className="muted bento-copy">{t(`services.${capability.key}.lead`)}</p>
             </SurfaceCard>
           </RevealItem>
         ))}
