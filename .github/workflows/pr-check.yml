@@ -1,0 +1,20 @@
+name: PR build check
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build artifact (no deploy)
+        run: ./scripts/cpanel-package.sh
+      - name: Sanity checks
+        run: |
+          test -f out/index.html && test -f out/_server/index.js && test -f out/.cpanel.yml
+          node --check out/_server/index.js
