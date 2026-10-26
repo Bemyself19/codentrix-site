@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Button from '../ui/Button'
 import Icon from '../ui/Icon'
 import SplitText from '../motion/SplitText'
-import Marquee from '../motion/Marquee'
 import AnnouncementPill from './AnnouncementPill'
 import { fadeUp, stagger, still } from '../../lib/motion'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
@@ -20,8 +19,6 @@ export default function Hero() {
   const { t } = useTranslation()
   const prefersReduced = useReducedMotion()
   const variants = prefersReduced ? still : fadeUp
-  const proof = t('home.proof', { returnObjects: true })
-  const proofItems = Array.isArray(proof) ? proof : []
 
   return (
     <section className="hero" aria-labelledby="hero-heading">
@@ -88,26 +85,6 @@ export default function Hero() {
           ))}
         </motion.ul>
       </div>
-
-      {proofItems.length > 0 && (
-        <div className="hero-proof">
-          <Marquee
-            speed={38}
-            items={proofItems.flatMap((item, index) => [
-              {
-                key: `proof-${index}`,
-                node: (
-                  <>
-                    <Icon name="check" size={15} className="proof-check" />
-                    {item}
-                  </>
-                )
-              },
-              { key: `dot-${index}`, node: <span className="proof-dot" aria-hidden="true" /> }
-            ])}
-          />
-        </div>
-      )}
     </section>
   )
 }

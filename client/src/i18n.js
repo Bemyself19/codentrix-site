@@ -22,20 +22,8 @@ const resources = {
         },
         primary: 'Speak with an expert',
         secondary: 'Explore services',
-        proof: ['AI-Driven Efficiency', 'HIPAA & GDPR Compliant', 'Regional Leaders — MENA & EU'],
         teamTitle: 'Leadership & Strategy',
         teamLead: 'Expert leadership delivering cutting-edge AI automation and strategic transformation.',
-        metrics: {
-          title: 'Impact by the Numbers',
-          projects: '50+',
-          projectsSub: 'Enterprise Deployments',
-          years: '15+',
-          yearsSub: 'Years of Innovation',
-          volume: '1M+',
-          volumeSub: 'Patient Records Secured',
-          uptime: '99.99%',
-          uptimeSub: 'System Reliability'
-        },
         strengths: {
           title: 'Core Capabilities',
           banking: {
@@ -317,20 +305,8 @@ const resources = {
         },
         primary: 'Parler à un expert',
         secondary: 'Explorer les services',
-        proof: ['Efficacité pilotée par l\'IA', 'Conforme HIPAA & GDPR', 'Leaders régionaux — MENA & UE'],
         teamTitle: 'Direction & stratégie',
         teamLead: 'Leadership expert délivrant une automatisation IA de pointe et une transformation stratégique.',
-        metrics: {
-          title: 'Impact en Chiffres',
-          projects: '50+',
-          projectsSub: 'Déploiements d\'Entreprise',
-          years: '15+',
-          yearsSub: 'Années d\'Innovation',
-          volume: '1M+',
-          volumeSub: 'Dossiers Patients Sécurisés',
-          uptime: '99.99%',
-          uptimeSub: 'Fiabilité Système'
-        },
         strengths: {
           title: 'Capacités Centrales',
           banking: {
