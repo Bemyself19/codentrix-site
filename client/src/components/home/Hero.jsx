@@ -40,7 +40,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p className="eyebrow" variants={variants}>
-            Codentrix SARL — MENA &amp; EU
+            Codentrix SARL
           </motion.p>
 
           <h1 id="hero-heading" className="display hero-title">
