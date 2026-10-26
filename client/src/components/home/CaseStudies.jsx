@@ -9,8 +9,8 @@ import { revealClip, stagger } from '../../lib/motion'
 import './case-studies.css'
 
 const CASES = [
-  { id: '0', icon: 'pulse', accent: 'cyan' },
-  { id: '1', icon: 'layers', accent: 'violet' }
+  { id: '0', icon: 'pulse', accent: 'cyan', to: '/products/medform-pro' },
+  { id: '1', icon: 'layers', accent: 'violet', to: '/products/medform-marketing' }
 ]
 
 /**
@@ -39,7 +39,7 @@ export default function CaseStudies() {
               <div className="case-body">
                 <h3 className="heading-3">{t(`cases.${item.id}.title`)}</h3>
                 <p className="muted small">{t(`cases.${item.id}.summary`)}</p>
-                <Link to="/products" className="case-link">
+                <Link to={item.to} className="case-link">
                   {t('home.cases.more', { defaultValue: 'Learn more' })}
                   <Icon name="arrowUpRight" size={18} />
                 </Link>

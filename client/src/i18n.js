@@ -131,7 +131,50 @@ const resources = {
       },
 
       products: {
-        badge: 'NEW OFFERING',
+        badge: 'SEHATYNET',
+        overview: {
+          title: 'Products',
+          lead: 'Software for clinical research, post-market surveillance and connected care.',
+          more: 'Learn more',
+          cards: {
+            sehatynet: { name: 'SehatyNet', kind: 'Telehealth platform', desc: 'Video consultations, e-prescriptions, appointments and medical records in one place.' },
+            medformPro: { name: 'MedForm Pro', kind: 'Clinical study data capture', desc: 'Electronic case report forms with randomisation, audit trail and statistical analysis.' },
+            medformMarketing: { name: 'MedForm Marketing', kind: 'Post-market surveys and physician research', desc: 'Design and run post-market surveys and market research with physicians, with AI-assisted insights.' }
+          }
+        },
+        detail: {
+          featuresTitle: 'Key features',
+          ctaPrimary: 'Request a Demo',
+          ctaSecondary: 'Explore Features',
+          finalTitle: 'See it in action',
+          finalDescription: 'Contact us to schedule a demo.',
+          finalButton: 'Get in Touch'
+        },
+        medformPro: {
+          title: 'MedForm Pro',
+          subtitle: 'Electronic data capture for clinical studies in Tunisia.',
+          features: [
+            { title: 'Protocol to eCRF', description: 'Upload a study protocol (.docx or .pdf) and AI drafts the questionnaire for you to review and edit.' },
+            { title: 'Study designs', description: 'Observational, interventional and cross-sectional studies, with repeating sections for multi-visit schedules such as D0, D15 and M1.' },
+            { title: 'Randomisation and blinding', description: 'Simple, block and stratified randomisation, with single and double blinding and emergency unblinding.' },
+            { title: 'Data integrity', description: 'Draft, submitted and locked states, plus a field-level audit trail recording every edit with reason, time and IP address.' },
+            { title: 'Analysis and reporting', description: 'Descriptive statistics, survival analysis and cross-tabulation, with CSV, Excel, PDF and DOCX export.' },
+            { title: 'Built for Tunisia', description: 'English and French throughout, separate workspaces per sponsor, and designed with Tunisian Law No. 2004-63 and GDPR in mind.' },
+            { title: 'Expert consensus (Delphi) studies', description: 'Run multi-round Delphi studies in the same platform. Experts stay anonymous, consensus is measured per question (median, IQR and percentage agreement), AI summarises open-ended answers between rounds, and a one-click DOCX report presents the findings.' }
+          ]
+        },
+        medformMarketing: {
+          title: 'MedForm Marketing',
+          subtitle: 'Post-market surveys and physician research, designed and analysed with AI.',
+          features: [
+            { title: 'From prompt to survey', description: 'Describe a post-market surveillance question and AI generates the study.' },
+            { title: 'Research workflows', description: 'NPS, competitive analysis and market research.' },
+            { title: 'AI-assisted analysis', description: 'Sentiment scoring, theme extraction and executive summaries.' },
+            { title: 'Live dashboards', description: 'Enrolment, specialty and regional views, plus cross-tabulation.' },
+            { title: 'Export', description: 'CSV and Excel.' },
+            { title: 'Bilingual and multi-tenant', description: 'English and French, with separate workspaces per company.' }
+          ]
+        },
         telehealth: {
           title: 'AI-Powered Telehealth',
           subtitle: 'The future of connected care in the MENA region',
@@ -414,7 +457,50 @@ const resources = {
       },
 
       products: {
-        badge: 'NOUVELLE OFFRE',
+        badge: 'SEHATYNET',
+        overview: {
+          title: 'Produits',
+          lead: 'Des logiciels pour la recherche clinique, la surveillance post-commercialisation et les soins connectés.',
+          more: 'En savoir plus',
+          cards: {
+            sehatynet: { name: 'SehatyNet', kind: 'Plateforme de télésanté', desc: 'Consultations vidéo, e-prescriptions, rendez-vous et dossiers médicaux au même endroit.' },
+            medformPro: { name: 'MedForm Pro', kind: 'Collecte de données pour études cliniques', desc: 'Cahiers d\'observation électroniques avec randomisation, piste d\'audit et analyse statistique.' },
+            medformMarketing: { name: 'MedForm Marketing', kind: 'Enquêtes post-commercialisation et recherche auprès des médecins', desc: 'Concevez et menez des enquêtes post-commercialisation et des études de marché auprès des médecins, avec des analyses assistées par l\'IA.' }
+          }
+        },
+        detail: {
+          featuresTitle: 'Fonctionnalités clés',
+          ctaPrimary: 'Demander une Démo',
+          ctaSecondary: 'Explorer les Fonctionnalités',
+          finalTitle: 'Voyez-le en action',
+          finalDescription: 'Contactez-nous pour planifier une démonstration.',
+          finalButton: 'Nous contacter'
+        },
+        medformPro: {
+          title: 'MedForm Pro',
+          subtitle: 'La saisie électronique de données pour les études cliniques en Tunisie.',
+          features: [
+            { title: 'De la note de protocole à l\'eCRF', description: 'Téléversez un protocole d\'étude (.docx ou .pdf) : l\'IA rédige le questionnaire, que vous relisez et modifiez.' },
+            { title: 'Plans d\'étude', description: 'Études observationnelles, interventionnelles et transversales, avec des sections répétées pour les calendriers multi-visites (J0, J15, M1, etc.).' },
+            { title: 'Randomisation et insu', description: 'Randomisation simple, par blocs et stratifiée ; simple et double insu, avec levée d\'insu en urgence.' },
+            { title: 'Intégrité des données', description: 'États brouillon, soumis et verrouillé, et piste d\'audit au niveau du champ qui enregistre chaque modification avec son motif, l\'heure et l\'adresse IP.' },
+            { title: 'Analyse et rapports', description: 'Statistiques descriptives, analyse de survie et tableaux croisés, avec export CSV, Excel, PDF et DOCX.' },
+            { title: 'Conçu pour la Tunisie', description: 'Anglais et français partout, espaces de travail séparés par promoteur, et conçu en tenant compte de la loi tunisienne n° 2004-63 et du RGPD.' },
+            { title: 'Études de consensus d\'experts (Delphi)', description: 'Menez des études Delphi en plusieurs tours dans la même plateforme. Les experts restent anonymes, le consensus est mesuré par question (médiane, écart interquartile et pourcentage d\'accord), l\'IA résume les réponses ouvertes entre les tours, et un rapport DOCX en un clic présente les conclusions.' }
+          ]
+        },
+        medformMarketing: {
+          title: 'MedForm Marketing',
+          subtitle: 'Enquêtes post-commercialisation et recherche auprès des médecins, conçues et analysées avec l\'IA.',
+          features: [
+            { title: 'Du brief à l\'enquête', description: 'Décrivez une question de surveillance post-commercialisation : l\'IA génère l\'étude.' },
+            { title: 'Workflows de recherche', description: 'NPS, analyse concurrentielle et études de marché.' },
+            { title: 'Analyse assistée par l\'IA', description: 'Score de sentiment, extraction de thèmes et synthèses exécutives.' },
+            { title: 'Tableaux de bord en direct', description: 'Inclusions, spécialités et vues régionales, plus tableaux croisés.' },
+            { title: 'Export', description: 'CSV et Excel.' },
+            { title: 'Bilingue et multi-locataire', description: 'Anglais et français, avec des espaces de travail séparés par entreprise.' }
+          ]
+        },
         telehealth: {
           title: 'Télésanté Propulsée par IA',
           subtitle: 'Le futur des soins connectés dans la région MENA',
