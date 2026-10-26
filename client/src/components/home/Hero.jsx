@@ -9,7 +9,7 @@ import { useReducedMotion } from '../../hooks/useReducedMotion'
 import './hero.css'
 
 const PILLARS = [
-  { icon: 'automation', titleKey: 'services.bank.title', leadKey: 'services.bank.lead' },
+  { icon: 'pulse', titleKey: 'services.studies.title', leadKey: 'services.studies.lead' },
   { icon: 'stethoscope', titleKey: 'home.telehealth.title', leadKey: 'home.telehealth.lead' },
   { icon: 'target', titleKey: 'services.advisory.title', leadKey: 'services.advisory.lead' }
 ]

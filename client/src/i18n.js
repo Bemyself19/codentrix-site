@@ -20,23 +20,7 @@ const resources = {
         teamTitle: 'Leadership & Strategy',
         teamLead: 'Expert leadership delivering cutting-edge AI automation and strategic transformation.',
         strengths: {
-          title: 'Core Capabilities',
-          banking: {
-            title: 'AI Process Automation',
-            desc: 'Intelligent workflows and RPA solutions to streamline operations, reduce manual effort, and optimize resource allocation.'
-          },
-          modernization: {
-            title: 'Digital Transformation',
-            desc: 'End-to-end digital modernization powered by cloud-native architectures and seamless AI integration.'
-          },
-          compliance: {
-            title: 'AI Governance',
-            desc: 'Specialized frameworks for ethical AI and secure data handling in regulated sectors, designed with HIPAA and GDPR in mind.'
-          },
-          strategy: {
-            title: 'AI Advisory',
-            desc: 'Strategic consulting for AI adoption, technology roadmaps, and organizational readiness for the age of automation.'
-          }
+          title: 'What we do'
         },
         cases: {
           eyebrow: 'Case studies',
@@ -64,64 +48,49 @@ const resources = {
 
       services: {
         title: 'Services',
-        intro: 'Comprehensive AI automation and strategic consulting services designed for healthcare and forward-thinking enterprises.',
-        bank: {
-          title: 'AI & Automation',
-          lead: 'Leveraging Artificial Intelligence to automate complex processes, reduce error rates, and unlock actionable insights.',
-          detailedTitle: 'Key Implementations',
-          techTitle: 'Technology Stack',
+        intro: 'Codentrix supports pharmaceutical companies and public-health institutions in Tunisia with clinical and post-market studies, advisory work and AI training.',
+        includesTitle: 'What this includes',
+        studies: {
+          title: 'Clinical and post-market studies',
+          lead: 'We design and run clinical, observational and post-market studies on our own MedForm platform, from questionnaire to final report.',
           points: [
-            'Intelligent Process Automation (IPA): Combining RPA with Machine Learning to automate end-to-end workflows.',
-            'Predictive Analytics: Utilizing data models to forecast trends, patient needs, and operational bottlenecks.',
-            'Natural Language Processing (NLP): Chatbots and automated document analysis for healthcare records.',
-            'Computer Vision: AI-assisted diagnostics and medical imaging analysis.',
-            'Smart Scheduling: Optimization algorithms for resource management and appointment booking.',
-            'Data Modernization: Migrating legacy data to AI-ready cloud warehouses with strict security protocols.',
-            'Regulatory AI: Automated checks designed with HIPAA and GDPR requirements in mind.',
-            'Operational Consulting: Change management for teams adopting AI-driven workflows.'
-          ],
-          techProfile: 'Tech Stack: Python (TensorFlow, PyTorch), Node.js, React, Cloud (AWS/Azure), Docker/Kubernetes, Secure FHIR APIs.',
-          capabilities: {
-            core: {
-              title: 'Process Automation',
-              desc: 'Streamline operations with smart agents that handle repetitive tasks with near-zero error rates.'
-            },
-            payments: {
-              title: 'Predictive Insights',
-              desc: 'Turn data into decisions with advanced analytics that predict and prevent operational issues.'
-            },
-            reporting: {
-              title: 'NLP & Chatbots',
-              desc: 'Enhance patient and customer interaction with 24/7 intelligent conversational agents.'
-            },
-            migration: {
-              title: 'Cloud AI Integration',
-              desc: 'Seamlessly deploy scalable AI models on secure cloud infrastructure.'
-            }
-          }
+            'Study design and questionnaire build, including from a protocol.',
+            'Data collection from investigators and physicians.',
+            'Statistical analysis and reporting.',
+            'Expert-consensus (Delphi) studies.'
+          ]
         },
         advisory: {
-          title: 'Strategic Advisory',
-          lead: 'Executive-level consulting for digital transformation, technology roadmaps, and organizational change management.',
-          capabilities: {
-            strategy: {
-              title: 'Digital Strategy',
-              desc: 'Comprehensive digital transformation roadmaps aligned with business objectives and regulatory requirements.'
-            },
-            leadership: {
-              title: 'Program Leadership',
-              desc: 'Seasoned project management and team leadership for complex, multi-stakeholder technology initiatives.'
-            },
-            compliance: {
-              title: 'Compliance & Risk',
-              desc: 'Risk assessment, regulatory alignment, and audit preparation for financial technology implementations.'
-            },
-            delivery: {
-              title: 'Delivery Excellence',
-              desc: 'Proven methodologies for successful project delivery, change management, and operational handover.'
-            }
-          }
-        }
+          title: 'Public-health and pharma advisory',
+          lead: 'Independent assessments and structured recommendations for institutions and companies in regulated health sectors.',
+          points: [
+            'As-is assessments and landscape mapping.',
+            'Regulatory and stakeholder analysis.',
+            'Deliverable-based consulting, with revision and sign-off cycles.',
+            'Stakeholder workshops and consultations.'
+          ]
+        },
+        training: {
+          title: 'AI training for teams',
+          lead: 'Hands-on training that gets teams using AI tools in their daily work.',
+          points: [
+            'A curriculum built around your sector and roles.',
+            'Practical workshops on AI assistants and workflow tools.',
+            'Training materials and assessments.',
+            'On-site delivery.'
+          ]
+        },
+        automation: {
+          title: 'Workflow automation and applied AI',
+          lead: 'We automate repetitive and document-heavy processes with AI and workflow tools, and connect them to the systems you already use.',
+          points: [
+            'Process mapping and automation design.',
+            'Document and data processing with language models.',
+            'Integration with existing tools.',
+            'Handover and team training.'
+          ]
+        },
+        band: { title: 'Prefer ready-made software?', lead: 'See SehatyNet, MedForm Pro and MedForm Marketing.', button: 'View products' }
       },
 
       products: {
@@ -340,23 +309,7 @@ const resources = {
         teamTitle: 'Direction & stratégie',
         teamLead: 'Leadership expert délivrant une automatisation IA de pointe et une transformation stratégique.',
         strengths: {
-          title: 'Capacités Centrales',
-          banking: {
-            title: 'Automatisation des Processus IA',
-            desc: 'Flux de travail intelligents et solutions RPA pour rationaliser les opérations, réduire l\'effort manuel et optimiser l\'allocation des ressources.'
-          },
-          modernization: {
-            title: 'Transformation Digitale',
-            desc: 'Modernisation numérique de bout en bout propulsée par des architectures cloud-native et une intégration IA transparente.'
-          },
-          compliance: {
-            title: 'Gouvernance IA',
-            desc: 'Cadres spécialisés pour l\'IA éthique et la gestion sécurisée des données dans les secteurs réglementés, conçus en tenant compte de HIPAA et du RGPD.'
-          },
-          strategy: {
-            title: 'Conseil IA',
-            desc: 'Conseil stratégique pour l\'adoption de l\'IA, feuilles de route technologiques et préparation organisationnelle à l\'ère de l\'automatisation.'
-          }
+          title: 'Ce que nous faisons'
         },
         cases: {
           eyebrow: 'Études de cas',
@@ -384,64 +337,49 @@ const resources = {
 
       services: {
         title: 'Services',
-        intro: 'Services complets d\'automatisation IA et de conseil stratégique conçus pour la santé et les entreprises tournées vers l\'avenir.',
-        bank: {
-          title: 'IA & Automatisation',
-          lead: 'Exploiter l\'Intelligence Artificielle pour automatiser des processus complexes, réduire les taux d\'erreur et débloquer des informations exploitables.',
-          detailedTitle: 'Implémentations Clés',
-          techTitle: 'Stack Technologique',
+        intro: 'Codentrix accompagne les entreprises pharmaceutiques et les institutions de santé publique en Tunisie : études cliniques et post-commercialisation, conseil et formation à l\'IA.',
+        includesTitle: 'Ce que cela comprend',
+        studies: {
+          title: 'Études cliniques et post-commercialisation',
+          lead: 'Nous concevons et menons des études cliniques, observationnelles et post-commercialisation sur notre plateforme MedForm, du questionnaire au rapport final.',
           points: [
-            'Automatisation Intelligente des Processus (IPA) : Combinaison de RPA et de Machine Learning pour automatiser les flux de travail de bout en bout.',
-            'Analytique Prédictive : Utilisation de modèles de données pour prévoir les tendances, les besoins des patients et les goulots d\'étranglement opérationnels.',
-            'Traitement du Langage Naturel (NLP) : Chatbots et analyse documentaire automatisée pour les dossiers de santé.',
-            'Vision par Ordinateur : Diagnostics assistés par IA et analyse d\'imagerie médicale.',
-            'Planification Intelligente : Algorithmes d\'optimisation pour la gestion des ressources et la prise de rendez-vous.',
-            'Modernisation des Données : Migration des données legacy vers des entrepôts cloud prêts pour l\'IA avec des protocoles de sécurité stricts.',
-            'IA Réglementaire : Vérifications automatisées conçues en tenant compte des exigences HIPAA et GDPR.',
-            'Conseil Opérationnel : Gestion du changement pour les équipes adoptant des flux de travail pilotés par l\'IA.'
-          ],
-          techProfile: 'Stack Tech : Python (TensorFlow, PyTorch), Node.js, React, Cloud (AWS/Azure), Docker/Kubernetes, APIs FHIR sécurisées.',
-          capabilities: {
-            core: {
-              title: 'Automatisation des Processus',
-              desc: 'Rationalisez les opérations avec des agents intelligents qui gèrent les tâches répétitives avec des taux d\'erreur quasi nuls.'
-            },
-            payments: {
-              title: 'Insights Prédictifs',
-              desc: 'Transformez les données en décisions avec des analyses avancées qui prédisent et préviennent les problèmes opérationnels.'
-            },
-            reporting: {
-              title: 'NLP & Chatbots',
-              desc: 'Améliorez l\'interaction patient et client avec des agents conversationnels intelligents disponibles 24/7.'
-            },
-            migration: {
-              title: 'Intégration Cloud IA',
-              desc: 'Déployez de manière transparente des modèles IA évolutifs sur une infrastructure cloud sécurisée.'
-            }
-          }
+            'Conception de l\'étude et construction du questionnaire, y compris à partir d\'un protocole.',
+            'Collecte des données auprès des investigateurs et des médecins.',
+            'Analyse statistique et rapports.',
+            'Études de consensus d\'experts (Delphi).'
+          ]
         },
         advisory: {
-          title: 'Conseil Stratégique',
-          lead: 'Conseil de niveau exécutif pour transformation digitale, feuilles de route technologiques et gestion du changement organisationnel.',
-          capabilities: {
-            strategy: {
-              title: 'Stratégie Digitale',
-              desc: 'Feuilles de route complètes de transformation digitale alignées avec les objectifs métier et exigences réglementaires.'
-            },
-            leadership: {
-              title: 'Leadership de Programme',
-              desc: 'Gestion de projet expérimentée et leadership d\'équipe pour initiatives technologiques complexes multi-parties prenantes.'
-            },
-            compliance: {
-              title: 'Conformité & Risque',
-              desc: 'Évaluation des risques, alignement réglementaire et préparation aux audits pour implémentations technologiques financières.'
-            },
-            delivery: {
-              title: 'Excellence en Livraison',
-              desc: 'Méthodologies éprouvées pour livraison de projet réussie, gestion du changement et transfert opérationnel.'
-            }
-          }
-        }
+          title: 'Conseil en santé publique et pharma',
+          lead: 'Des évaluations indépendantes et des recommandations structurées pour les institutions et entreprises des secteurs de santé réglementés.',
+          points: [
+            'Évaluations de l\'existant (as-is) et cartographie du paysage.',
+            'Analyse réglementaire et des parties prenantes.',
+            'Conseil par livrables, avec cycles de révision et de validation.',
+            'Ateliers et consultations avec les parties prenantes.'
+          ]
+        },
+        training: {
+          title: 'Formation à l\'IA pour les équipes',
+          lead: 'Une formation pratique pour que les équipes utilisent les outils d\'IA au quotidien.',
+          points: [
+            'Un programme construit autour de votre secteur et de vos métiers.',
+            'Ateliers pratiques sur les assistants IA et les outils de workflow.',
+            'Supports de formation et évaluations.',
+            'Animation sur site.'
+          ]
+        },
+        automation: {
+          title: 'Automatisation des workflows et IA appliquée',
+          lead: 'Nous automatisons les processus répétitifs et documentaires avec l\'IA et des outils de workflow, et nous les connectons aux systèmes que vous utilisez déjà.',
+          points: [
+            'Cartographie des processus et conception de l\'automatisation.',
+            'Traitement de documents et de données avec des modèles de langage.',
+            'Intégration avec vos outils existants.',
+            'Transfert et formation des équipes.'
+          ]
+        },
+        band: { title: 'Vous préférez un logiciel prêt à l\'emploi ?', lead: 'Découvrez SehatyNet, MedForm Pro et MedForm Marketing.', button: 'Voir les produits' }
       },
 
       products: {
