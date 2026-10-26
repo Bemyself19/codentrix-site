@@ -42585,6 +42585,21 @@ var app = express();
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
+app.set("trust proxy", 1);
+var esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+var isProd = process.env.NODE_ENV === "production";
+var hits = /* @__PURE__ */ new Map();
+function formLimiter(req, res, next) {
+  const now = Date.now(), windowMs = 15 * 60 * 1e3, max = 5;
+  const recent = (hits.get(req.ip) || []).filter((t) => now - t < windowMs);
+  if (recent.length >= max) return res.status(429).json({ error: "Too many submissions" });
+  recent.push(now);
+  hits.set(req.ip, recent);
+  if (hits.size > 5e3) {
+    for (const [ip, ts] of hits) if (!ts.some((t) => now - t < windowMs)) hits.delete(ip);
+  }
+  next();
+}
 var staticDir = process.env.STATIC_DIR;
 if (staticDir) app.use(express.static(path.resolve(staticDir)));
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
@@ -42613,7 +42628,7 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
     }
   });
 }
-app.post("/api/contact", async (req, res) => {
+app.post("/api/contact", formLimiter, async (req, res) => {
   const { name, email, message } = req.body || {};
   if (!name || !email || !message) return res.status(400).json({ error: "Missing fields" });
   const payload = { name, email, message };
@@ -42628,7 +42643,7 @@ Email: ${email}
 
 Message:
 ${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`
+      html: `<p><strong>Name:</strong> ${esc(name)}</p><p><strong>Email:</strong> ${esc(email)}</p><p><strong>Message:</strong></p><p>${esc(message).replace(/\n/g, "<br/>")}</p>`
     };
     try {
       await transporter.sendMail(mailOptions);
@@ -42638,13 +42653,15 @@ ${message}`,
       console.error("Error sending contact email:", err && err.message ? err.message : err);
       if (err && err.response) console.error("SMTP response:", err.response);
       if (err && err.code) console.error("SMTP code:", err.code);
-      return res.json({ status: "ok", note: "email-error-logged" });
+      return res.status(502).json({ error: "Email delivery failed" });
     }
   }
-  console.log("Contact form submission (no SMTP):", payload);
+  console.error("Contact form received but SMTP is not configured");
+  if (isProd) return res.status(503).json({ error: "Email is not configured" });
+  console.log("Contact form submission (no SMTP, dev):", payload);
   return res.json({ status: "ok", note: "no-smtp" });
 });
-app.post("/api/careers/apply", upload.single("cv"), async (req, res) => {
+app.post("/api/careers/apply", formLimiter, upload.single("cv"), async (req, res) => {
   try {
     const { name, email, phone, education, experience } = req.body || {};
     if (!name || !email) return res.status(400).json({ error: "Name and email are required" });
@@ -42662,9 +42679,9 @@ ${education || ""}
 
 Experience:
 ${experience || ""}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone || ""}</p>
-             <h4>Education</h4><p>${(education || "").replace(/\n/g, "<br/>")}</p>
-             <h4>Experience</h4><p>${(experience || "").replace(/\n/g, "<br/>")}</p>`
+      html: `<p><strong>Name:</strong> ${esc(name)}</p><p><strong>Email:</strong> ${esc(email)}</p><p><strong>Phone:</strong> ${esc(phone)}</p>
+             <h4>Education</h4><p>${esc(education).replace(/\n/g, "<br/>")}</p>
+             <h4>Experience</h4><p>${esc(experience).replace(/\n/g, "<br/>")}</p>`
     };
     if (req.file) {
       mailOptions.attachments = [{
@@ -42681,10 +42698,12 @@ ${experience || ""}`,
         console.error("Error sending career application email:", err && err.message ? err.message : err);
         if (err && err.response) console.error("SMTP response:", err.response);
         if (err && err.code) console.error("SMTP code:", err.code);
-        return res.json({ status: "ok", note: "email-error-logged" });
+        return res.status(502).json({ error: "Email delivery failed" });
       }
     }
-    console.log("Career application (no SMTP):", { name, email, phone, education, experience, file: req.file && req.file.originalname });
+    console.error("Career application received but SMTP is not configured");
+    if (isProd) return res.status(503).json({ error: "Email is not configured" });
+    console.log("Career application (no SMTP, dev):", { name, email, phone, file: req.file && req.file.originalname });
     return res.json({ status: "ok", note: "no-smtp" });
   } catch (err) {
     console.error("Error processing career application", err);
