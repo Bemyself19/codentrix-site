@@ -5,12 +5,19 @@ SRC="$(cd "$(dirname "$0")/.." && pwd)"
 SITE="${DEPLOY_SITE:-$HOME/public_html}"
 API="${DEPLOY_API:-$HOME/jsapp}"
 
-# 1) static site: replace everything we own, keep host-managed files
-rsync -a --delete \
-  --exclude '/_server/' --exclude '/_deploy/' --exclude '/.git' --exclude '/.cpanel.yml' \
-  --exclude '/.htaccess' --exclude '/cgi-bin/' --exclude '/.well-known/' --exclude '/api/' \
-  --exclude '/php.ini' --exclude '/.user.ini' --exclude '/error_log' \
-  "$SRC/" "$SITE/"
+# 1) static site (no rsync on this host): replace what we own, keep host-managed files
+KEEP=" .htaccess cgi-bin .well-known api php.ini .user.ini error_log "
+SKIP=" _server _deploy .git .cpanel.yml "
+shopt -s dotglob nullglob
+declare -A NEWSET
+for e in "$SRC"/*; do n="$(basename "$e")"; case "$SKIP" in *" $n "*) continue;; esac; NEWSET[$n]=1; done
+# remove stale top-level entries (old zips, node_modules, previous hashed assets dir ...)
+for e in "$SITE"/*; do
+  n="$(basename "$e")"
+  case "$KEEP" in *" $n "*) continue;; esac
+  rm -rf "$e"
+done
+for n in "${!NEWSET[@]}"; do cp -a "$SRC/$n" "$SITE/$n"; done
 
 # 2) .htaccess: keep CloudLinux/cPanel managed blocks, replace the rest with ours
 OLD="$SITE/.htaccess"; NEW="$(mktemp)"
