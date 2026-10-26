@@ -11,6 +11,8 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import Products from './pages/Products'
+import SehatyNet from './pages/SehatyNet'
+import ProductDetail from './pages/ProductDetail'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
 import Apply from './pages/Apply'
@@ -20,6 +22,9 @@ const ROUTES = [
   { path: '/about', element: <About /> },
   { path: '/services', element: <Services /> },
   { path: '/products', element: <Products /> },
+  { path: '/products/sehatynet', element: <SehatyNet /> },
+  { path: '/products/medform-pro', element: <ProductDetail productKey="medformPro" /> },
+  { path: '/products/medform-marketing', element: <ProductDetail productKey="medformMarketing" /> },
   { path: '/careers', element: <Careers /> },
   { path: '/contact', element: <Contact /> },
   { path: '/apply', element: <Apply /> }
