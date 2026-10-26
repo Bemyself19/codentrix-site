@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Button from '../ui/Button'
 import Icon from '../ui/Icon'
 import SplitText from '../motion/SplitText'
-import AnnouncementPill from './AnnouncementPill'
 import { fadeUp, stagger, still } from '../../lib/motion'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import './hero.css'
@@ -35,10 +34,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={variants}>
-            <AnnouncementPill />
-          </motion.div>
-
           <motion.p className="eyebrow" variants={variants}>
             Codentrix SARL
           </motion.p>
