@@ -1,28 +1,62 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import Button from '../components/ui/Button'
+import Icon from '../components/ui/Icon'
+import SectionHeader from '../components/ui/SectionHeader'
+import Reveal from '../components/motion/Reveal'
+import RevealItem from '../components/motion/RevealItem'
+import { stagger } from '../lib/motion'
+import '../components/careers/careers.css'
 
-export default function Careers(){
+/* Parallel to `careers.why` in the translation files. */
+const REASON_ICONS = ['brain', 'pulse', 'globe', 'rocket']
+
+export default function Careers() {
   const { t } = useTranslation()
+  const reasons = t('careers.why', { returnObjects: true, defaultValue: [] })
+  const reasonList = Array.isArray(reasons) ? reasons : []
+
   return (
-    <section className="container careers">
-      <h2>{t('careers.title')}</h2>
-      <p className="lead">{t('careers.lead')}</p>
+    <div className="page">
+      <section className="section-tight container">
+        <SectionHeader
+          eyebrow={t('nav.careers')}
+          title={t('careers.title')}
+          lead={t('careers.lead')}
+          as="h1"
+        />
+      </section>
 
-      <div className="why-us card">
-        <h3>{t('careers.whyTitle')}</h3>
-        <ul>
-          <li>{t('careers.why.0')}</li>
-          <li>{t('careers.why.1')}</li>
-          <li>{t('careers.why.2')}</li>
-          <li>{t('careers.why.3')}</li>
-        </ul>
-      </div>
+      <section className="section container" aria-labelledby="why-heading">
+        <SectionHeader title={t('careers.whyTitle')} titleId="why-heading" />
 
-      <div className="careers-cta">
-        <p>{t('careers.ctaLead')}</p>
-        <Link to="/apply" className="btn primary">{t('careers.cta')}</Link>
-      </div>
-    </section>
+        {/* Numbered rows rather than bullet points: each reason gets its own
+            band and reveals an arrow on hover, so the list reads as content. */}
+        <Reveal as="ol" className="reason-list" variants={stagger(0.09)}>
+          {reasonList.map((reason, index) => (
+            <RevealItem as="li" key={reason} className="reason-row">
+              <span className="reason-index mono">{String(index + 1).padStart(2, '0')}</span>
+              <span className="card-icon reason-icon">
+                <Icon name={REASON_ICONS[index] ?? 'spark'} size={20} />
+              </span>
+              <p className="reason-text">{reason}</p>
+            </RevealItem>
+          ))}
+        </Reveal>
+      </section>
+
+      <section className="section container">
+        <Reveal className="careers-cta" variants={stagger(0.1)}>
+          <RevealItem>
+            <h2 className="heading-2">{t('careers.ctaLead')}</h2>
+          </RevealItem>
+          <RevealItem>
+            <Button to="/apply" arrow>
+              {t('careers.cta')}
+            </Button>
+          </RevealItem>
+        </Reveal>
+      </section>
+    </div>
   )
 }

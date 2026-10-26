@@ -1,57 +1,166 @@
-import React, {useState} from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import Button from '../components/ui/Button'
+import Icon from '../components/ui/Icon'
+import SectionHeader from '../components/ui/SectionHeader'
+import Reveal from '../components/motion/Reveal'
+import RevealItem from '../components/motion/RevealItem'
+import Field from '../components/forms/Field'
+import FormStatus from '../components/forms/FormStatus'
+import { postJson } from '../lib/api'
+import { stagger } from '../lib/motion'
+import '../components/forms/forms.css'
+import '../components/contact/contact.css'
 
-export default function Contact(){
+const EMPTY = { name: '', email: '', message: '' }
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export default function Contact() {
   const { t } = useTranslation()
-  const [form, setForm] = useState({name: '', email: '', message: ''})
+  const [form, setForm] = useState(EMPTY)
+  const [errors, setErrors] = useState({})
   const [status, setStatus] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const send = async e => {
-    e.preventDefault()
+  const setField = (key) => (value) => {
+    setForm((current) => ({ ...current, [key]: value }))
+    setErrors((current) => ({ ...current, [key]: undefined }))
+  }
+
+  /** Client-side mirror of what the endpoint requires. */
+  const validate = () => {
+    const next = {}
+    if (!form.name.trim()) next.name = t('forms.required')
+    if (!EMAIL_PATTERN.test(form.email.trim())) next.email = t('forms.invalidEmail')
+    if (!form.message.trim()) next.message = t('forms.required')
+    return next
+  }
+
+  const send = async (event) => {
+    event.preventDefault()
+
+    const found = validate()
+    setErrors(found)
+    if (Object.keys(found).length > 0) return
+
     setLoading(true)
-    try{
-      await axios.post('/api/contact', form)
-      setStatus('sent')
-    }catch(err){
-      setStatus('error')
-    }
+    setStatus(null)
+
+    const result = await postJson('/api/contact', form)
+
     setLoading(false)
+    setStatus(result.ok ? 'sent' : 'error')
+    if (result.ok) setForm(EMPTY)
   }
 
   return (
-    <section className="container contact">
-      <h2>{t('contact.title')}</h2>
-      <div className="contact-grid">
-        <form onSubmit={send} className="contact-form">
-          <label>{t('contact.form.name')}<input required value={form.name} onChange={e=>setForm({...form, name: e.target.value})} /></label>
-          <label>{t('contact.form.email')}<input required type="email" value={form.email} onChange={e=>setForm({...form, email: e.target.value})} /></label>
-          <label>{t('contact.form.message')}<textarea required value={form.message} onChange={e=>setForm({...form, message: e.target.value})} /></label>
-          <button type="submit" disabled={loading} className="btn primary small">{loading ? 'Sending…' : t('contact.form.send')}</button>
-          {status === 'sent' && <p className="notice">Thanks — your message was sent.</p>}
-          {status === 'error' && <p className="error">There was an error sending your message.</p>}
-        </form>
+    <div className="page">
+      <section className="section-tight container">
+        <SectionHeader eyebrow={t('nav.contact')} title={t('contact.title')} as="h1" />
 
-        <aside className="company-card card">
-          <h3>{t('contact.company')}</h3>
-          <p><strong>{t('contact.addressLabel')}</strong><br />57 AV 02 MARS 1934<br />2034 EZZAHRA<br /><strong>{t('contact.country')}</strong></p>
-          <p><strong>{t('contact.emailLabel')}</strong><br /><a href="mailto:contact@codentrix.io">contact@codentrix.io</a></p>
-          <p><strong>{t('contact.phoneLabel')}</strong><br />+216 98 340 092</p>
+        <Reveal className="contact-grid" variants={stagger(0.12)}>
+          <RevealItem>
+            <form className="form contact-form" onSubmit={send} noValidate>
+              <Field
+                label={t('contact.form.name')}
+                name="name"
+                value={form.name}
+                onChange={setField('name')}
+                error={errors.name}
+                autoComplete="name"
+                required
+              />
+              <Field
+                label={t('contact.form.email')}
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={setField('email')}
+                error={errors.email}
+                autoComplete="email"
+                required
+              />
+              <Field
+                label={t('contact.form.message')}
+                name="message"
+                value={form.message}
+                onChange={setField('message')}
+                error={errors.message}
+                textarea
+                rows={6}
+                required
+              />
 
-          <div className="map-wrap">
-            {/* Google Maps embed using the address query; hl=fr requests French UI where available */}
-            <iframe
-              title="Codentrix location"
-              src="https://www.google.com/maps?q=57+AV+02+MARS+1934+2034+EZZAHRA&hl=fr&output=embed"
-              style={{border:0,width:'100%',height:'220px'}}
-              allowFullScreen={false}
-              loading="lazy"
-            />
-            <small><a href="https://www.google.com/maps/search/?api=1&query=57+AV+02+MARS+1934+2034+EZZAHRA" target="_blank" rel="noreferrer">Voir la carte en grand</a></small>
-          </div>
-        </aside>
-      </div>
-    </section>
+              <div>
+                <Button type="submit" disabled={loading} arrow={!loading}>
+                  {loading ? t('forms.sending') : t('contact.form.send')}
+                </Button>
+              </div>
+
+              {status === 'sent' && <FormStatus tone="success">{t('forms.contactSent')}</FormStatus>}
+              {status === 'error' && <FormStatus tone="error">{t('forms.contactError')}</FormStatus>}
+            </form>
+          </RevealItem>
+
+          <RevealItem as="aside" className="contact-aside">
+            <h2 className="heading-3 contact-company">{t('contact.company')}</h2>
+
+            <dl className="contact-details">
+              <div>
+                <dt className="field-label">{t('contact.addressLabel')}</dt>
+                <dd>
+                  <address>
+                    57 AV 02 MARS 1934
+                    <br />
+                    2034 EZZAHRA
+                    <br />
+                    {t('contact.country')}
+                  </address>
+                </dd>
+              </div>
+
+              <div>
+                <dt className="field-label">{t('contact.emailLabel')}</dt>
+                <dd>
+                  <a className="text-link" href="mailto:contact@codentrix.io">
+                    contact@codentrix.io
+                  </a>
+                </dd>
+              </div>
+
+              <div>
+                <dt className="field-label">{t('contact.phoneLabel')}</dt>
+                <dd>
+                  <a className="text-link" href="tel:+21698340092">
+                    +216 98 340 092
+                  </a>
+                </dd>
+              </div>
+            </dl>
+
+            <div className="contact-map">
+              <iframe
+                title={t('contact.mapTitle', { defaultValue: 'Codentrix location' })}
+                src="https://www.google.com/maps?q=57+AV+02+MARS+1934+2034+EZZAHRA&output=embed"
+                width="600"
+                height="260"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            <a
+              className="contact-map-link"
+              href="https://www.google.com/maps/search/?api=1&query=57+AV+02+MARS+1934+2034+EZZAHRA"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {t('contact.viewLargerMap', { defaultValue: 'Open in Google Maps' })}
+              <Icon name="arrowUpRight" size={15} />
+            </a>
+          </RevealItem>
+        </Reveal>
+      </section>
+    </div>
   )
 }

@@ -4,110 +4,117 @@ import { initReactI18next } from 'react-i18next'
 const resources = {
   en: {
     translation: {
-      nav: { home: 'Home', about: 'About', services: 'Services', products: 'Products', careers: 'Careers', contact: 'Contact' },
+      nav: {
+        home: 'Home', about: 'About', services: 'Services', products: 'Products', careers: 'Careers', contact: 'Contact',
+        primary: 'Main', skipToContent: 'Skip to content', toggleMenu: 'Menu', switchLanguage: 'Passer en français'
+      },
       home: {
-        title: 'Codentrix — Technology Solutions for Regulated Industries',
-        subtitle: 'COBOL, legacy modernization, strategic advisory, and digital health solutions for banks, insurers and healthcare providers',
+        title: 'Codentrix — Intelligent AI Automation for Healthcare & Beyond',
+        subtitle: 'AI-driven automation, strategic advisory, and digital health solutions for modern enterprises.',
         announcement: {
           title: 'NEW:',
-          text: 'Introducing our Telehealth Platform — secure, compliant healthcare built with the same expertise that powers banking transformations.',
+          text: 'Introducing our AI-Enhanced Telehealth Platform — smart, secure, and compliant healthcare solutions.',
           link: 'Learn More →'
         },
         telehealth: {
           title: 'Telehealth Platform',
-          lead: 'Modern, secure telehealth solution bringing accessible healthcare to MENA.'
+          lead: 'Next-gen telehealth with AI diagnostic support and smart triage.'
         },
         primary: 'Speak with an expert',
         secondary: 'Explore services',
-        proof: ['20+ enterprise migrations','Regulated systems specialists','Regional presence — MENA & EU'],
+        proof: ['AI-Driven Efficiency', 'HIPAA & GDPR Compliant', 'Regional Leaders — MENA & EU'],
         teamTitle: 'Leadership & Strategy',
-        teamLead: 'Seasoned leadership delivering large-scale modernization and strategic advisory for financial institutions.',
+        teamLead: 'Expert leadership delivering cutting-edge AI automation and strategic transformation.',
         metrics: {
-          title: 'Proven Track Record',
+          title: 'Impact by the Numbers',
           projects: '50+',
-          projectsSub: 'Successfully delivered',
-          years: '30+',
-          yearsSub: 'Combined experience',
-          volume: '€500M+',
-          volumeSub: 'Processed annually',
-          uptime: '99.9%',
-          uptimeSub: 'Mission-critical uptime'
+          projectsSub: 'Enterprise Deployments',
+          years: '15+',
+          yearsSub: 'Years of Innovation',
+          volume: '1M+',
+          volumeSub: 'Patient Records Secured',
+          uptime: '99.99%',
+          uptimeSub: 'System Reliability'
         },
         strengths: {
           title: 'Core Capabilities',
           banking: {
-            title: 'Banking Excellence',
-            desc: 'Deep expertise in core banking systems, payments infrastructure, and regulatory compliance across MENA and European markets.'
+            title: 'AI Process Automation',
+            desc: 'Intelligent workflows and RPA solutions to streamline operations, reduce manual effort, and optimize resource allocation.'
           },
           modernization: {
-            title: 'Legacy Modernization',
-            desc: 'Proven methodologies for migrating COBOL/mainframe systems to modern architectures with zero-downtime transitions.'
+            title: 'Digital Transformation',
+            desc: 'End-to-end digital modernization powered by cloud-native architectures and seamless AI integration.'
           },
           compliance: {
-            title: 'Regulatory Compliance',
-            desc: 'Specialized knowledge in IAS/IFRS reporting, SEPA compliance, and banking regulations across multiple jurisdictions.'
+            title: 'AI Governance',
+            desc: 'Specialized frameworks for ethical AI, HIPAA/GDPR compliance, and secure data handling in regulated sectors.'
           },
           strategy: {
-            title: 'Strategic Advisory',
-            desc: 'Executive-level consulting for digital transformation, technology roadmaps, and organizational change management.'
+            title: 'AI Advisory',
+            desc: 'Strategic consulting for AI adoption, technology roadmaps, and organizational readiness for the age of automation.'
           }
         },
         cases: {
-          title: 'Recent Success Stories'
+          eyebrow: 'Case studies',
+          title: 'Recent Success Stories',
+          more: 'Learn more'
         }
       },
 
       about: {
         title: 'About Codentrix',
-        description: 'Codentrix delivers specialized consulting, custom development, training and maintenance for critical mainframe applications and strategic advisory. Our mission is to help institutions in banking, finance, and healthcare modernize reliably while keeping business continuity and compliance front and center.',
+        description: 'Codentrix enables organizations to harness the power of Artificial Intelligence and Automation. We specialize in transforming healthcare and enterprise operations through intelligent systems, ensuring compliance, security, and scalability.',
         expansion: {
           title: 'Portfolio Expansion',
-          description: 'Codentrix has expanded from consulting to product development, launching a modern telehealth platform for the MENA region. This demonstrates our commitment to building complete digital solutions for regulated industries, applying the same rigorous standards we bring to banking transformations.'
+          description: 'Codentrix has evolved to lead the AI revolution in healthcare, launching a smart telehealth platform for the MENA region. We are committed to building intelligent solutions that solve real-world problems with precision and care.'
         },
         leadershipTitle: 'Leadership',
-        leadershipLead: 'Our leadership team brings decades of hands-on experience in core banking modernization, payments, and regulated financial systems delivery.',
+        leadershipLead: 'Our leadership team combines deep technical expertise in AI with strategic vision for healthcare transformation.',
         leaders: {
-          nader: { lead: 'CEO with 20+ years leading telecom and technology operations across MENA.', back: 'Seasoned executive with a track record in regional leadership (Ericsson, Huawei, Siemens). Focused on strategy, P&L responsibility and high-performing teams.' },
-          fethi: { lead: 'CTO with 30+ years in core banking modernization, payments and compliance.', back: 'Experienced in large-scale core migrations, payment systems and IAS/IFRS reporting—trusted to deliver compliant, resilient transformations.' },
-          ahmed: { lead: 'CSO driving growth strategy, partnerships and product-market fit. PhD in Strategic Management.', back: 'Seasoned strategist with experience in business development, strategic partnerships and product strategy across telecom and banking sectors. 20+ years in program and academic management.' }
+          nader: { lead: 'CEO & Tech Visionary - 20+ years driving technology innovation in MENA.', back: 'Expert in scaling tech operations and leading high-performance teams at global giants like Ericsson and Huawei.' },
+          fethi: { lead: 'CTO - AI & Architecture Specialist with 30+ years experience.', back: 'Architect of resilient systems, now focused on implementing secure AI/ML pipelines and cloud infrastructure.' },
+          ahmed: { lead: 'CSO - Strategy & Growth. PhD in Strategic Management.', back: 'Driving partnerships and product-market fit for AI healthcare solutions across telecom and enterprise sectors.' },
+          more: 'Full profile',
+          less: 'Less'
         }
       },
 
       services: {
         title: 'Services',
-        intro: 'Comprehensive mainframe and strategic consulting services designed for financial institutions seeking reliable modernization and regulatory compliance.',
+        intro: 'Comprehensive AI automation and strategic consulting services designed for healthcare and forward-thinking enterprises.',
         bank: {
-          title: 'Banking & Finance',
-          lead: 'Deep mainframe and core-banking experience focused on legacy modernization, regulatory compliance and reliable transaction processing.',
-          detailedTitle: 'Typical Engagements',
-          techTitle: 'Technology Profile',
+          title: 'AI & Automation',
+          lead: 'Leveraging Artificial Intelligence to automate complex processes, reduce error rates, and unlock actionable insights.',
+          detailedTitle: 'Key Implementations',
+          techTitle: 'Technology Stack',
           points: [
-            'Core migration & modernization: Matrix, Seneca, IASIRA and NSP/TREND migrations from legacy platforms (OASI, TREND) to modern stacks.',
-            'COBOL & batch modernization: refactoring, online-to-batch consolidation, job (JCL) tuning and performance optimization.',
-            'SEPA/Payments & settlement: SDD/SCT/SEDA, check-truncation, settlement currency handling and integration with payment hubs.',
-            'Accounting & reporting: IAS/IFRS implementations and IASIRA customizations to ensure compliant financial reporting.',
-            'Portfolio & treasury systems: portfolio management integrations, reconciliation and regulatory reporting pipelines.',
-            'Data & platform migration: secure data migration, DB2/VSAM/IMS to modern stores, migration testing and cutover planning.',
-            'Regulatory readiness & QA: compliance testing, audit support and operational continuity for post-merger/platform conversions.',
-            'Advisory & delivery: project leadership, vendor coordination, BPM-to-core transitions and runbook-driven operational handover.'
+            'Intelligent Process Automation (IPA): Combining RPA with Machine Learning to automate end-to-end workflows.',
+            'Predictive Analytics: Utilizing data models to forecast trends, patient needs, and operational bottlenecks.',
+            'Natural Language Processing (NLP): Chatbots and automated document analysis for healthcare records.',
+            'Computer Vision: AI-assisted diagnostics and medical imaging analysis.',
+            'Smart Scheduling: Optimization algorithms for resource management and appointment booking.',
+            'Data Modernization: Migrating legacy data to AI-ready cloud warehouses with strict security protocols.',
+            'Regulatory AI: Automated compliance checking against HIPAA and GDPR standards.',
+            'Operational Consulting: Change management for teams adopting AI-driven workflows.'
           ],
-          techProfile: 'Technology profile: COBOL, JCL, MVS, CICS/IMS, VSAM, DB2; platforms and modules: Matrix/NSP, SENECA, IASIRA, check-truncation and payment engines.',
+          techProfile: 'Tech Stack: Python (TensorFlow, PyTorch), Node.js, React, Cloud (AWS/Azure), Docker/Kubernetes, Secure FHIR APIs.',
           capabilities: {
             core: {
-              title: 'Core Banking Systems',
-              desc: 'End-to-end modernization of legacy core banking platforms with zero-downtime migrations and improved performance.'
+              title: 'Process Automation',
+              desc: 'Streamline operations with smart agents that handle repetitive tasks with near-zero error rates.'
             },
             payments: {
-              title: 'Payments & Settlement',
-              desc: 'SEPA compliance, real-time payments integration, and settlement optimization for multi-currency environments.'
+              title: 'Predictive Insights',
+              desc: 'Turn data into decisions with advanced analytics that predict and prevent operational issues.'
             },
             reporting: {
-              title: 'Financial Reporting',
-              desc: 'IAS/IFRS compliance implementations and automated regulatory reporting solutions for audit readiness.'
+              title: 'NLP & Chatbots',
+              desc: 'Enhance patient and customer interaction with 24/7 intelligent conversational agents.'
             },
             migration: {
-              title: 'Data Migration',
-              desc: 'Secure, tested migration of critical financial data from legacy systems to modern cloud and on-premise platforms.'
+              title: 'Cloud AI Integration',
+              desc: 'Seamlessly deploy scalable AI models on secure cloud infrastructure.'
             }
           }
         },
@@ -138,9 +145,9 @@ const resources = {
       products: {
         badge: 'NEW OFFERING',
         telehealth: {
-          title: 'Telehealth Platform',
-          subtitle: 'Secure, compliant, and accessible healthcare for the MENA region',
-          tagline: 'Built by the team trusted to modernize banking systems — bringing the same reliability and compliance to healthcare',
+          title: 'AI-Powered Telehealth',
+          subtitle: 'The future of connected care in the MENA region',
+          tagline: 'Intelligent, secure, and accessible healthcare powered by advanced AI diagnostic support.',
           cta: {
             primary: 'Request a Demo',
             secondary: 'Explore Features'
@@ -156,9 +163,9 @@ const resources = {
           featuresTitle: 'Platform Features',
           features: [
             {
-              icon: '📹',
-              title: 'Video Consultations',
-              description: 'High-quality, secure video calls connecting patients with doctors in real-time, powered by WebRTC technology.'
+              icon: '🧠',
+              title: 'AI Smart Triage',
+              description: 'Intelligent symptom checker assists patients to the right care path instantly using NLP.'
             },
             {
               icon: '📅',
@@ -207,16 +214,16 @@ const resources = {
           },
           tech: {
             title: 'Built with Modern Technology',
-            description: 'Our telehealth platform leverages cutting-edge technology while maintaining the security and compliance standards required in regulated healthcare environments.',
+            description: 'Our platform integrates state-of-the-art AI models for decision support, ensuring that technology enhances the human touch in healthcare.',
             modern: 'Modern Stack',
             secure: 'Security & Compliance'
           },
           connection: {
             title: 'The Codentrix Difference',
-            description: 'Built by the team that modernizes mission-critical banking systems across MENA and Europe, our telehealth platform brings the same rigor to healthcare.',
-            point1: 'Bank-grade security and encryption',
-            point2: 'Deep expertise in regulated industries',
-            point3: 'Proven track record of reliable, compliant systems'
+            description: 'We don’t just digitize healthcare; we make it intelligent. Our AI models are trained to assist, not replace, ensuring better outcomes.',
+            point1: 'AI-Enhanced Decision Support',
+            point2: 'Automated Administrative Workflows',
+            point3: 'Secure Cloud-Native Architecture'
           },
           finalCta: {
             title: 'Ready to Transform Healthcare Delivery?',
@@ -227,15 +234,15 @@ const resources = {
       },
 
       cases: {
-        0: { title: 'Core banking migration', summary: 'Large bank migrated core systems with zero-downtime cutover and improved throughput.' },
-        1: { title: 'Payments platform modernization', summary: 'Payment rails consolidated, enabling faster settlement and improved compliance.' }
+        0: { title: 'AI Automation for Healthcare', summary: 'Implemented RPA bots to handle patient scheduling, reducing admin time by 40%.' },
+        1: { title: 'Predictive Inventory Management', summary: 'Deployed ML models to optimize pharmacy stock levels, cutting waste by 25%.' }
       },
 
       careers: {
         title: 'Careers',
-        lead: 'Join Codentrix — we hire experienced engineers, architects and domain experts who want to work on high-impact modernization and advisory projects in banking and finance.',
+        lead: 'Join Codentrix — we hire AI engineers, data scientists, and healthcare innovators who want to build the future of intelligent automation.',
         whyTitle: 'Why work with us',
-        why: ['Work on large-scale, mission-critical modernization projects.','Cross-functional teams combining business and technical expertise.','Flexible and hybrid working model; opportunities across MENA and EU.','Competitive compensation and continuous learning budget.'],
+        why: ['Work on cutting-edge AI and Machine Learning projects.', 'Impact real lives through better healthcare technology.', 'Remote-friendly culture with top-tier talent.', 'Continuous learning budget for AI/Tech certifications.'],
         ctaLead: 'Interested? Send your CV and a short note explaining the roles you are targeting.',
         cta: 'Send CV'
       },
@@ -247,119 +254,162 @@ const resources = {
         emailLabel: 'Email',
         phoneLabel: 'Phone',
         country: 'TUNISIA',
+        mapTitle: 'Codentrix location',
+        viewLargerMap: 'Open in Google Maps',
         form: { send: 'Send Message', name: 'Name', email: 'Email', message: 'Message' }
       },
 
-      footer: { copy: '© {{year}} Codentrix. All rights reserved.' }
+      forms: {
+        required: 'This field is required.',
+        invalidEmail: 'Enter a valid email address.',
+        sending: 'Sending…',
+        contactSent: 'Thanks — your message is on its way. We usually reply within one working day.',
+        contactError: 'We could not send your message. Please try again, or email contact@codentrix.io directly.'
+      },
+
+      apply: {
+        title: 'Send your CV',
+        lead: 'Fill in the form and attach your CV. We review every application and get back to you about next steps.',
+        submit: 'Submit application',
+        sent: 'Application received — thank you. We will be in touch.',
+        error: 'We could not send your application. Please try again, or email career@codentrix.io directly.',
+        fields: {
+          phone: 'Phone',
+          education: 'Education',
+          experience: 'Experience summary'
+        },
+        file: {
+          label: 'Attach your CV',
+          prompt: 'Drop your CV here, or click to browse',
+          hint: 'PDF or Word, up to 10 MB',
+          remove: 'Remove file',
+          missing: 'Please attach your CV.',
+          tooLarge: 'That file is larger than 10 MB. Please attach a smaller one.'
+        }
+      },
+
+      footer: {
+        copy: '© {{year}} Codentrix. All rights reserved.',
+        eyebrow: 'Get in touch',
+        pitch: 'Tell us what you want to automate. We will tell you what it takes.',
+        siteNav: 'Site'
+      }
     }
   },
 
   fr: {
     translation: {
-      nav: { home: 'Accueil', about: 'À propos', services: 'Services', products: 'Produits', careers: 'Carrières', contact: 'Contact' },
+      nav: {
+        home: 'Accueil', about: 'À propos', services: 'Services', products: 'Produits', careers: 'Carrières', contact: 'Contact',
+        primary: 'Principal', skipToContent: 'Aller au contenu', toggleMenu: 'Menu', switchLanguage: 'Switch to English'
+      },
       home: {
-        title: 'Codentrix — Solutions Technologiques pour Industries Réglementées',
-        subtitle: 'COBOL, modernisation legacy, conseil stratégique et solutions de santé numérique pour banques, assureurs et prestataires de santé',
+        title: 'Codentrix — Automatisation IA Intelligente pour la Santé et au-delà',
+        subtitle: 'Automatisation pilotée par l\'IA, conseil stratégique et solutions de santé numérique pour les entreprises modernes',
         announcement: {
           title: 'NOUVEAU:',
-          text: 'Découvrez notre plateforme de télésanté — soins sécurisés et conformes construits avec la même expertise qui transforme les systèmes bancaires.',
+          text: 'Découvrez notre plateforme de télésanté enrichie par l\'IA — des solutions de soins intelligentes, sécurisées et conformes.',
           link: 'En savoir plus →'
         },
         telehealth: {
           title: 'Plateforme de Télésanté',
-          lead: 'Solution de télésanté moderne et sécurisée pour une santé accessible en MENA.'
+          lead: 'Télésanté de nouvelle génération avec support diagnostique IA et triage intelligent.'
         },
         primary: 'Parler à un expert',
         secondary: 'Explorer les services',
-        proof: ['20+ migrations d\'entreprises','Spécialistes des systèmes réglementés','Présence régionale — MENA & UE'],
+        proof: ['Efficacité pilotée par l\'IA', 'Conforme HIPAA & GDPR', 'Leaders régionaux — MENA & UE'],
         teamTitle: 'Direction & stratégie',
-        teamLead: 'Une équipe dirigeante expérimentée délivrant des programmes de modernisation et de conseil stratégique pour institutions financières.',
+        teamLead: 'Leadership expert délivrant une automatisation IA de pointe et une transformation stratégique.',
         metrics: {
-          title: 'Références Éprouvées',
+          title: 'Impact en Chiffres',
           projects: '50+',
-          projectsSub: 'Livrés avec succès',
-          years: '30+',
-          yearsSub: 'Expérience combinée',
-          volume: '€500M+',
-          volumeSub: 'Traité annuellement',
-          uptime: '99.9%',
-          uptimeSub: 'Disponibilité critique'
+          projectsSub: 'Déploiements d\'Entreprise',
+          years: '15+',
+          yearsSub: 'Années d\'Innovation',
+          volume: '1M+',
+          volumeSub: 'Dossiers Patients Sécurisés',
+          uptime: '99.99%',
+          uptimeSub: 'Fiabilité Système'
         },
         strengths: {
           title: 'Capacités Centrales',
           banking: {
-            title: 'Excellence Bancaire',
-            desc: 'Expertise approfondie des systèmes bancaires centraux, infrastructures de paiement et conformité réglementaire en MENA et Europe.'
+            title: 'Automatisation des Processus IA',
+            desc: 'Flux de travail intelligents et solutions RPA pour rationaliser les opérations, réduire l\'effort manuel et optimiser l\'allocation des ressources.'
           },
           modernization: {
-            title: 'Modernisation Legacy',
-            desc: 'Méthodologies éprouvées pour migrer les systèmes COBOL/mainframe vers des architectures modernes avec transitions sans interruption.'
+            title: 'Transformation Digitale',
+            desc: 'Modernisation numérique de bout en bout propulsée par des architectures cloud-native et une intégration IA transparente.'
           },
           compliance: {
-            title: 'Conformité Réglementaire',
-            desc: 'Connaissance spécialisée du reporting IAS/IFRS, conformité SEPA et réglementations bancaires multi-juridictionnelles.'
+            title: 'Gouvernance IA',
+            desc: 'Cadres spécialisés pour l\'IA éthique, la conformité HIPAA/GDPR et la gestion sécurisée des données dans les secteurs réglementés.'
           },
           strategy: {
-            title: 'Conseil Stratégique',
-            desc: 'Conseil de niveau exécutif pour transformation digitale, feuilles de route technologiques et gestion du changement organisationnel.'
+            title: 'Conseil IA',
+            desc: 'Conseil stratégique pour l\'adoption de l\'IA, feuilles de route technologiques et préparation organisationnelle à l\'ère de l\'automatisation.'
           }
         },
         cases: {
-          title: 'Réussites Récentes'
+          eyebrow: 'Études de cas',
+          title: 'Réussites Récentes',
+          more: 'En savoir plus'
         }
       },
 
       about: {
         title: 'À propos de Codentrix',
-        description: 'Codentrix propose du conseil spécialisé, du développement sur mesure, de la formation et la maintenance pour les applications mainframe critiques et le conseil stratégique. Notre mission est d\'aider les institutions dans la banque, la finance et la santé à se moderniser tout en préservant la continuité et la conformité.',
+        description: 'Codentrix permet aux organisations d\'exploiter la puissance de l\'Intelligence Artificielle et de l\'Automatisation. Nous nous spécialisons dans la transformation des opérations de santé et d\'entreprise grâce à des systèmes intelligents, garantissant conformité, sécurité et évolutivité.',
         expansion: {
           title: 'Expansion du Portefeuille',
-          description: 'Codentrix est passé du conseil au développement de produits, lançant une plateforme moderne de télésanté pour la région MENA. Cela démontre notre engagement à construire des solutions numériques complètes pour les industries réglementées, en appliquant les mêmes normes rigoureuses que nous apportons aux transformations bancaires.'
+          description: 'Codentrix a évolué pour mener la révolution de l\'IA dans la santé, lançant une plateforme de télésanté intelligente pour la région MENA. Nous nous engageons à construire des solutions intelligentes qui résolvent des problèmes concrets avec précision et soin.'
         },
         leadershipTitle: 'Direction',
-        leadershipLead: 'Notre équipe dirigeante apporte des décennies d\'expérience pratique en modernisation des systèmes bancaires centraux, paiements et systèmes réglementés.',
+        leadershipLead: 'Notre équipe dirigeante combine une expertise technique approfondie en IA avec une vision stratégique pour la transformation de la santé.',
         leaders: {
-          nader: { lead: 'PDG avec 20+ années à diriger les opérations télécom et technologie en MENA.', back: 'Cadre expérimenté ayant mené des équipes chez Ericsson, Huawei et Siemens. Focus stratégie, P&L et performances.' },
-          fethi: { lead: 'Directeur technique (CTO) avec 30+ années en modernisation bancaire.', back: 'Expérimenté dans les migrations de grande échelle, systèmes de paiement et reporting IAS/IFRS.' },
-          ahmed: { lead: 'Directeur de la stratégie (CSO) responsable de la stratégie de croissance et des partenariats. Docteur en management stratégique.', back: 'Stratège chevronné en développement commercial, partenariats et stratégie produit dans les télécoms et la banque. Plus de 20 ans dans la gestion de programmes et la direction académique.' }
+          nader: { lead: 'PDG & Visionnaire Tech - 20+ ans menant l\'innovation technologique en MENA.', back: 'Expert en passage à l\'échelle des opérations tech et direction d\'équipes haute performance chez des géants mondiaux comme Ericsson et Huawei.' },
+          fethi: { lead: 'CTO - Spécialiste IA & Architecture avec 30+ ans d\'expérience.', back: 'Architecte de systèmes résilients, désormais concentré sur l\'implémentation de pipelines IA/ML sécurisés et l\'infrastructure cloud.' },
+          ahmed: { lead: 'CSO - Stratégie & Croissance. Docteur en Management Stratégique.', back: 'Pilotage des partenariats et du product-market fit pour les solutions de santé IA dans les secteurs télécom et entreprise.' },
+          more: 'Profil complet',
+          less: 'Réduire'
         }
       },
 
       services: {
         title: 'Services',
-        intro: 'Services complets de conseil mainframe et stratégique conçus pour les institutions financières recherchant une modernisation fiable et la conformité réglementaire.',
+        intro: 'Services complets d\'automatisation IA et de conseil stratégique conçus pour la santé et les entreprises tournées vers l\'avenir.',
         bank: {
-          title: 'Banque & Finance',
-          lead: 'Expérience approfondie mainframe et core-banking axée sur la modernisation des legacy, la conformité réglementaire et le traitement fiable des transactions.',
-          detailedTitle: 'Engagements Typiques',
-          techTitle: 'Profil Technologique',
+          title: 'IA & Automatisation',
+          lead: 'Exploiter l\'Intelligence Artificielle pour automatiser des processus complexes, réduire les taux d\'erreur et débloquer des informations exploitables.',
+          detailedTitle: 'Implémentations Clés',
+          techTitle: 'Stack Technologique',
           points: [
-            'Migration et modernisation du core : Matrix, Seneca, IASIRA et migrations NSP/TREND depuis des plateformes legacy (OASI, TREND) vers des stacks modernes.',
-            'COBOL & modernisation batch : refactorisation, consolidation online-to-batch, tuning des jobs (JCL) et optimisation des performances.',
-            'SEPA/Paiements & règlement : SDD/SCT/SEDA, check-truncation, gestion des devises de règlement et intégration avec des hubs de paiement.',
-            'Comptabilité & reporting : implémentations IAS/IFRS et customisations IASIRA pour garantir un reporting financier conforme.',
-            'Systèmes de portefeuille & trésorerie : intégrations de gestion de portefeuille, réconciliation et pipelines de reporting réglementaire.',
-            'Migration de données & plateformes : migration sécurisée des données, DB2/VSAM/IMS vers des stores modernes, tests de migration et planification du cutover.',
-            'Préparation réglementaire & QA : tests de conformité, support d\'audit et continuité opérationnelle pour conversions post-fusion/plateforme.',
-            'Conseil & delivery : leadership de projet, coordination des fournisseurs, transitions BPM-to-core et transfert opérationnel guidé par runbooks.'
+            'Automatisation Intelligente des Processus (IPA) : Combinaison de RPA et de Machine Learning pour automatiser les flux de travail de bout en bout.',
+            'Analytique Prédictive : Utilisation de modèles de données pour prévoir les tendances, les besoins des patients et les goulots d\'étranglement opérationnels.',
+            'Traitement du Langage Naturel (NLP) : Chatbots et analyse documentaire automatisée pour les dossiers de santé.',
+            'Vision par Ordinateur : Diagnostics assistés par IA et analyse d\'imagerie médicale.',
+            'Planification Intelligente : Algorithmes d\'optimisation pour la gestion des ressources et la prise de rendez-vous.',
+            'Modernisation des Données : Migration des données legacy vers des entrepôts cloud prêts pour l\'IA avec des protocoles de sécurité stricts.',
+            'IA Réglementaire : Vérification automatisée de la conformité aux normes HIPAA et GDPR.',
+            'Conseil Opérationnel : Gestion du changement pour les équipes adoptant des flux de travail pilotés par l\'IA.'
           ],
-          techProfile: 'Profil technologique : COBOL, JCL, MVS, CICS/IMS, VSAM, DB2 ; plateformes et modules : Matrix/NSP, SENECA, IASIRA, check-truncation et moteurs de paiement.',
+          techProfile: 'Stack Tech : Python (TensorFlow, PyTorch), Node.js, React, Cloud (AWS/Azure), Docker/Kubernetes, APIs FHIR sécurisées.',
           capabilities: {
             core: {
-              title: 'Systèmes Bancaires Centraux',
-              desc: 'Modernisation complète des plateformes bancaires legacy avec migrations sans interruption et performances améliorées.'
+              title: 'Automatisation des Processus',
+              desc: 'Rationalisez les opérations avec des agents intelligents qui gèrent les tâches répétitives avec des taux d\'erreur quasi nuls.'
             },
             payments: {
-              title: 'Paiements & Règlement',
-              desc: 'Conformité SEPA, intégration de paiements temps-réel et optimisation des règlements multi-devises.'
+              title: 'Insights Prédictifs',
+              desc: 'Transformez les données en décisions avec des analyses avancées qui prédisent et préviennent les problèmes opérationnels.'
             },
             reporting: {
-              title: 'Reporting Financier',
-              desc: 'Implémentations de conformité IAS/IFRS et solutions de reporting réglementaire automatisé pour préparation aux audits.'
+              title: 'NLP & Chatbots',
+              desc: 'Améliorez l\'interaction patient et client avec des agents conversationnels intelligents disponibles 24/7.'
             },
             migration: {
-              title: 'Migration de Données',
-              desc: 'Migration sécurisée et testée de données financières critiques des systèmes legacy vers des plateformes cloud et on-premise modernes.'
+              title: 'Intégration Cloud IA',
+              desc: 'Déployez de manière transparente des modèles IA évolutifs sur une infrastructure cloud sécurisée.'
             }
           }
         },
@@ -390,9 +440,9 @@ const resources = {
       products: {
         badge: 'NOUVELLE OFFRE',
         telehealth: {
-          title: 'Plateforme de Télésanté',
-          subtitle: 'Soins de santé sécurisés, conformes et accessibles pour la région MENA',
-          tagline: 'Construite par l\'équipe qui modernise les systèmes bancaires — apportant la même fiabilité et conformité à la santé',
+          title: 'Télésanté Propulsée par IA',
+          subtitle: 'Le futur des soins connectés dans la région MENA',
+          tagline: 'Des soins de santé intelligents, sécurisés et accessibles propulsés par un support diagnostique IA avancé.',
           cta: {
             primary: 'Demander une Démo',
             secondary: 'Explorer les Fonctionnalités'
@@ -408,9 +458,9 @@ const resources = {
           featuresTitle: 'Fonctionnalités de la Plateforme',
           features: [
             {
-              icon: '📹',
-              title: 'Consultations Vidéo',
-              description: 'Appels vidéo sécurisés de haute qualité connectant patients et médecins en temps réel, propulsés par la technologie WebRTC.'
+              icon: '🧠',
+              title: 'Triage Intelligent IA',
+              description: 'Vérificateur de symptômes intelligent qui oriente les patients vers le bon parcours de soins instantanément grâce au NLP.'
             },
             {
               icon: '📅',
@@ -459,16 +509,16 @@ const resources = {
           },
           tech: {
             title: 'Construit avec une Technologie Moderne',
-            description: 'Notre plateforme de télésanté exploite une technologie de pointe tout en maintenant les normes de sécurité et de conformité requises dans les environnements de soins de santé réglementés.',
+            description: 'Notre plateforme intègre des modèles IA de pointe pour l\'aide à la décision, garantissant que la technologie améliore la touche humaine dans les soins de santé.',
             modern: 'Stack Moderne',
             secure: 'Sécurité & Conformité'
           },
           connection: {
             title: 'La Différence Codentrix',
-            description: 'Construite par l\'équipe qui modernise les systèmes bancaires critiques en MENA et en Europe, notre plateforme de télésanté apporte la même rigueur aux soins de santé.',
-            point1: 'Sécurité et cryptage de niveau bancaire',
-            point2: 'Expertise approfondie des industries réglementées',
-            point3: 'Antécédents prouvés de systèmes fiables et conformes'
+            description: 'Nous ne faisons pas que numériser la santé ; nous la rendons intelligente. Nos modèles IA sont entraînés pour assister, pas remplacer, garantissant de meilleurs résultats.',
+            point1: 'Aide à la Décision Enrichie par IA',
+            point2: 'Flux Administratifs Automatisés',
+            point3: 'Architecture Cloud-Native Sécurisée'
           },
           finalCta: {
             title: 'Prêt à Transformer la Prestation de Soins?',
@@ -479,15 +529,15 @@ const resources = {
       },
 
       cases: {
-        0: { title: 'Migration de système bancaire central', summary: 'Une grande banque a migré son noyau avec un basculement sans interruption et un débit amélioré.' },
-        1: { title: 'Modernisation de la plateforme de paiements', summary: 'Consolidation des rails de paiement, accélération des règlements et meilleure conformité.' }
+        0: { title: 'Automatisation IA pour la Santé', summary: 'Implémentation de bots RPA pour gérer la planification des patients, réduisant le temps administratif de 40%.' },
+        1: { title: 'Gestion Prédictive des Stocks', summary: 'Déploiement de modèles ML pour optimiser les niveaux de stock en pharmacie, coupant le gaspillage de 25%.' }
       },
 
       careers: {
         title: 'Carrières',
-        lead: 'Rejoignez Codentrix — nous recrutons des ingénieurs, architectes et experts métiers pour des projets de modernisation et de conseil à fort impact dans la banque et la finance.',
+        lead: 'Rejoignez Codentrix — nous recrutons des ingénieurs IA, data scientists et innovateurs en santé qui veulent construire le futur de l\'automatisation intelligente.',
         whyTitle: 'Pourquoi travailler avec nous',
-        why: ['Travailler sur des projets de modernisation critiques à grande échelle.','Équipes transverses combinant expertise métier et technique.','Modèle de travail flexible/hybride; opportunités en MENA et UE.','Rémunération compétitive et budget formation.'],
+        why: ['Travailler sur des projets IA et Machine Learning de pointe.', 'Impacter des vies réelles grâce à une meilleure technologie de santé.', 'Culture remote-friendly avec des talents de haut niveau.', 'Budget de formation continue pour les certifications IA/Tech.'],
         ctaLead: 'Intéressé ? Envoyez votre CV et une brève note expliquant les postes visés.',
         cta: 'Envoyer le CV'
       },
@@ -499,10 +549,46 @@ const resources = {
         emailLabel: 'Email',
         phoneLabel: 'Téléphone',
         country: 'TUNISIE',
+        mapTitle: 'Localisation de Codentrix',
+        viewLargerMap: 'Ouvrir dans Google Maps',
         form: { send: 'Envoyer', name: 'Nom', email: 'Email', message: 'Message' }
       },
 
-      footer: { copy: '© {{year}} Codentrix. Tous droits réservés.' }
+      forms: {
+        required: 'Ce champ est obligatoire.',
+        invalidEmail: 'Saisissez une adresse email valide.',
+        sending: 'Envoi…',
+        contactSent: 'Merci — votre message est parti. Nous répondons généralement sous un jour ouvré.',
+        contactError: 'Nous n\'avons pas pu envoyer votre message. Réessayez, ou écrivez directement à contact@codentrix.io.'
+      },
+
+      apply: {
+        title: 'Envoyer votre CV',
+        lead: 'Remplissez le formulaire et joignez votre CV. Nous examinons chaque candidature et revenons vers vous pour la suite.',
+        submit: 'Envoyer la candidature',
+        sent: 'Candidature reçue — merci. Nous vous recontacterons.',
+        error: 'Nous n\'avons pas pu envoyer votre candidature. Réessayez, ou écrivez directement à career@codentrix.io.',
+        fields: {
+          phone: 'Téléphone',
+          education: 'Formation',
+          experience: 'Résumé de l\'expérience'
+        },
+        file: {
+          label: 'Joindre votre CV',
+          prompt: 'Déposez votre CV ici, ou cliquez pour parcourir',
+          hint: 'PDF ou Word, jusqu\'à 10 Mo',
+          remove: 'Retirer le fichier',
+          missing: 'Veuillez joindre votre CV.',
+          tooLarge: 'Ce fichier dépasse 10 Mo. Merci d\'en joindre un plus léger.'
+        }
+      },
+
+      footer: {
+        copy: '© {{year}} Codentrix. Tous droits réservés.',
+        eyebrow: 'Nous contacter',
+        pitch: 'Dites-nous ce que vous voulez automatiser. Nous vous dirons ce que cela demande.',
+        siteNav: 'Site'
+      }
     }
   }
 }

@@ -1,0 +1,162 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-top: clamp(7.5rem, 6rem + 5vw, 10.5rem);
+  padding-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+  overflow: hidden;
+}
+
+/* ── atmosphere ──────────────────────────────────────────────── */
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-glow-1 {
+  width: min(46rem, 90vw);
+  height: min(46rem, 90vw);
+  top: -18rem;
+  left: -12rem;
+}
+
+.hero-glow-2 {
+  width: min(38rem, 80vw);
+  height: min(38rem, 80vw);
+  top: -6rem;
+  right: -10rem;
+  opacity: 0.42;
+}
+
+/* Faint technical grid, faded out toward the bottom of the hero. */
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, oklch(100% 0 0 / 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(100% 0 0 / 0.028) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(120% 85% at 50% 0%, #000 25%, transparent 78%);
+}
+
+/* ── layout ──────────────────────────────────────────────────── */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 1.5rem + 5vw, 6rem);
+  align-items: center;
+}
+
+/*
+ * The hero headline runs to nine words, so it gets its own scale rather than
+ * the full --text-display used for short page titles. At the display size it
+ * wrapped to six lines and pushed the fold off screen.
+ */
+/* Grid items default to min-width:auto, which lets wide children push the
+   column past its track. */
+.hero-content,
+.hero-pillars {
+  min-width: 0;
+}
+
+.hero-title {
+  margin-block: 1.5rem 0;
+  font-size: clamp(2.25rem, 1.1rem + 3.1vw, 3.9rem);
+  line-height: 0.98;
+  max-width: 19ch;
+}
+
+.hero-lead {
+  margin-top: 1.75rem;
+  max-width: 46ch;
+}
+
+.hero-ctas {
+  --cluster-gap: 0.85rem;
+  margin-top: 2.5rem;
+}
+
+/* ── pillar stack ────────────────────────────────────────────── */
+.hero-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.hero-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, oklch(100% 0 0 / 0.05), transparent 55%), var(--surface);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-lift);
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo);
+}
+
+/* Staggered indent so the stack reads as layered depth, not a plain list. */
+.hero-pillar:nth-child(2) {
+  margin-inline-start: clamp(0rem, 2vw, 2.25rem);
+}
+
+.hero-pillar:nth-child(3) {
+  margin-inline-start: clamp(0rem, 4vw, 4.5rem);
+}
+
+.hero-pillar:hover {
+  transform: translateX(-6px);
+  border-color: var(--hairline-strong);
+}
+
+.no-motion .hero-pillar:hover {
+  transform: none;
+}
+
+.hero-pillar-title {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.hero-pillar .card-icon {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+/* ── proof ticker ────────────────────────────────────────────── */
+.hero-proof {
+  margin-top: clamp(3rem, 2rem + 4vw, 5.5rem);
+  padding-block: 1.1rem;
+  border-block: 1px solid var(--hairline);
+}
+
+.proof-check {
+  color: var(--accent);
+}
+
+.proof-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--faint);
+}
+
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    max-width: 20ch;
+  }
+
+  .hero-pillar:nth-child(2),
+  .hero-pillar:nth-child(3) {
+    margin-inline-start: 0;
+  }
+}

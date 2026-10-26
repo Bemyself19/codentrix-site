@@ -1,0 +1,96 @@
+.container {
+  width: 100%;
+  max-width: var(--width-page);
+  margin-inline: auto;
+  padding-inline: var(--space-gutter);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--width-narrow);
+  margin-inline: auto;
+  padding-inline: var(--space-gutter);
+}
+
+/* Inner pages start below the fixed header. The homepage opts out because its
+   hero deliberately runs underneath the transparent header. */
+.page {
+  padding-top: clamp(7rem, 5rem + 5vw, 10rem);
+}
+
+/* Vertical rhythm. `.section` is the default; `.section-tight` breaks it
+   deliberately where two blocks should read as one unit. */
+/* Half on each side, so the gap *between* two adjacent sections comes out at
+   one full --space-section rather than two stacked ones. */
+.section {
+  padding-block: calc(var(--space-section) / 2);
+}
+
+.section-tight {
+  padding-block: var(--space-band);
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 46rem;
+  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 5rem);
+}
+
+/* A raised full-width band that separates itself from the page canvas. */
+.band {
+  position: relative;
+  background: var(--bg-deep);
+  border-block: 1px solid var(--hairline);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, 1rem);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cluster-gap, 0.75rem);
+}
+
+.hairline {
+  height: 1px;
+  background: var(--hairline);
+  border: 0;
+  margin: 0;
+}
+
+/* Ambient light source. Purely decorative, always aria-hidden. */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-cyan {
+  background: radial-gradient(circle, oklch(74% 0.16 205 / 0.55), transparent 68%);
+}
+
+.glow-violet {
+  background: radial-gradient(circle, oklch(66% 0.22 296 / 0.45), transparent 68%);
+}
+
+.relative {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reveal fallback: when JS motion is disabled, content must still be visible. */
+.no-motion [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+}

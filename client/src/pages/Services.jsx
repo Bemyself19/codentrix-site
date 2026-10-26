@@ -1,163 +1,173 @@
-import React, { useState } from 'react'
+import React, { useId, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { AnimatePresence, motion } from 'framer-motion'
+import Icon from '../components/ui/Icon'
+import SectionHeader from '../components/ui/SectionHeader'
+import SurfaceCard from '../components/ui/SurfaceCard'
+import Reveal from '../components/motion/Reveal'
+import RevealItem from '../components/motion/RevealItem'
+import { collapse, stagger } from '../lib/motion'
+import { useReducedMotion } from '../hooks/useReducedMotion'
+import '../components/services/services.css'
 
-function Service({title, children}){
-  return (
-    <article className="service-card">
-      <h3>{title}</h3>
-      <div>{children}</div>
-    </article>
-  )
-}
-
-function AccordionService({ title, lead, children, isOpen, onToggle }) {
-  return (
-    <article className="accordion-service">
-      <button 
-        className={`accordion-header ${isOpen ? 'open' : ''}`}
-        onClick={onToggle}
-        aria-expanded={isOpen}
-      >
-        <div className="accordion-title">
-          <h3>{title}</h3>
-          <p className="accordion-lead">{lead}</p>
-        </div>
-        <div className="accordion-icon">
-          {isOpen ? '−' : '+'}
-        </div>
-      </button>
-      <div className={`accordion-content ${isOpen ? 'open' : ''}`}>
-        <div className="accordion-inner">
-          {children}
-        </div>
-      </div>
-    </article>
-  )
-}
-
-function CapabilityCard({ icon, title, description, technologies }) {
-  return (
-    <div className="capability-card">
-      <div className="capability-icon">{icon}</div>
-      <h4>{title}</h4>
-      <p>{description}</p>
-      {technologies && (
-        <div className="tech-tags">
-          {technologies.map((tech, i) => (
-            <span key={i} className="tech-tag">{tech}</span>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-export default function Services(){
-  const { t } = useTranslation()
-  const [openService, setOpenService] = useState('banking') // Default to banking open
-  
-  const bankPoints = t('services.bank.points', { returnObjects: true })
-  const bankCapabilities = t('services.bank.capabilities', { returnObjects: true, defaultValue: [] })
-  const advisoryCapabilities = t('services.advisory.capabilities', { returnObjects: true, defaultValue: [] })
-
-  const toggleService = (serviceKey) => {
-    setOpenService(openService === serviceKey ? null : serviceKey)
+/*
+ * Capability metadata (icon + tech chips) lives here rather than in i18n —
+ * it is identical in every language, so duplicating it into the translation
+ * files would just be two copies to keep in sync.
+ */
+const SERVICES = [
+  {
+    key: 'banking',
+    i18nKey: 'services.bank',
+    icon: 'automation',
+    capabilities: [
+      { key: 'core', icon: 'automation', tech: ['RPA', 'Python', 'UiPath', 'BluePrism', 'PowerAutomate'] },
+      { key: 'payments', icon: 'brain', tech: ['TensorFlow', 'Scikit-learn', 'Predictive Models', 'Data Mining'] },
+      { key: 'reporting', icon: 'chat', tech: ['Dialogflow', 'OpenAI API', 'BERT', 'NLP', 'Conversational AI'] },
+      { key: 'migration', icon: 'cloud', tech: ['AWS SageMaker', 'Azure AI', 'Docker', 'Kubernetes', 'Cloud Native'] }
+    ],
+    hasDetail: true
+  },
+  {
+    key: 'advisory',
+    i18nKey: 'services.advisory',
+    icon: 'target',
+    capabilities: [
+      { key: 'strategy', icon: 'target', tech: ['Digital transformation', 'Technology roadmaps', 'Business strategy'] },
+      { key: 'leadership', icon: 'users', tech: ['Project management', 'Team leadership', 'Stakeholder management'] },
+      { key: 'compliance', icon: 'scales', tech: ['AI Governance', 'Ethics Boards', 'GDPR/HIPAA', 'Audit Trails'] },
+      { key: 'delivery', icon: 'rocket', tech: ['Agile delivery', 'Change management', 'Operational handover'] }
+    ],
+    hasDetail: false
   }
+]
+
+function CapabilityCard({ icon, title, description, tech }) {
+  return (
+    <SurfaceCard as="article" className="capability-card">
+      <span className="card-icon">
+        <Icon name={icon} size={20} />
+      </span>
+      <h4 className="capability-title">{title}</h4>
+      <p className="small muted">{description}</p>
+      <ul className="cluster tech-tags">
+        {tech.map((item) => (
+          <li key={item} className="tech-tag">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </SurfaceCard>
+  )
+}
+
+function ServiceAccordion({ service, isOpen, onToggle }) {
+  const { t } = useTranslation()
+  const prefersReduced = useReducedMotion()
+  const panelId = useId()
+  const buttonId = useId()
+
+  const detailPoints = service.hasDetail
+    ? t(`${service.i18nKey}.points`, { returnObjects: true, defaultValue: [] })
+    : []
 
   return (
-    <section className="container services-page">
-      <h2 className="section-title">{t('services.title')}</h2>
-      <div className="services-intro">
-        <p className="lead">{t('services.intro')}</p>
-      </div>
-
-      <div className="services-accordion">
-        <AccordionService
-          title={t('services.bank.title')}
-          lead={t('services.bank.lead')}
-          isOpen={openService === 'banking'}
-          onToggle={() => toggleService('banking')}
+    <article className={`accordion ${isOpen ? 'is-open' : ''}`}>
+      <h3 className="accordion-heading">
+        <button
+          type="button"
+          id={buttonId}
+          className="accordion-trigger"
+          aria-expanded={isOpen}
+          aria-controls={panelId}
+          onClick={onToggle}
         >
-          <div className="service-details">
-            <div className="capabilities-grid">
-              <CapabilityCard
-                icon="🏦"
-                title={t('services.bank.capabilities.core.title')}
-                description={t('services.bank.capabilities.core.desc')}
-                technologies={['COBOL', 'Matrix', 'Seneca', 'IASIRA', 'NSP/TREND']}
-              />
-              <CapabilityCard
-                icon="💳"
-                title={t('services.bank.capabilities.payments.title')}
-                description={t('services.bank.capabilities.payments.desc')}
-                technologies={['SEPA', 'SDD/SCT', 'SWIFT', 'Check-truncation']}
-              />
-              <CapabilityCard
-                icon="📊"
-                title={t('services.bank.capabilities.reporting.title')}
-                description={t('services.bank.capabilities.reporting.desc')}
-                technologies={['IAS/IFRS', 'IASIRA', 'Regulatory reporting']}
-              />
-              <CapabilityCard
-                icon="🔄"
-                title={t('services.bank.capabilities.migration.title')}
-                description={t('services.bank.capabilities.migration.desc')}
-                technologies={['DB2', 'VSAM', 'IMS', 'Modern stacks']}
-              />
-            </div>
-            
-            <div className="detailed-points">
-              <h4>{t('services.bank.detailedTitle')}</h4>
-              <ul className="detailed-list">
-                {bankPoints.map((point, i) => (
-                  <li key={i}>{point}</li>
+          <span className="card-icon accordion-icon">
+            <Icon name={service.icon} size={20} />
+          </span>
+          <span className="accordion-title">
+            <span className="accordion-name">{t(`${service.i18nKey}.title`)}</span>
+            <span className="accordion-lead small muted">{t(`${service.i18nKey}.lead`)}</span>
+          </span>
+          <span className="accordion-marker" aria-hidden="true">
+            <Icon name={isOpen ? 'minus' : 'plus'} size={20} />
+          </span>
+        </button>
+      </h3>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
+            className="accordion-panel"
+            variants={collapse}
+            initial={prefersReduced ? false : 'hidden'}
+            animate="visible"
+            exit={prefersReduced ? undefined : 'exit'}
+          >
+            <div className="accordion-panel-inner">
+              <div className="capabilities-grid">
+                {service.capabilities.map((capability) => (
+                  <CapabilityCard
+                    key={capability.key}
+                    icon={capability.icon}
+                    title={t(`${service.i18nKey}.capabilities.${capability.key}.title`)}
+                    description={t(`${service.i18nKey}.capabilities.${capability.key}.desc`)}
+                    tech={capability.tech}
+                  />
                 ))}
-              </ul>
-            </div>
-            
-            <div className="tech-profile">
-              <h4>{t('services.bank.techTitle')}</h4>
-              <p className="muted">{t('services.bank.techProfile')}</p>
-            </div>
-          </div>
-        </AccordionService>
+              </div>
 
-        <AccordionService
-          title={t('services.advisory.title')}
-          lead={t('services.advisory.lead')}
-          isOpen={openService === 'advisory'}
-          onToggle={() => toggleService('advisory')}
-        >
-          <div className="service-details">
-            <div className="capabilities-grid">
-              <CapabilityCard
-                icon="🎯"
-                title={t('services.advisory.capabilities.strategy.title')}
-                description={t('services.advisory.capabilities.strategy.desc')}
-                technologies={['Digital transformation', 'Technology roadmaps', 'Business strategy']}
-              />
-              <CapabilityCard
-                icon="👥"
-                title={t('services.advisory.capabilities.leadership.title')}
-                description={t('services.advisory.capabilities.leadership.desc')}
-                technologies={['Project management', 'Team leadership', 'Stakeholder management']}
-              />
-              <CapabilityCard
-                icon="⚖️"
-                title={t('services.advisory.capabilities.compliance.title')}
-                description={t('services.advisory.capabilities.compliance.desc')}
-                technologies={['Risk management', 'Audit support', 'Regulatory alignment']}
-              />
-              <CapabilityCard
-                icon="🚀"
-                title={t('services.advisory.capabilities.delivery.title')}
-                description={t('services.advisory.capabilities.delivery.desc')}
-                technologies={['Agile delivery', 'Change management', 'Operational handover']}
-              />
+              {Array.isArray(detailPoints) && detailPoints.length > 0 && (
+                <div className="service-detail">
+                  <h4 className="detail-title">{t(`${service.i18nKey}.detailedTitle`)}</h4>
+                  <ul className="detail-list">
+                    {detailPoints.map((point) => (
+                      <li key={point}>
+                        <Icon name="check" size={16} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="small faint tech-profile">{t(`${service.i18nKey}.techProfile`)}</p>
+                </div>
+              )}
             </div>
-          </div>
-        </AccordionService>
-      </div>
-    </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </article>
+  )
+}
+
+export default function Services() {
+  const { t } = useTranslation()
+  const [openKey, setOpenKey] = useState('banking')
+
+  return (
+    <div className="page">
+      <section className="section-tight container">
+        <SectionHeader
+          eyebrow={t('nav.services')}
+          title={t('services.title')}
+          lead={t('services.intro')}
+          as="h1"
+        />
+
+        <Reveal className="accordion-list" variants={stagger(0.1)}>
+          {SERVICES.map((service) => (
+            <RevealItem key={service.key}>
+              <ServiceAccordion
+                service={service}
+                isOpen={openKey === service.key}
+                onToggle={() => setOpenKey((current) => (current === service.key ? null : service.key))}
+              />
+            </RevealItem>
+          ))}
+        </Reveal>
+      </section>
+    </div>
   )
 }

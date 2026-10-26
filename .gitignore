@@ -2,4 +2,23 @@ node_modules
 dist
 .env
 .DS_Store
+
+# Graphify knowledge graph output
+graphify-out/
+
+# Build/deploy artefacts — rebuild these, don't commit them
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+server/server.out
+
+# Credentials. Private keys belong in ~/.ssh, never in the repo.
+id_ed25519*
+*.pem
+!*.pub
+
+# Playwright MCP scratch output
+.playwright-mcp/
 out

@@ -1,0 +1,74 @@
+.surface-card {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--hairline);
+  background:
+    linear-gradient(160deg, oklch(100% 0 0 / 0.045), transparent 42%),
+    var(--surface);
+  isolation: isolate;
+  transition:
+    transform var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+
+.surface-card-body {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: clamp(1.5rem, 1.1rem + 1.2vw, 2.25rem);
+}
+
+/* Pointer-tracked spotlight. Opacity-only transition keeps it composited. */
+.surface-card-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    22rem circle at var(--pointer-x) var(--pointer-y),
+    oklch(74% 0.16 205 / 0.16),
+    transparent 62%
+  );
+  transition: opacity var(--dur-base) var(--ease-out-expo);
+}
+
+.surface-card.is-interactive:hover {
+  transform: translateY(-4px);
+  border-color: var(--hairline-strong);
+  box-shadow: var(--shadow-lift);
+}
+
+.surface-card.is-interactive:hover .surface-card-spotlight,
+.surface-card.is-interactive:focus-within .surface-card-spotlight {
+  opacity: 1;
+}
+
+.no-motion .surface-card.is-interactive:hover {
+  transform: none;
+}
+
+/* Icon plate used at the top of most cards. */
+.card-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--hairline);
+  background: var(--surface-2);
+  color: var(--accent);
+  transition:
+    color var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-expo);
+}
+
+.surface-card.is-interactive:hover .card-icon {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}

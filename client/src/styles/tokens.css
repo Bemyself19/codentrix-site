@@ -1,0 +1,81 @@
+/*
+ * Codentrix design tokens — dark editorial-technical.
+ *
+ * Color roles are semantic, not decorative:
+ *   --accent    cyan   → interactive only (links, primary CTA, focus)
+ *   --accent-2  violet → ambient only (gradients, glows, atmosphere)
+ *   --signal    amber  → quantitative only (metrics, figures)
+ * Never mix the three on the same element.
+ */
+
+:root {
+  /* ── canvas & surfaces ─────────────────────────────────────── */
+  --bg: oklch(14% 0.012 264);
+  --bg-deep: oklch(10% 0.014 264);
+  --surface: oklch(19% 0.016 264);
+  --surface-2: oklch(24% 0.02 264);
+  --surface-3: oklch(29% 0.022 264);
+  --hairline: oklch(32% 0.015 264 / 0.7);
+  --hairline-strong: oklch(42% 0.02 264 / 0.8);
+
+  /* ── ink ───────────────────────────────────────────────────── */
+  --text: oklch(97% 0.003 264);
+  --muted: oklch(73% 0.012 264);
+  /* 56% measured 3.8–4.5:1 against --bg / --bg-deep, below the 4.5 AA floor
+     for the 12px labels that use it. 66% clears it with margin and still
+     reads a full step quieter than --muted. */
+  --faint: oklch(66% 0.012 264);
+
+  /* ── accents ───────────────────────────────────────────────── */
+  --accent: oklch(74% 0.16 205);
+  --accent-soft: oklch(74% 0.16 205 / 0.14);
+  --accent-ink: oklch(16% 0.05 220);
+  --accent-2: oklch(66% 0.22 296);
+  --signal: oklch(80% 0.15 85);
+
+  /* ── status ────────────────────────────────────────────────── */
+  --ok: oklch(76% 0.16 155);
+  --danger: oklch(68% 0.19 22);
+
+  /* ── type scale (fluid) ────────────────────────────────────── */
+  --text-micro: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  --text-lead: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --text-h2: clamp(2rem, 1.4rem + 3vw, 4rem);
+  --text-display: clamp(2.75rem, 1.4rem + 6vw, 7rem);
+  --text-metric: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+
+  --font-display: 'Space Grotesk', 'Inter Variable', system-ui, sans-serif;
+  --font-body: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+
+  --tracking-tight: -0.03em;
+  --tracking-wide: 0.14em;
+
+  /* ── rhythm — deliberately non-uniform ─────────────────────── */
+  --space-section: clamp(5rem, 3rem + 8vw, 11rem);
+  --space-band: clamp(2rem, 1.5rem + 2vw, 4rem);
+  --space-gutter: clamp(1.25rem, 0.75rem + 2vw, 2.5rem);
+  --measure: 62ch;
+  --width-page: 1240px;
+  --width-narrow: 780px;
+
+  /* ── form ──────────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-lift: 0 18px 40px -22px oklch(0% 0 0 / 0.9);
+  --shadow-deep: 0 42px 90px -40px oklch(0% 0 0 / 0.95);
+  --glow-accent: 0 0 0 1px var(--accent-soft), 0 24px 60px -30px oklch(74% 0.16 205 / 0.55);
+
+  /* ── motion ────────────────────────────────────────────────── */
+  --dur-fast: 160ms;
+  --dur-base: 380ms;
+  --dur-slow: 900ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}

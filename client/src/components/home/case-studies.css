@@ -1,0 +1,112 @@
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 0.75rem + 2vw, 3rem);
+}
+
+/* Offset the second card so the pair is a spread, not a symmetric row. */
+.case-cell:nth-child(2) {
+  margin-top: clamp(0rem, -2rem + 8vw, 4.5rem);
+}
+
+.case-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition:
+    border-color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+
+.case-card:hover {
+  border-color: var(--hairline-strong);
+  box-shadow: var(--shadow-deep);
+}
+
+/* Stand-in artwork panel — an angled gradient field with the case icon.
+   Replace with real project imagery when it exists. */
+.case-figure {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+
+.case-figure::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  transition: background-position var(--dur-slow) var(--ease-out-expo);
+}
+
+.case-card.is-cyan .case-figure::before {
+  background-image: linear-gradient(
+    118deg,
+    oklch(24% 0.02 264),
+    oklch(38% 0.11 205) 45%,
+    oklch(20% 0.03 264)
+  );
+}
+
+.case-card.is-violet .case-figure::before {
+  background-image: linear-gradient(
+    118deg,
+    oklch(24% 0.02 264),
+    oklch(36% 0.14 296) 45%,
+    oklch(20% 0.03 264)
+  );
+}
+
+.case-card:hover .case-figure::before {
+  background-position: 100% 50%;
+}
+
+.case-figure svg {
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.case-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+}
+
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  color: var(--accent);
+  font-size: var(--text-small);
+}
+
+.case-link svg {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.case-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 760px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-cell:nth-child(2) {
+    margin-top: 0;
+  }
+}
