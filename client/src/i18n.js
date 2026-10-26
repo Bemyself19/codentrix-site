@@ -234,10 +234,10 @@ const resources = {
 
       careers: {
         title: 'Careers',
-        lead: 'Join Codentrix — we hire AI engineers, data scientists, and healthcare innovators who want to build the future of intelligent automation.',
+        lead: 'Codentrix is a small team working remotely from Tunisia. We take on interns and project collaborators in AI, data and healthcare research, and we read every spontaneous application.',
         whyTitle: 'Why work with us',
-        why: ['Work on cutting-edge AI and Machine Learning projects.', 'Impact real lives through better healthcare technology.', 'Remote-friendly culture with top-tier talent.', 'Continuous learning budget for AI/Tech certifications.'],
-        ctaLead: 'Interested? Send your CV and a short note explaining the roles you are targeting.',
+        why: ['Real projects: studies, advisory deliverables and software for pharmaceutical and public-health clients.', 'Direct access to the founder, with real responsibility from the first week.', 'Remote by default: we work from home, so what you deliver matters more than where you sit.', 'Hands-on learning in AI, data and clinical research.'],
+        ctaLead: 'Interested? Send your CV and a short note explaining what you would like to work on.',
         cta: 'Send CV'
       },
 
@@ -523,10 +523,10 @@ const resources = {
 
       careers: {
         title: 'Carrières',
-        lead: 'Rejoignez Codentrix — nous recrutons des ingénieurs IA, data scientists et innovateurs en santé qui veulent construire le futur de l\'automatisation intelligente.',
+        lead: 'Codentrix est une petite équipe qui travaille à distance depuis la Tunisie. Nous accueillons des stagiaires et des collaborateurs sur projet en IA, données et recherche en santé, et nous lisons chaque candidature spontanée.',
         whyTitle: 'Pourquoi travailler avec nous',
-        why: ['Travailler sur des projets IA et Machine Learning de pointe.', 'Impacter des vies réelles grâce à une meilleure technologie de santé.', 'Culture remote-friendly avec des talents de haut niveau.', 'Budget de formation continue pour les certifications IA/Tech.'],
-        ctaLead: 'Intéressé ? Envoyez votre CV et une brève note expliquant les postes visés.',
+        why: ['Des projets concrets : études, livrables de conseil et logiciels pour des clients pharmaceutiques et de santé publique.', 'Un accès direct au fondateur, avec de vraies responsabilités dès la première semaine.', 'Télétravail par défaut : nous travaillons depuis chez nous, donc ce que vous livrez compte plus que l\'endroit où vous êtes.', 'Un apprentissage concret de l\'IA, des données et de la recherche clinique.'],
+        ctaLead: 'Intéressé(e) ? Envoyez votre CV avec un court mot expliquant sur quoi vous aimeriez travailler.',
         cta: 'Envoyer le CV'
       },
 
