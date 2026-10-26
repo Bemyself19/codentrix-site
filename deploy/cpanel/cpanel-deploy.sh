@@ -8,7 +8,7 @@ API="${DEPLOY_API:-$HOME/jsapp}"
 # 1) static site: replace everything we own, keep host-managed files
 rsync -a --delete \
   --exclude '/_server/' --exclude '/_deploy/' --exclude '/.git' --exclude '/.cpanel.yml' \
-  --exclude '/.htaccess' --exclude '/cgi-bin/' --exclude '/.well-known/' \
+  --exclude '/.htaccess' --exclude '/cgi-bin/' --exclude '/.well-known/' --exclude '/api/' \
   --exclude '/php.ini' --exclude '/.user.ini' --exclude '/error_log' \
   "$SRC/" "$SITE/"
 

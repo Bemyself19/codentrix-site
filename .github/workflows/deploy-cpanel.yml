@@ -26,13 +26,21 @@ jobs:
 
       - name: Publish artifact to deploy branch
         run: |
-          cd out
-          git init -q -b deploy
+          set -euo pipefail
+          URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$URL" deploy >/dev/null 2>&1; then
+            git clone -q --branch deploy --single-branch "$URL" deploy-repo
+          else
+            git init -q -b deploy deploy-repo
+            git -C deploy-repo remote add origin "$URL"
+          fi
+          rsync -a --delete --exclude '/.git' out/ deploy-repo/
+          cd deploy-repo
           git config user.name  "codentrix-ci"
           git config user.email "ci@codentrix.io"
           git add -A
-          git commit -q -m "deploy ${GITHUB_SHA}"
-          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" deploy
+          git commit -q -m "deploy ${GITHUB_SHA}" || echo "no changes"
+          git push -q origin deploy
 
       - name: Trigger cPanel update + deploy
         env:
