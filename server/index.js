@@ -12,6 +12,21 @@ const app = express()
 app.use(helmet())
 app.use(cors())
 app.use(bodyParser.json())
+app.set('trust proxy', 1) // behind LiteSpeed/Passenger: use the real client IP
+
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+const isProd = process.env.NODE_ENV === 'production'
+
+// Minimal in-memory rate limit for the two form endpoints: 5 submissions / 15 min / IP
+const hits = new Map()
+function formLimiter(req, res, next) {
+  const now = Date.now(), windowMs = 15 * 60 * 1000, max = 5
+  const recent = (hits.get(req.ip) || []).filter((t) => now - t < windowMs)
+  if (recent.length >= max) return res.status(429).json({ error: 'Too many submissions' })
+  recent.push(now); hits.set(req.ip, recent)
+  if (hits.size > 5000) for (const [ip, ts] of hits) if (!ts.some((t) => now - t < windowMs)) hits.delete(ip)
+  next()
+}
 
 // Static files are served by the web server (cPanel/LiteSpeed) in production.
 // Set STATIC_DIR only for local single-process runs.
@@ -62,7 +77,7 @@ if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
 }
 
 // Contact endpoint: validates input and sends email when SMTP is configured
-app.post('/api/contact', async (req, res) => {
+app.post('/api/contact', formLimiter, async (req, res) => {
   const { name, email, message } = req.body || {}
   if(!name || !email || !message) return res.status(400).json({ error: 'Missing fields' })
 
@@ -76,7 +91,7 @@ app.post('/api/contact', async (req, res) => {
       to: process.env.CONTACT_TO || process.env.SMTP_USER || 'contact@codentrix.io',
       subject: `New contact from website: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`
+      html: `<p><strong>Name:</strong> ${esc(name)}</p><p><strong>Email:</strong> ${esc(email)}</p><p><strong>Message:</strong></p><p>${esc(message).replace(/\n/g,'<br/>')}</p>`
     }
 
     try {
@@ -89,17 +104,19 @@ app.post('/api/contact', async (req, res) => {
   if (err && err.response) console.error('SMTP response:', err.response)
   if (err && err.code) console.error('SMTP code:', err.code)
   // Return success to the client to avoid showing a 500 page; include a note for server logs
-  return res.json({ status: 'ok', note: 'email-error-logged' })
+  return res.status(502).json({ error: 'Email delivery failed' })
     }
   }
 
-  // Fallback: log submission and return success (no SMTP configured)
-  console.log('Contact form submission (no SMTP):', payload)
+  // No SMTP configured: never pretend success in production
+  console.error('Contact form received but SMTP is not configured')
+  if (isProd) return res.status(503).json({ error: 'Email is not configured' })
+  console.log('Contact form submission (no SMTP, dev):', payload)
   return res.json({ status: 'ok', note: 'no-smtp' })
 })
 
 // Careers application endpoint — accepts form fields + CV attachment
-app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
+app.post('/api/careers/apply', formLimiter, upload.single('cv'), async (req, res) => {
   try {
     const { name, email, phone, education, experience } = req.body || {}
     if(!name || !email) return res.status(400).json({ error: 'Name and email are required' })
@@ -111,9 +128,9 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
   to: process.env.CAREERS_TO || 'career@codentrix.io',
       subject: `New career application: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || ''}\n\nEducation:\n${education || ''}\n\nExperience:\n${experience || ''}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone || ''}</p>
-             <h4>Education</h4><p>${(education || '').replace(/\n/g,'<br/>')}</p>
-             <h4>Experience</h4><p>${(experience || '').replace(/\n/g,'<br/>')}</p>`
+      html: `<p><strong>Name:</strong> ${esc(name)}</p><p><strong>Email:</strong> ${esc(email)}</p><p><strong>Phone:</strong> ${esc(phone)}</p>
+             <h4>Education</h4><p>${esc(education).replace(/\n/g,'<br/>')}</p>
+             <h4>Experience</h4><p>${esc(experience).replace(/\n/g,'<br/>')}</p>`
     }
 
     // If a file was uploaded attach it
@@ -133,11 +150,13 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
         console.error('Error sending career application email:', err && err.message ? err.message : err)
         if (err && err.response) console.error('SMTP response:', err.response)
         if (err && err.code) console.error('SMTP code:', err.code)
-        return res.json({ status: 'ok', note: 'email-error-logged' })
+        return res.status(502).json({ error: 'Email delivery failed' })
       }
     }
 
-    console.log('Career application (no SMTP):', { name, email, phone, education, experience, file: req.file && req.file.originalname })
+    console.error('Career application received but SMTP is not configured')
+    if (isProd) return res.status(503).json({ error: 'Email is not configured' })
+    console.log('Career application (no SMTP, dev):', { name, email, phone, file: req.file && req.file.originalname })
     return res.json({ status: 'ok', note: 'no-smtp' })
   } catch (err) {
     console.error('Error processing career application', err)
