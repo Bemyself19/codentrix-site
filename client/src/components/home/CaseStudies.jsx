@@ -39,7 +39,7 @@ export default function CaseStudies() {
               <div className="case-body">
                 <h3 className="heading-3">{t(`cases.${item.id}.title`)}</h3>
                 <p className="muted small">{t(`cases.${item.id}.summary`)}</p>
-                <Link to="/services" className="case-link">
+                <Link to="/products" className="case-link">
                   {t('home.cases.more', { defaultValue: 'Learn more' })}
                   <Icon name="arrowUpRight" size={18} />
                 </Link>

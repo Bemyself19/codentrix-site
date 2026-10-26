@@ -222,8 +222,8 @@ const resources = {
       },
 
       cases: {
-        0: { title: 'AI Automation for Healthcare', summary: 'Implemented RPA bots to handle patient scheduling, reducing admin time by 40%.' },
-        1: { title: 'Predictive Inventory Management', summary: 'Deployed ML models to optimize pharmacy stock levels, cutting waste by 25%.' }
+        0: { title: 'Clinical data capture, end to end', summary: 'A Tunisian pharmaceutical sponsor runs a live clinical study on MedForm Pro, our eCRF platform. Investigators enter data online, every change is audit-trailed, and statistical analysis is built in.' },
+        1: { title: 'Post-market feedback from physicians', summary: 'A pharmaceutical company collects structured post-market feedback from physicians with MedForm Marketing, with AI-assisted insights on the responses.' }
       },
 
       careers: {
@@ -505,8 +505,8 @@ const resources = {
       },
 
       cases: {
-        0: { title: 'Automatisation IA pour la Santé', summary: 'Implémentation de bots RPA pour gérer la planification des patients, réduisant le temps administratif de 40%.' },
-        1: { title: 'Gestion Prédictive des Stocks', summary: 'Déploiement de modèles ML pour optimiser les niveaux de stock en pharmacie, coupant le gaspillage de 25%.' }
+        0: { title: 'La collecte de données cliniques, de bout en bout', summary: 'Un promoteur pharmaceutique tunisien conduit une étude clinique en cours sur MedForm Pro, notre plateforme eCRF. Les investigateurs saisissent les données en ligne, chaque modification est tracée, et l\'analyse statistique est intégrée.' },
+        1: { title: 'Le retour des médecins après la mise sur le marché', summary: 'Une entreprise pharmaceutique recueille des retours structurés de médecins après la mise sur le marché avec MedForm Marketing, avec des analyses assistées par l\'IA.' }
       },
 
       careers: {
