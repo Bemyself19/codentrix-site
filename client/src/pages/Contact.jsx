@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
-import Icon from '../components/ui/Icon'
 import SectionHeader from '../components/ui/SectionHeader'
 import Reveal from '../components/motion/Reveal'
 import RevealItem from '../components/motion/RevealItem'
@@ -137,27 +136,6 @@ export default function Contact() {
                 </dd>
               </div>
             </dl>
-
-            <div className="contact-map">
-              <iframe
-                title={t('contact.mapTitle', { defaultValue: 'Codentrix location' })}
-                src="https://www.google.com/maps?q=57+AV+02+MARS+1934+2034+EZZAHRA&output=embed"
-                width="600"
-                height="260"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <a
-              className="contact-map-link"
-              href="https://www.google.com/maps/search/?api=1&query=57+AV+02+MARS+1934+2034+EZZAHRA"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              {t('contact.viewLargerMap', { defaultValue: 'Open in Google Maps' })}
-              <Icon name="arrowUpRight" size={15} />
-            </a>
           </RevealItem>
         </Reveal>
       </section>
