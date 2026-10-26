@@ -23,7 +23,7 @@ const CONNECTION_POINTS = [
 
 const TECH = {
   modern: ['React', 'Node.js', 'WebRTC', 'Cloud-native'],
-  secure: ['End-to-end encryption', 'GDPR compliant', 'HIPAA-ready', 'Secure data storage']
+  secure: ['End-to-end encryption', 'Designed with GDPR in mind', 'Designed with HIPAA in mind', 'Secure data storage']
 }
 
 function BenefitColumn({ icon, title, points }) {

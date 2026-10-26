@@ -11,11 +11,6 @@ const resources = {
       home: {
         title: 'Codentrix — Intelligent AI Automation for Healthcare & Beyond',
         subtitle: 'AI-driven automation, strategic advisory, and digital health solutions for modern enterprises.',
-        announcement: {
-          title: 'NEW:',
-          text: 'Introducing our AI-Enhanced Telehealth Platform — smart, secure, and compliant healthcare solutions.',
-          link: 'Learn More →'
-        },
         telehealth: {
           title: 'Telehealth Platform',
           lead: 'Next-gen telehealth with AI diagnostic support and smart triage.'
@@ -36,7 +31,7 @@ const resources = {
           },
           compliance: {
             title: 'AI Governance',
-            desc: 'Specialized frameworks for ethical AI, HIPAA/GDPR compliance, and secure data handling in regulated sectors.'
+            desc: 'Specialized frameworks for ethical AI and secure data handling in regulated sectors, designed with HIPAA and GDPR in mind.'
           },
           strategy: {
             title: 'AI Advisory',
@@ -61,7 +56,6 @@ const resources = {
         leadershipLead: 'Our leadership team combines deep technical expertise in AI with strategic vision for healthcare transformation.',
         leaders: {
           nader: { lead: 'CEO & Tech Visionary - 20+ years driving technology innovation in MENA.', back: 'Expert in scaling tech operations and leading high-performance teams at global giants like Ericsson and Huawei.' },
-          fethi: { lead: 'CTO - AI & Architecture Specialist with 30+ years experience.', back: 'Architect of resilient systems, now focused on implementing secure AI/ML pipelines and cloud infrastructure.' },
           ahmed: { lead: 'CSO - Strategy & Growth. PhD in Strategic Management.', back: 'Driving partnerships and product-market fit for AI healthcare solutions across telecom and enterprise sectors.' },
           more: 'Full profile',
           less: 'Less'
@@ -83,7 +77,7 @@ const resources = {
             'Computer Vision: AI-assisted diagnostics and medical imaging analysis.',
             'Smart Scheduling: Optimization algorithms for resource management and appointment booking.',
             'Data Modernization: Migrating legacy data to AI-ready cloud warehouses with strict security protocols.',
-            'Regulatory AI: Automated compliance checking against HIPAA and GDPR standards.',
+            'Regulatory AI: Automated checks designed with HIPAA and GDPR requirements in mind.',
             'Operational Consulting: Change management for teams adopting AI-driven workflows.'
           ],
           techProfile: 'Tech Stack: Python (TensorFlow, PyTorch), Node.js, React, Cloud (AWS/Azure), Docker/Kubernetes, Secure FHIR APIs.',
@@ -337,11 +331,6 @@ const resources = {
       home: {
         title: 'Codentrix — Automatisation IA Intelligente pour la Santé et au-delà',
         subtitle: 'Automatisation pilotée par l\'IA, conseil stratégique et solutions de santé numérique pour les entreprises modernes',
-        announcement: {
-          title: 'NOUVEAU:',
-          text: 'Découvrez notre plateforme de télésanté enrichie par l\'IA — des solutions de soins intelligentes, sécurisées et conformes.',
-          link: 'En savoir plus →'
-        },
         telehealth: {
           title: 'Plateforme de Télésanté',
           lead: 'Télésanté de nouvelle génération avec support diagnostique IA et triage intelligent.'
@@ -362,7 +351,7 @@ const resources = {
           },
           compliance: {
             title: 'Gouvernance IA',
-            desc: 'Cadres spécialisés pour l\'IA éthique, la conformité HIPAA/GDPR et la gestion sécurisée des données dans les secteurs réglementés.'
+            desc: 'Cadres spécialisés pour l\'IA éthique et la gestion sécurisée des données dans les secteurs réglementés, conçus en tenant compte de HIPAA et du RGPD.'
           },
           strategy: {
             title: 'Conseil IA',
@@ -387,7 +376,6 @@ const resources = {
         leadershipLead: 'Notre équipe dirigeante combine une expertise technique approfondie en IA avec une vision stratégique pour la transformation de la santé.',
         leaders: {
           nader: { lead: 'PDG & Visionnaire Tech - 20+ ans menant l\'innovation technologique en MENA.', back: 'Expert en passage à l\'échelle des opérations tech et direction d\'équipes haute performance chez des géants mondiaux comme Ericsson et Huawei.' },
-          fethi: { lead: 'CTO - Spécialiste IA & Architecture avec 30+ ans d\'expérience.', back: 'Architecte de systèmes résilients, désormais concentré sur l\'implémentation de pipelines IA/ML sécurisés et l\'infrastructure cloud.' },
           ahmed: { lead: 'CSO - Stratégie & Croissance. Docteur en Management Stratégique.', back: 'Pilotage des partenariats et du product-market fit pour les solutions de santé IA dans les secteurs télécom et entreprise.' },
           more: 'Profil complet',
           less: 'Réduire'
@@ -409,7 +397,7 @@ const resources = {
             'Vision par Ordinateur : Diagnostics assistés par IA et analyse d\'imagerie médicale.',
             'Planification Intelligente : Algorithmes d\'optimisation pour la gestion des ressources et la prise de rendez-vous.',
             'Modernisation des Données : Migration des données legacy vers des entrepôts cloud prêts pour l\'IA avec des protocoles de sécurité stricts.',
-            'IA Réglementaire : Vérification automatisée de la conformité aux normes HIPAA et GDPR.',
+            'IA Réglementaire : Vérifications automatisées conçues en tenant compte des exigences HIPAA et GDPR.',
             'Conseil Opérationnel : Gestion du changement pour les équipes adoptant des flux de travail pilotés par l\'IA.'
           ],
           techProfile: 'Stack Tech : Python (TensorFlow, PyTorch), Node.js, React, Cloud (AWS/Azure), Docker/Kubernetes, APIs FHIR sécurisées.',

@@ -16,12 +16,6 @@ const LEADERS = [
     image: '/ceo.jpg'
   },
   {
-    id: 'fethi',
-    name: 'Fethi Nouri',
-    role: 'Chief Technology Officer',
-    image: '/fethi.jpg'
-  },
-  {
     id: 'ahmed',
     name: 'Ahmed Dammak',
     role: 'Chief Strategy Officer',
