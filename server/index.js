@@ -13,8 +13,12 @@ app.use(helmet())
 app.use(cors())
 app.use(bodyParser.json())
 
-// Serve static files from httpdocs
-app.use(express.static(path.join(__dirname, '../httpdocs')))
+// Static files are served by the web server (cPanel/LiteSpeed) in production.
+// Set STATIC_DIR only for local single-process runs.
+const staticDir = process.env.STATIC_DIR
+if (staticDir) app.use(express.static(path.resolve(staticDir)))
+
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }))
 
 // Multer for multipart/form-data (file uploads)
 const multer = require('multer')
@@ -145,7 +149,8 @@ app.post('/api/careers/apply', upload.single('cv'), async (req, res) => {
 
 // Serve React app for all non-API routes (this must be LAST)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../httpdocs/index.html'))
+  if (!staticDir) return res.status(404).json({ error: 'not found' })
+  res.sendFile(path.join(path.resolve(staticDir), 'index.html'))
 })
 
 const port = process.env.PORT || 4000

@@ -1,0 +1,71 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-cpanel
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build artifact
+        run: ./scripts/cpanel-package.sh
+
+      - name: Publish artifact to deploy branch
+        run: |
+          set -euo pipefail
+          URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$URL" deploy >/dev/null 2>&1; then
+            git clone -q --branch deploy --single-branch "$URL" deploy-repo
+          else
+            git init -q -b deploy deploy-repo
+            git -C deploy-repo remote add origin "$URL"
+          fi
+          rsync -a --delete --exclude '/.git' out/ deploy-repo/
+          cd deploy-repo
+          git config user.name  "codentrix-ci"
+          git config user.email "ci@codentrix.io"
+          git add -A
+          git commit -q -m "deploy ${GITHUB_SHA}" || echo "no changes"
+          git push -q origin deploy
+
+      - name: Trigger cPanel update + deploy
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+          CPANEL_USER: ${{ secrets.CPANEL_USER }}
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          REPO_ROOT: /home4/${{ secrets.CPANEL_USER }}/repositories/codentrix-site
+        run: |
+          set -euo pipefail
+          H="Authorization: cpanel ${CPANEL_USER}:${CPANEL_API_TOKEN}"
+          B="https://${CPANEL_HOST}:2083/execute"
+          curl -fsS -H "$H" -G "$B/VersionControl/update" \
+            --data-urlencode "repository_root=${REPO_ROOT}" --data-urlencode "branch=deploy" | tee upd.json
+          python3 -c "import json;d=json.load(open('upd.json'));assert d['status']==1,d['errors']"
+          curl -fsS -H "$H" -G "$B/VersionControlDeployment/create" \
+            --data-urlencode "repository_root=${REPO_ROOT}" | tee dep.json
+          python3 -c "import json;d=json.load(open('dep.json'));assert d['status']==1,d['errors']"
+
+      - name: Smoke test
+        run: |
+          set -e
+          for i in 1 2 3 4 5 6; do
+            live=$(curl -fsS https://codentrix.io/version.txt || true)
+            [ "$live" = "${GITHUB_SHA}" ] && break; sleep 10
+          done
+          [ "$live" = "${GITHUB_SHA}" ] || { echo "live version '$live' != ${GITHUB_SHA}"; exit 1; }
+          curl -fsS -o /dev/null https://codentrix.io/
+          curl -fsS -o /dev/null https://codentrix.io/products
