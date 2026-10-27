@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Brand asset checks
+        run: npm --prefix client run check:brand
       - name: Build artifact (no deploy)
         run: ./scripts/cpanel-package.sh
       - name: Sanity checks
