@@ -12,10 +12,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Brand asset checks
-        run: npm --prefix client run check:brand
       - name: Build artifact (no deploy)
         run: ./scripts/cpanel-package.sh
+      - name: Brand asset checks
+        # after the build so the dist assertions run too, not just the source ones
+        run: npm --prefix client run check:brand
       - name: Sanity checks
         run: |
           test -f out/index.html && test -f out/_server/index.js && test -f out/.cpanel.yml
