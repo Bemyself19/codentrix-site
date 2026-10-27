@@ -93,12 +93,13 @@ export default function NavBar() {
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
         <div className="container header-inner">
           <NavLink to="/" className="brand" aria-label="Codentrix — home">
-            {/* The original logo is navy-on-transparent and disappears against
-                the dark canvas; logo-dark.* is the light-ink lockup. */}
+            {/* White ink for the dark canvas, taken from the approved FINAL
+                logo master (option B). SVG first; the PNG is the same artwork
+                for browsers that cannot render SVG in <img>. */}
             <picture>
-              <source srcSet="/logo-dark.webp" type="image/webp" />
+              <source srcSet="/brand/codentrix-logo-white.svg" type="image/svg+xml" />
               <img
-                src="/logo-dark.png"
+                src="/brand/codentrix-logo-white.png"
                 alt=""
                 className="brand-logo"
                 width="140"
