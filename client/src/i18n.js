@@ -285,6 +285,51 @@ const resources = {
         eyebrow: 'Get in touch',
         pitch: 'Tell us what you want to automate. We will tell you what it takes.',
         siteNav: 'Site'
+      },
+
+      nav: {
+        privacy: 'Privacy'
+      },
+
+      privacy: {
+        eyebrow: 'Legal',
+        title: 'Privacy Policy',
+        updated: 'Last updated: 2 November 2026',
+
+        intro: {
+          heading: 'Who we are',
+          body: "Codentrix SARL (unique identifier 1919095L, registered office: 57 Avenue 02 Mars 1934, 2034 Ezzahra, Tunisia) builds clinical-trial and post-market software for healthcare and pharmaceutical clients. This policy covers the codentrix.io website. Our platforms — SehatyNet, MedForm Pro and MedForm Marketing — handle user data inside their own products, each with its own privacy notice and access controls."
+        },
+
+        siteData: {
+          heading: 'What this website collects',
+          site: 'Contact form: your name, email address and message. Careers form: your name, email address, phone number, education, professional experience and your CV file. Submission metadata (timestamp, IP address) is kept for security and abuse prevention.',
+          forms: 'We use what you send us only to reply to your message or to process your application. Nothing you write is added to a marketing list unless you explicitly ask for it.',
+          retention: 'Messages and applications are kept only as long as needed to handle them, then deleted or anonymised.'
+        },
+
+        products: {
+          heading: 'Our platforms handle data separately',
+          sehatynet: 'SehatyNet (telehealth) processes health and appointment data within the product, under its own privacy notice and with patient access controls.',
+          medform: 'MedForm Pro (eCRF) and MedForm Marketing (post-market surveys) process study and survey data on behalf of their sponsors and investigators, under each project\u2019s own agreements.'
+        },
+
+        legal: {
+          heading: 'Your rights',
+          tunisia: 'As a Tunisian company, Codentrix processes personal data in line with Tunisian law n°63-42 of 1997 on the protection of personal data.',
+          eu: 'For visitors in the European Union and the EEA, our handling principles are designed with the GDPR in mind: lawfulness, purpose limitation, data minimisation and storage limits.',
+          rights: 'You can access, correct or ask us to delete the personal data you left on this site, and you can object to further processing, by writing to the address below.'
+        },
+
+        sharing: {
+          heading: 'Where your data goes',
+          hosting: 'This website and its forms are hosted on OxaHost (Tunisia) and their messages are delivered through our own mail infrastructure, with no third-party advertising trackers and no analytics cookies.',
+          noSelling: 'We do not sell, rent or trade personal data. Data is shared only where strictly required by law or to handle your request. The Codentrix team also runs an internal operations assistant ("Hermes") connected to the team\u2019s own Google account (Gmail, Calendar, Drive); it does not access visitors\u2019 Google data.'
+        },
+
+        contact: {
+          heading: 'Contact'
+        }
       }
     }
   },
@@ -572,6 +617,51 @@ const resources = {
         eyebrow: 'Nous contacter',
         pitch: 'Dites-nous ce que vous voulez automatiser. Nous vous dirons ce que cela demande.',
         siteNav: 'Site'
+      },
+
+      nav: {
+        privacy: 'Confidentialité'
+      },
+
+      privacy: {
+        eyebrow: 'Mentions légales',
+        title: 'Politique de confidentialité',
+        updated: 'Dernière mise à jour : 2 novembre 2026',
+
+        intro: {
+          heading: 'Qui sommes-nous',
+          body: "Codentrix SARL (identifiant unique 1919095L, siège social : 57 Avenue 02 Mars 1934, 2034 Ezzahra, Tunisie) conçoit des logiciels d'essais cliniques et de pharmacovigilance pour ses clients de la santé. La présente politique couvre le site codentrix.io. Nos plateformes — SehatyNet, MedForm Pro et MedForm Marketing — traitent les données de leurs utilisateurs à l'intérieur de leurs produits respectifs, chacune avec sa propre notice de confidentialité et ses contrôles d'accès."
+        },
+
+        siteData: {
+          heading: 'Ce que ce site collecte',
+          site: 'Formulaire de contact : votre nom, votre adresse e-mail et votre message. Formulaire de candidature : votre nom, votre adresse e-mail, votre numéro de téléphone, votre formation, votre expérience professionnelle et votre CV. Les métadonnées de soumission (horodatage, adresse IP) sont conservées pour la sécurité et la prévention des abus.',
+          forms: 'Nous utilisons ce que vous nous transmettez uniquement pour répondre à votre message ou traiter votre candidature. Rien de ce que vous écrivez n\u2019est ajouté à une liste d\u2019envoi sans votre accord explicite.',
+          retention: 'Les messages et candidatures ne sont conservés que le temps nécessaire à leur traitement, puis supprimés ou anonymisés.'
+        },
+
+        products: {
+          heading: 'Nos plateformes traitent les données séparément',
+          sehatynet: 'SehatyNet (télésoins) traite les données de santé et de rendez-vous au sein même du produit, sous sa propre notice de confidentialité et avec des contrôles d\u2019accès patients.',
+          medform: 'MedForm Pro (eCRF) et MedForm Marketing (enquêtes post-enregistrement) traitent les données d\u2019études et d\u2019enquêtes pour le compte de leurs promoteurs et investigateurs, dans le cadre des accords propres à chaque projet.'
+        },
+
+        legal: {
+          heading: 'Vos droits',
+          tunisia: 'En tant que société tunisienne, Codentrix traite les données personnelles conformément à la loi tunisienne n°63-42 de 1997 relative à la protection des données personnelles.',
+          eu: 'Pour les visiteurs de l\u2019Union européenne et de l\u2019EEE, nos principes de traitement s\u2019inspirent du RGPD : licéité, limitation des finalités, minimisation des données et durée de conservation limitée.',
+          rights: 'Vous pouvez accéder aux données personnelles laissées sur ce site, les rectifier, demander leur effacement ou vous opposer à leur traitement en écrivant à l\u2019adresse ci-dessous.'
+        },
+
+        sharing: {
+          heading: 'Où vont vos données',
+          hosting: 'Ce site et ses formulaires sont hébergés chez OxaHost (Tunisie) et leurs messages transitent par notre propre infrastructure de messagerie, sans traceurs publicitaires tiers ni cookies d\u2019analyse.',
+          noSelling: 'Nous ne vendons, ne louons et ne cédons pas de données personnelles. Elles ne sont partagées que sur obligation légale ou pour traiter votre demande. L\u2019équipe Codentrix utilise par ailleurs un assistant opérationnel interne (« Hermes ») connecté au compte Google de l\u2019équipe (Gmail, Agenda, Drive) ; il n\u2019accède pas aux données Google des visiteurs.'
+        },
+
+        contact: {
+          heading: 'Contact'
+        }
       }
     }
   }

@@ -1,0 +1,9 @@
+/* Privacy policy page — long-form legal text on the dark theme tokens */
+.privacy-page { padding: var(--space-9, 96px) 0 var(--space-10, 120px); }
+.privacy-title { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0.4rem 0 0; }
+.privacy-updated { color: var(--text-muted, #8ea3b5); font-size: 0.9rem; margin-top: 0.75rem; }
+.privacy-section { margin-top: var(--space-8, 64px); max-width: 72ch; }
+.privacy-section h2 { font-size: 1.35rem; margin-bottom: 1rem; }
+.privacy-section p { line-height: 1.7; color: var(--text-body, #c7d3de); margin-bottom: 0.9rem; }
+.privacy-contact { list-style: none; padding: 0; line-height: 1.8; }
+.privacy-contact a { color: var(--accent, #2563eb); }
