@@ -324,7 +324,7 @@ const resources = {
         sharing: {
           heading: 'Where your data goes',
           hosting: 'This website and its forms are hosted on OxaHost (Tunisia) and their messages are delivered through our own mail infrastructure, with no third-party advertising trackers and no analytics cookies.',
-          noSelling: 'We do not sell, rent or trade personal data. Data is shared only where strictly required by law or to handle your request. The Codentrix team also runs an internal operations assistant ("Hermes") connected to the team\u2019s own Google account (Gmail, Calendar, Drive); it does not access visitors\u2019 Google data.'
+          noSelling: 'We do not sell, rent or trade personal data. Data is shared only where strictly required by law or to handle your request.'
         },
 
         contact: {
@@ -656,7 +656,7 @@ const resources = {
         sharing: {
           heading: 'Où vont vos données',
           hosting: 'Ce site et ses formulaires sont hébergés chez OxaHost (Tunisie) et leurs messages transitent par notre propre infrastructure de messagerie, sans traceurs publicitaires tiers ni cookies d\u2019analyse.',
-          noSelling: 'Nous ne vendons, ne louons et ne cédons pas de données personnelles. Elles ne sont partagées que sur obligation légale ou pour traiter votre demande. L\u2019équipe Codentrix utilise par ailleurs un assistant opérationnel interne (« Hermes ») connecté au compte Google de l\u2019équipe (Gmail, Agenda, Drive) ; il n\u2019accède pas aux données Google des visiteurs.'
+          noSelling: 'Nous ne vendons, ne louons et ne cédons pas de données personnelles. Elles ne sont partagées que sur obligation légale ou pour traiter votre demande.'
         },
 
         contact: {
