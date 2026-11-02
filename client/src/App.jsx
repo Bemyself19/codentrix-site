@@ -12,6 +12,7 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Products from './pages/Products'
 import SehatyNet from './pages/SehatyNet'
+import Privacy from './pages/Privacy'
 import ProductDetail from './pages/ProductDetail'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
@@ -27,7 +28,8 @@ const ROUTES = [
   { path: '/products/medform-marketing', element: <ProductDetail productKey="medformMarketing" /> },
   { path: '/careers', element: <Careers /> },
   { path: '/contact', element: <Contact /> },
-  { path: '/apply', element: <Apply /> }
+  { path: '/apply', element: <Apply /> },
+  { path: '/privacy', element: <Privacy /> }
 ]
 
 export default function App() {

@@ -10,7 +10,8 @@ const SITE_LINKS = [
   { to: '/products', key: 'nav.products' },
   { to: '/about', key: 'nav.about' },
   { to: '/careers', key: 'nav.careers' },
-  { to: '/contact', key: 'nav.contact' }
+  { to: '/contact', key: 'nav.contact' },
+  { to: '/privacy', key: 'nav.privacy' }
 ]
 
 export default function Footer() {
