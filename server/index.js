@@ -197,7 +197,7 @@ app.post('/api/track', trackLimiter, (req, res) => {
   // Always answer 204, even on bad input: the beacon must never surface an
   // error to a visitor, and must never be usable as a probe oracle.
   try {
-    const { e, p, l, r, s, k } = req.body || {}
+    const { e, p, l, r, s, k, x } = req.body || {}
     if (!ALLOWED_EVENTS.has(e)) return res.status(204).end()
     const now = new Date()
     const row = {
@@ -205,6 +205,7 @@ app.post('/api/track', trackLimiter, (req, res) => {
       e,
       p: String(p || '').slice(0, 120),
       k: String(k || '').slice(0, 40),
+      x: String(x || '').slice(0, 40),
       l: String(l || '').slice(0, 60),
       r: String(r || '').slice(0, 60),
       s: String(s || '').slice(0, 40),
