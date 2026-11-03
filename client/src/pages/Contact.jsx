@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { track, trackFormStart } from '../lib/track'
 import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
 import SectionHeader from '../components/ui/SectionHeader'
@@ -49,7 +50,10 @@ export default function Contact() {
 
     setLoading(false)
     setStatus(result.ok ? 'sent' : 'error')
-    if (result.ok) setForm(EMPTY)
+    if (result.ok) {
+      track('form_submit', { label: 'contact' })
+      setForm(EMPTY)
+    }
   }
 
   return (
@@ -59,7 +63,12 @@ export default function Contact() {
 
         <Reveal className="contact-grid" variants={stagger(0.12)}>
           <RevealItem>
-            <form className="form contact-form" onSubmit={send} noValidate>
+            <form
+              className="form contact-form"
+              onSubmit={send}
+              onFocusCapture={() => trackFormStart('contact')}
+              noValidate
+            >
               <Field
                 label={t('contact.form.name')}
                 name="name"

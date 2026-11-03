@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
@@ -6,6 +6,7 @@ import SmoothScroll from './components/motion/SmoothScroll'
 import NavBar from './components/layout/NavBar'
 import Footer from './components/layout/Footer'
 import PageTransition from './components/layout/PageTransition'
+import { track, installClickTracking } from './lib/track'
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -34,6 +35,13 @@ const ROUTES = [
 
 export default function App() {
   const location = useLocation()
+
+  // One page view per route change; the beacon never sets a cookie.
+  useEffect(() => {
+    track('page_view')
+  }, [location.pathname])
+
+  useEffect(() => installClickTracking(), [])
 
   return (
     <SmoothScroll>
