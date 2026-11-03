@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { track, trackFormStart } from '../lib/track'
 import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
 import SectionHeader from '../components/ui/SectionHeader'
@@ -55,6 +56,7 @@ export default function Apply() {
     setStatus(result.ok ? 'sent' : 'error')
 
     if (result.ok) {
+      track('form_submit', { label: 'apply' })
       setForm(EMPTY)
       setFile(null)
     }
@@ -72,7 +74,12 @@ export default function Apply() {
 
         <Reveal variants={stagger(0.1)}>
           <RevealItem>
-            <form className="form contact-form" onSubmit={submit} noValidate>
+            <form
+              className="form contact-form"
+              onSubmit={submit}
+              onFocusCapture={() => trackFormStart('apply')}
+              noValidate
+            >
               <div className="form-row">
                 <Field
                   label={t('contact.form.name')}

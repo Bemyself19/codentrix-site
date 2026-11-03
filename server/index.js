@@ -164,6 +164,62 @@ app.post('/api/careers/apply', formLimiter, upload.single('cv'), async (req, res
   }
 })
 
+// ---- First-party, cookieless event log -------------------------------------
+// Appends one JSON line per event into a directory OUTSIDE the web root.
+// No IP is stored, no cookie is set, nothing is sent to a third party.
+const fs = require('fs')
+const os = require('os')
+const TRACK_DIR = process.env.TRACK_DIR || path.join(os.homedir(), 'analytics')
+const ALLOWED_EVENTS = new Set(['page_view', 'cta_click', 'form_start', 'form_submit', 'download'])
+const trackHits = new Map()
+
+function trackLimiter(req, res, next) {
+  const now = Date.now(), windowMs = 60 * 1000, max = 60
+  const recent = (trackHits.get(req.ip) || []).filter((t) => now - t < windowMs)
+  if (recent.length >= max) return res.status(429).end()
+  recent.push(now)
+  trackHits.set(req.ip, recent)
+  if (trackHits.size > 5000) {
+    for (const [ip, ts] of trackHits) if (!ts.some((t) => now - t < windowMs)) trackHits.delete(ip)
+  }
+  next()
+}
+
+function uaFamily(ua = '') {
+  if (/edg\//i.test(ua)) return 'edge'
+  if (/chrome|crios/i.test(ua)) return 'chrome'
+  if (/safari/i.test(ua) && !/chrome/i.test(ua)) return 'safari'
+  if (/firefox|fxios/i.test(ua)) return 'firefox'
+  return ua ? 'other' : 'none'
+}
+
+app.post('/api/track', trackLimiter, (req, res) => {
+  // Always answer 204, even on bad input: the beacon must never surface an
+  // error to a visitor, and must never be usable as a probe oracle.
+  try {
+    const { e, p, l, r, s, k } = req.body || {}
+    if (!ALLOWED_EVENTS.has(e)) return res.status(204).end()
+    const now = new Date()
+    const row = {
+      t: now.toISOString(),
+      e,
+      p: String(p || '').slice(0, 120),
+      k: String(k || '').slice(0, 40),
+      l: String(l || '').slice(0, 60),
+      r: String(r || '').slice(0, 60),
+      s: String(s || '').slice(0, 40),
+      u: uaFamily(req.get('user-agent') || ''),
+      c: String(req.get('accept-language') || '').slice(0, 2).toLowerCase()
+    }
+    fs.mkdirSync(TRACK_DIR, { recursive: true })
+    const file = path.join(TRACK_DIR, `events-${now.toISOString().slice(0, 7)}.jsonl`)
+    fs.appendFile(file, JSON.stringify(row) + '\n', () => {})
+  } catch (err) {
+    console.error('track failed', err)
+  }
+  res.status(204).end()
+})
+
 // ... debug endpoint removed; no diagnostic routes remain in production
 
 // Serve React app for all non-API routes (this must be LAST)

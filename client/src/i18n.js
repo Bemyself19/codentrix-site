@@ -323,7 +323,7 @@ const resources = {
 
         sharing: {
           heading: 'Where your data goes',
-          hosting: 'This website and its forms are hosted on OxaHost (Tunisia) and their messages are delivered through our own mail infrastructure, with no third-party advertising trackers and no analytics cookies.',
+          hosting: 'This website and its forms are hosted on OxaHost (Tunisia) and their messages are delivered through our own mail infrastructure. We count visits and button clicks with a first-party script that stores no cookies, no IP address and no identifier that survives the visit; no third-party advertising or analytics company receives any of it.',
           noSelling: 'We do not sell, rent or trade personal data. Data is shared only where strictly required by law or to handle your request.'
         },
 
@@ -655,7 +655,7 @@ const resources = {
 
         sharing: {
           heading: 'Où vont vos données',
-          hosting: 'Ce site et ses formulaires sont hébergés chez OxaHost (Tunisie) et leurs messages transitent par notre propre infrastructure de messagerie, sans traceurs publicitaires tiers ni cookies d\u2019analyse.',
+          hosting: 'Ce site et ses formulaires sont h\u00e9berg\u00e9s chez OxaHost (Tunisie) et leurs messages transitent par notre propre infrastructure de messagerie. Nous comptons les visites et les clics au moyen d\u2019un script interne qui ne d\u00e9pose aucun cookie, ne conserve aucune adresse IP ni identifiant au-delà de la visite ; aucune soci\u00e9t\u00e9 publicitaire ou d\u2019analyse tierce n\u2019en re\u00e7oit quoi que ce soit.',
           noSelling: 'Nous ne vendons, ne louons et ne cédons pas de données personnelles. Elles ne sont partagées que sur obligation légale ou pour traiter votre demande.'
         },
 
