@@ -49,10 +49,12 @@ export function track(event, extra = {}) {
       .filter(Boolean)
       .join('/')
       .slice(0, 40)
+    const ref = (params.get('ref') || '').slice(0, 40)
     const payload = JSON.stringify({
       e: event,
       p: location.pathname.slice(0, 120),
       k: campaign,
+      x: ref,
       l: (extra.label || '').slice(0, 60),
       r: document.referrer ? new URL(document.referrer).host.slice(0, 60) : '',
       s: visitId()
