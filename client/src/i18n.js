@@ -6,7 +6,8 @@ const resources = {
     translation: {
       nav: {
         home: 'Home', about: 'About', services: 'Services', products: 'Products', careers: 'Careers', contact: 'Contact',
-        primary: 'Main', skipToContent: 'Skip to content', toggleMenu: 'Menu', switchLanguage: 'Passer en français'
+        primary: 'Main', skipToContent: 'Skip to content', toggleMenu: 'Menu', switchLanguage: 'Passer en français',
+        privacy: 'Privacy'
       },
       home: {
         title: 'Codentrix — Healthcare Expertise, Applied AI',
@@ -287,9 +288,6 @@ const resources = {
         siteNav: 'Site'
       },
 
-      nav: {
-        privacy: 'Privacy'
-      },
 
       privacy: {
         eyebrow: 'Legal',
@@ -338,7 +336,8 @@ const resources = {
     translation: {
       nav: {
         home: 'Accueil', about: 'À propos', services: 'Services', products: 'Produits', careers: 'Carrières', contact: 'Contact',
-        primary: 'Principal', skipToContent: 'Aller au contenu', toggleMenu: 'Menu', switchLanguage: 'Switch to English'
+        primary: 'Principal', skipToContent: 'Aller au contenu', toggleMenu: 'Menu', switchLanguage: 'Switch to English',
+        privacy: 'Confidentialité'
       },
       home: {
         title: 'Codentrix — Expertise santé, IA appliquée',
@@ -619,9 +618,6 @@ const resources = {
         siteNav: 'Site'
       },
 
-      nav: {
-        privacy: 'Confidentialité'
-      },
 
       privacy: {
         eyebrow: 'Mentions légales',
