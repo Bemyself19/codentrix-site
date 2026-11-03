@@ -42735,7 +42735,7 @@ function uaFamily(ua = "") {
 }
 app.post("/api/track", trackLimiter, (req, res) => {
   try {
-    const { e, p, l, r, s, k } = req.body || {};
+    const { e, p, l, r, s, k, x } = req.body || {};
     if (!ALLOWED_EVENTS.has(e)) return res.status(204).end();
     const now = /* @__PURE__ */ new Date();
     const row = {
@@ -42743,6 +42743,7 @@ app.post("/api/track", trackLimiter, (req, res) => {
       e,
       p: String(p || "").slice(0, 120),
       k: String(k || "").slice(0, 40),
+      x: String(x || "").slice(0, 40),
       l: String(l || "").slice(0, 60),
       r: String(r || "").slice(0, 60),
       s: String(s || "").slice(0, 40),
