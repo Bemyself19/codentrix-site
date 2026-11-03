@@ -1263,8 +1263,8 @@ var require_node = __commonJS({
           }
           break;
         case "FILE":
-          var fs = require("fs");
-          stream2 = new fs.SyncWriteStream(fd2, { autoClose: false });
+          var fs2 = require("fs");
+          stream2 = new fs2.SyncWriteStream(fd2, { autoClose: false });
           stream2._type = "fs";
           break;
         case "PIPE":
@@ -18246,7 +18246,7 @@ var require_view = __commonJS({
     "use strict";
     var debug = require_src()("express:view");
     var path2 = require("path");
-    var fs = require("fs");
+    var fs2 = require("fs");
     var dirname = path2.dirname;
     var basename = path2.basename;
     var extname = path2.extname;
@@ -18312,7 +18312,7 @@ var require_view = __commonJS({
     function tryStat(path3) {
       debug('stat "%s"', path3);
       try {
-        return fs.statSync(path3);
+        return fs2.statSync(path3);
       } catch (e) {
         return void 0;
       }
@@ -18681,7 +18681,7 @@ var require_types = __commonJS({
 var require_mime = __commonJS({
   "node_modules/mime/mime.js"(exports2, module2) {
     var path2 = require("path");
-    var fs = require("fs");
+    var fs2 = require("fs");
     function Mime() {
       this.types = /* @__PURE__ */ Object.create(null);
       this.extensions = /* @__PURE__ */ Object.create(null);
@@ -18702,7 +18702,7 @@ var require_mime = __commonJS({
     };
     Mime.prototype.load = function(file) {
       this._loading = file;
-      var map = {}, content = fs.readFileSync(file, "ascii"), lines = content.split(/[\r\n]+/);
+      var map = {}, content = fs2.readFileSync(file, "ascii"), lines = content.split(/[\r\n]+/);
       lines.forEach(function(line) {
         var fields = line.replace(/\s*#.*|^\s*|\s*$/g, "").split(/\s+/);
         map[fields.shift()] = fields;
@@ -18940,7 +18940,7 @@ var require_send = __commonJS({
     var escapeHtml = require_escape_html();
     var etag = require_etag();
     var fresh = require_fresh();
-    var fs = require("fs");
+    var fs2 = require("fs");
     var mime = require_mime();
     var ms = require_ms2();
     var onFinished = require_on_finished();
@@ -19273,7 +19273,7 @@ var require_send = __commonJS({
       var i = 0;
       var self2 = this;
       debug('stat "%s"', path3);
-      fs.stat(path3, function onstat(err, stat) {
+      fs2.stat(path3, function onstat(err, stat) {
         if (err && err.code === "ENOENT" && !extname(path3) && path3[path3.length - 1] !== sep) {
           return next(err);
         }
@@ -19288,7 +19288,7 @@ var require_send = __commonJS({
         }
         var p = path3 + "." + self2._extensions[i++];
         debug('stat "%s"', p);
-        fs.stat(p, function(err2, stat) {
+        fs2.stat(p, function(err2, stat) {
           if (err2) return next(err2);
           if (stat.isDirectory()) return next();
           self2.emit("file", p, stat);
@@ -19306,7 +19306,7 @@ var require_send = __commonJS({
         }
         var p = join(path3, self2._index[i]);
         debug('stat "%s"', p);
-        fs.stat(p, function(err2, stat) {
+        fs2.stat(p, function(err2, stat) {
           if (err2) return next(err2);
           if (stat.isDirectory()) return next();
           self2.emit("file", p, stat);
@@ -19318,7 +19318,7 @@ var require_send = __commonJS({
     SendStream.prototype.stream = function stream(path3, options) {
       var self2 = this;
       var res = this.res;
-      var stream2 = fs.createReadStream(path3, options);
+      var stream2 = fs2.createReadStream(path3, options);
       this.emit("stream", stream2);
       stream2.pipe(res);
       function cleanup() {
@@ -23802,15 +23802,15 @@ var require_shared = __commonJS({
     "use strict";
     var urllib = require("url");
     var util = require("util");
-    var fs = require("fs");
+    var fs2 = require("fs");
     var nmfetch = require_fetch();
     var dns = require("dns");
     var net = require("net");
-    var os = require("os");
+    var os2 = require("os");
     var DNS_TTL = 5 * 60 * 1e3;
     var networkInterfaces;
     try {
-      networkInterfaces = os.networkInterfaces();
+      networkInterfaces = os2.networkInterfaces();
     } catch (err) {
     }
     module2.exports.networkInterfaces = networkInterfaces;
@@ -24188,7 +24188,7 @@ var require_shared = __commonJS({
           }
           return callback(null, parsedDataUri.data);
         } else if (content.path) {
-          return resolveStream(fs.createReadStream(content.path), callback);
+          return resolveStream(fs2.createReadStream(content.path), callback);
         }
       }
       if (typeof data[key].content === "string" && !["utf8", "usascii", "ascii"].includes(encoding)) {
@@ -27772,7 +27772,7 @@ var require_mime_node = __commonJS({
   "node_modules/nodemailer/lib/mime-node/index.js"(exports2, module2) {
     "use strict";
     var crypto = require("crypto");
-    var fs = require("fs");
+    var fs2 = require("fs");
     var punycode = require_punycode();
     var PassThrough = require("stream").PassThrough;
     var shared = require_shared();
@@ -28487,7 +28487,7 @@ var require_mime_node = __commonJS({
             setImmediate(() => contentStream.emit("error", new Error("File access rejected for " + content.path)));
             return contentStream;
           }
-          return fs.createReadStream(content.path);
+          return fs2.createReadStream(content.path);
         } else if (content && typeof content.href === "string") {
           if (this.disableUrlAccess) {
             contentStream = new PassThrough();
@@ -29508,7 +29508,7 @@ var require_dkim = __commonJS({
     var RelaxedBody = require_relaxed_body();
     var sign = require_sign2();
     var PassThrough = require("stream").PassThrough;
-    var fs = require("fs");
+    var fs2 = require("fs");
     var path2 = require("path");
     var crypto = require("crypto");
     var DKIM_ALGO = "sha256";
@@ -29543,10 +29543,10 @@ var require_dkim = __commonJS({
         if (!this.cache || !this.cachePath) {
           return;
         }
-        fs.unlink(this.cachePath, () => false);
+        fs2.unlink(this.cachePath, () => false);
       }
       createReadCache() {
-        this.cache = fs.createReadStream(this.cachePath);
+        this.cache = fs2.createReadStream(this.cachePath);
         this.cache.once("error", (err) => {
           this.cleanup();
           this.output.emit("error", err);
@@ -29602,7 +29602,7 @@ var require_dkim = __commonJS({
       }
       createWriteCache() {
         this.output.usingCache = true;
-        this.cache = fs.createWriteStream(this.cachePath);
+        this.cache = fs2.createWriteStream(this.cachePath);
         this.cache.once("error", (err) => {
           this.cleanup();
           this.relaxedBody.unpipe(this.cache);
@@ -30529,7 +30529,7 @@ var require_smtp_connection = __commonJS({
     var EventEmitter = require("events").EventEmitter;
     var net = require("net");
     var tls = require("tls");
-    var os = require("os");
+    var os2 = require("os");
     var crypto = require("crypto");
     var DataStream = require_data_stream();
     var PassThrough = require("stream").PassThrough;
@@ -31922,7 +31922,7 @@ var require_smtp_connection = __commonJS({
       _getHostname() {
         let defaultHostname;
         try {
-          defaultHostname = os.hostname() || "";
+          defaultHostname = os2.hostname() || "";
         } catch (err) {
           defaultHostname = "localhost";
         }
@@ -34561,9 +34561,9 @@ var require_package2 = __commonJS({
 // node_modules/dotenv/lib/main.js
 var require_main = __commonJS({
   "node_modules/dotenv/lib/main.js"(exports2, module2) {
-    var fs = require("fs");
+    var fs2 = require("fs");
     var path2 = require("path");
-    var os = require("os");
+    var os2 = require("os");
     var crypto = require("crypto");
     var packageJson = require_package2();
     var version = packageJson.version;
@@ -34700,7 +34700,7 @@ var require_main = __commonJS({
       if (options && options.path && options.path.length > 0) {
         if (Array.isArray(options.path)) {
           for (const filepath of options.path) {
-            if (fs.existsSync(filepath)) {
+            if (fs2.existsSync(filepath)) {
               possibleVaultPath = filepath.endsWith(".vault") ? filepath : `${filepath}.vault`;
             }
           }
@@ -34710,13 +34710,13 @@ var require_main = __commonJS({
       } else {
         possibleVaultPath = path2.resolve(process.cwd(), ".env.vault");
       }
-      if (fs.existsSync(possibleVaultPath)) {
+      if (fs2.existsSync(possibleVaultPath)) {
         return possibleVaultPath;
       }
       return null;
     }
     function _resolveHome(envPath) {
-      return envPath[0] === "~" ? path2.join(os.homedir(), envPath.slice(1)) : envPath;
+      return envPath[0] === "~" ? path2.join(os2.homedir(), envPath.slice(1)) : envPath;
     }
     function _configVault(options) {
       const debug = parseBoolean(process.env.DOTENV_CONFIG_DEBUG || options && options.debug);
@@ -34763,7 +34763,7 @@ var require_main = __commonJS({
       const parsedAll = {};
       for (const path3 of optionPaths) {
         try {
-          const parsed = DotenvModule.parse(fs.readFileSync(path3, { encoding }));
+          const parsed = DotenvModule.parse(fs2.readFileSync(path3, { encoding }));
           DotenvModule.populate(parsedAll, parsed, options);
         } catch (e) {
           if (debug) {
@@ -39197,7 +39197,7 @@ var require_urlencoded2 = __commonJS({
 // node_modules/busboy/lib/main.js
 var require_main2 = __commonJS({
   "node_modules/busboy/lib/main.js"(exports2, module2) {
-    var fs = require("fs");
+    var fs2 = require("fs");
     var WritableStream = require("stream").Writable || require_readable().Writable;
     var inherits = require("util").inherits;
     var parseParams = require_utils3().parseParams;
@@ -39741,7 +39741,7 @@ var require_make_middleware = __commonJS({
 var require_mkdirp = __commonJS({
   "node_modules/mkdirp/index.js"(exports2, module2) {
     var path2 = require("path");
-    var fs = require("fs");
+    var fs2 = require("fs");
     var _0777 = parseInt("0777", 8);
     module2.exports = mkdirP.mkdirp = mkdirP.mkdirP = mkdirP;
     function mkdirP(p, opts, f, made) {
@@ -39752,7 +39752,7 @@ var require_mkdirp = __commonJS({
         opts = { mode: opts };
       }
       var mode = opts.mode;
-      var xfs = opts.fs || fs;
+      var xfs = opts.fs || fs2;
       if (mode === void 0) {
         mode = _0777;
       }
@@ -39791,7 +39791,7 @@ var require_mkdirp = __commonJS({
         opts = { mode: opts };
       }
       var mode = opts.mode;
-      var xfs = opts.fs || fs;
+      var xfs = opts.fs || fs2;
       if (mode === void 0) {
         mode = _0777;
       }
@@ -39828,8 +39828,8 @@ var require_mkdirp = __commonJS({
 // node_modules/multer/storage/disk.js
 var require_disk = __commonJS({
   "node_modules/multer/storage/disk.js"(exports2, module2) {
-    var fs = require("fs");
-    var os = require("os");
+    var fs2 = require("fs");
+    var os2 = require("os");
     var path2 = require("path");
     var crypto = require("crypto");
     var mkdirp = require_mkdirp();
@@ -39839,7 +39839,7 @@ var require_disk = __commonJS({
       });
     }
     function getDestination(req, file, cb) {
-      cb(null, os.tmpdir());
+      cb(null, os2.tmpdir());
     }
     function DiskStorage(opts) {
       this.getFilename = opts.filename || getFilename;
@@ -39859,7 +39859,7 @@ var require_disk = __commonJS({
         that.getFilename(req, file, function(err2, filename) {
           if (err2) return cb(err2);
           var finalPath = path2.join(destination, filename);
-          var outStream = fs.createWriteStream(finalPath);
+          var outStream = fs2.createWriteStream(finalPath);
           file.stream.pipe(outStream);
           outStream.on("error", cb);
           outStream.on("finish", function() {
@@ -39878,7 +39878,7 @@ var require_disk = __commonJS({
       delete file.destination;
       delete file.filename;
       delete file.path;
-      fs.unlink(path3, cb);
+      fs2.unlink(path3, cb);
     };
     module2.exports = function(opts) {
       return new DiskStorage(opts);
@@ -42709,6 +42709,54 @@ ${experience || ""}`,
     console.error("Error processing career application", err);
     return res.status(500).json({ error: "Internal server error" });
   }
+});
+var fs = require("fs");
+var os = require("os");
+var TRACK_DIR = process.env.TRACK_DIR || path.join(os.homedir(), "analytics");
+var ALLOWED_EVENTS = /* @__PURE__ */ new Set(["page_view", "cta_click", "form_start", "form_submit", "download"]);
+var trackHits = /* @__PURE__ */ new Map();
+function trackLimiter(req, res, next) {
+  const now = Date.now(), windowMs = 60 * 1e3, max = 60;
+  const recent = (trackHits.get(req.ip) || []).filter((t) => now - t < windowMs);
+  if (recent.length >= max) return res.status(429).end();
+  recent.push(now);
+  trackHits.set(req.ip, recent);
+  if (trackHits.size > 5e3) {
+    for (const [ip, ts] of trackHits) if (!ts.some((t) => now - t < windowMs)) trackHits.delete(ip);
+  }
+  next();
+}
+function uaFamily(ua = "") {
+  if (/edg\//i.test(ua)) return "edge";
+  if (/chrome|crios/i.test(ua)) return "chrome";
+  if (/safari/i.test(ua) && !/chrome/i.test(ua)) return "safari";
+  if (/firefox|fxios/i.test(ua)) return "firefox";
+  return ua ? "other" : "none";
+}
+app.post("/api/track", trackLimiter, (req, res) => {
+  try {
+    const { e, p, l, r, s, k } = req.body || {};
+    if (!ALLOWED_EVENTS.has(e)) return res.status(204).end();
+    const now = /* @__PURE__ */ new Date();
+    const row = {
+      t: now.toISOString(),
+      e,
+      p: String(p || "").slice(0, 120),
+      k: String(k || "").slice(0, 40),
+      l: String(l || "").slice(0, 60),
+      r: String(r || "").slice(0, 60),
+      s: String(s || "").slice(0, 40),
+      u: uaFamily(req.get("user-agent") || ""),
+      c: String(req.get("accept-language") || "").slice(0, 2).toLowerCase()
+    };
+    fs.mkdirSync(TRACK_DIR, { recursive: true });
+    const file = path.join(TRACK_DIR, `events-${now.toISOString().slice(0, 7)}.jsonl`);
+    fs.appendFile(file, JSON.stringify(row) + "\n", () => {
+    });
+  } catch (err) {
+    console.error("track failed", err);
+  }
+  res.status(204).end();
 });
 app.get("*", (req, res) => {
   if (!staticDir) return res.status(404).json({ error: "not found" });
