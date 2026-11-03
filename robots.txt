@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# The API is not content
+Disallow: /api/
+
+# Application form: no value in a search result, and it is a POST target
+Disallow: /apply
+
+Sitemap: https://codentrix.io/sitemap.xml
