@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Ben Ammar;Nader;;;
+FN:Nader Ben Ammar
+ORG:Codentrix
+TITLE:Founder & CEO
+TEL;TYPE=CELL:+21698340092
+EMAIL;TYPE=INTERNET:nader.ben.ammar@codentrix.io
+URL:https://codentrix.io
+NOTE:Codentrix - enterprise tech for pharma & healthcare
+END:VCARD
